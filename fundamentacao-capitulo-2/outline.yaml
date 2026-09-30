@@ -1,0 +1,18 @@
+topic: "Fundamentação teórica para sistema IoT de baixo custo de monitoramento ambiental em sala de aula"
+items:
+  - name: "Monitoramento ambiental em sala de aula"
+    purpose: "Delimitar o registro de condições físicas e o estudo de caso."
+  - name: "Temperatura e umidade relativa"
+    purpose: "Definir as grandezas e seus limites de interpretação no escopo."
+  - name: "Iluminância"
+    purpose: "Definir a medição pontual e a necessidade de registrar a instalação."
+  - name: "Arquitetura IoT e rastreabilidade"
+    purpose: "Relacionar sensoriamento, conectividade, identidade, configuração e estado operacional."
+  - name: "Sensores de baixo custo e comparação"
+    purpose: "Separar especificação nominal, avaliação funcional e comparação com referência."
+  - name: "Cadeia de dados e visualização"
+    purpose: "Fundamentar integridade, falhas, armazenamento e finalidade informacional."
+execution:
+  batch_size: 1
+  items_per_agent: 6
+  output_dir: "bibliografia"

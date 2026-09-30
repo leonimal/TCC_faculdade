@@ -1,0 +1,14 @@
+#pragma once
+
+// Criar uma cópia deste arquivo com o nome FirmwareConfig.local.h e preencher
+// os dados da rede e os pinos confirmados fisicamente. Nunca versionar a cópia.
+
+#define TCC_WIFI_SSID "nome-da-rede"
+#define TCC_WIFI_PASSWORD "senha-da-rede"
+#define TCC_API_BASE_URL "http://IP-DO-SERVIDOR:3100/api/v1"
+#define TCC_NODE_API_KEY "mesmo-valor-de-NODE_API_KEY-do-servidor"
+#define TCC_DEVICE_ID "classroom-node-01"
+#define TCC_I2C_SDA_PIN -1  // preencher após conferir a placa
+#define TCC_I2C_SCL_PIN -1  // preencher após conferir a placa
+#define TCC_SHT31_ADDRESS 0x44
+#define TCC_LOCK_REMOTE_CONFIGURATION false

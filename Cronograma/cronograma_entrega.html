@@ -1,0 +1,67 @@
+<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><title>cronograma_entrega</title><style>
+@page { size: A4; margin: 18mm 15mm; }
+body { color: #17212b; font: 10.5pt/1.45 Arial, sans-serif; }
+h1 { color: #0b4f6c; font-size: 19pt; line-height: 1.2; margin: 0 0 14pt; }
+h2 { color: #0b4f6c; font-size: 13pt; margin: 18pt 0 7pt; border-bottom: 1px solid #9fc4d5; padding-bottom: 3pt; }
+h3 { font-size: 11.5pt; margin: 14pt 0 5pt; }
+p { margin: 5pt 0; } ul { margin: 5pt 0 8pt; padding-left: 18pt; } li { margin: 2pt 0; }
+table { width: 100%; border-collapse: collapse; margin: 8pt 0 12pt; font-size: 9pt; page-break-inside: avoid; }
+th { background: #0b4f6c; color: white; font-weight: bold; } th, td { border: 1px solid #b9c8d0; text-align: left; vertical-align: top; padding: 5pt; }
+tr:nth-child(even) td { background: #f3f8fa; } code { background: #edf2f4; padding: 1pt 2pt; font-size: 8.5pt; } pre { background: #f3f6f7; border-left: 3px solid #0b4f6c; padding: 7pt; white-space: pre-wrap; font-size: 8.5pt; }
+.numbered { margin-left: 10pt; }
+</style></head><body><h1>Entrega 1 — Planejamento da implementa&#231;&#227;o do TCC</h1>
+<p><strong>Etapa prevista:</strong> 1. Planejamento da implementa&#231;&#227;o  </p>
+<p><strong>Data de refer&#234;ncia:</strong> 22/09/2026</p>
+<h2>Escopo final do projeto</h2>
+<p>Desenvolver e validar tecnicamente um sistema IoT de baixo custo para monitorar, em uma sala de aula, <strong>temperatura do ar, umidade relativa e ilumin&#226;ncia</strong>. O estudo de caso prev&#234; uma sala, com coleta em duas semanas letivas consecutivas no per&#237;odo noturno. O sistema tem finalidade de monitoramento e apoio informacional; n&#227;o avalia conforto, aprendizagem ou conformidade ambiental normativa.</p>
+<h2>Funcionalidades priorizadas</h2>
+<table>
+<tr><th>Prioridade</th><th>Funcionalidade</th><th>Situa&#231;&#227;o documental</th></tr>
+<tr><td>Alta</td><td>Leitura de temperatura, umidade relativa e ilumin&#226;ncia pelo n&#243; IoT</td><td>Definida</td></tr>
+<tr><td>Alta</td><td>Envio das medi&#231;&#245;es &#224; API, com identifica&#231;&#227;o e estados de qualidade</td><td>Definida</td></tr>
+<tr><td>Alta</td><td>Armazenamento das medi&#231;&#245;es e da telemetria operacional</td><td>Definida</td></tr>
+<tr><td>Alta</td><td>Dashboard por sala, hist&#243;rico e exporta&#231;&#227;o CSV</td><td>Definida</td></tr>
+<tr><td>Alta</td><td>Recupera&#231;&#227;o ap&#243;s falha de conectividade por fila persistente</td><td>Definida</td></tr>
+<tr><td>M&#233;dia</td><td>Faixas locais versionadas e hist&#243;rico de alertas locais</td><td>Definida; n&#227;o normativa</td></tr>
+<tr><td>M&#233;dia</td><td>Cadastro de salas, associa&#231;&#227;o de n&#243;s e controle de acesso</td><td>Definida</td></tr>
+</table>
+<h2>Tecnologias escolhidas</h2>
+<table>
+<tr><th>Camada</th><th>Tecnologia definida</th></tr>
+<tr><td>N&#243; de coleta</td><td>ESP32, PlatformIO e framework Arduino</td></tr>
+<tr><td>Sensores</td><td>SHT31/SHT3X para temperatura e umidade relativa; VEML7700 para ilumin&#226;ncia</td></tr>
+<tr><td>Comunica&#231;&#227;o</td><td>API HTTP/JSON; uso de HTTPS no cen&#225;rio remoto de teste</td></tr>
+<tr><td>Aplica&#231;&#227;o web e API</td><td>Next.js, TypeScript, App Router e Route Handlers</td></tr>
+<tr><td>Persist&#234;ncia</td><td>MySQL em Docker Compose, acessado com <code>mysql2</code></td></tr>
+<tr><td>Dados e qualidade</td><td>Migra&#231;&#245;es SQL versionadas, identificadores &#250;nicos, confirma&#231;&#227;o idempotente e registros de estado</td></tr>
+</table>
+<h2>Banco de dados e arquitetura</h2>
+<p>O projeto foi organizado como uma aplica&#231;&#227;o Next.js &#250;nica, contendo a interface web e os endpoints da API, com MySQL como persist&#234;ncia externa. O modelo prev&#234; medi&#231;&#245;es can&#244;nicas, tentativas de entrega, configura&#231;&#245;es versionadas, telemetria operacional, salas, n&#243;s IoT, usu&#225;rios e alertas locais. As migra&#231;&#245;es s&#227;o versionadas e verificadas por checksum.</p>
+<h2>Organiza&#231;&#227;o das tarefas da equipe</h2>
+<table>
+<tr><th>Frente de trabalho</th><th>Responsabilidade prevista</th></tr>
+<tr><td>Hardware e firmware</td><td>Montagem, leitura dos sensores, sincroniza&#231;&#227;o temporal, fila offline e transmiss&#227;o pelo ESP32</td></tr>
+<tr><td>Backend e banco de dados</td><td>API, modelo MySQL, migra&#231;&#245;es, autentica&#231;&#227;o e persist&#234;ncia das medi&#231;&#245;es</td></tr>
+<tr><td>Interface web</td><td>Dashboard, cadastro de salas e n&#243;s, relat&#243;rios, CSV e alertas locais</td></tr>
+<tr><td>Experimento e documenta&#231;&#227;o</td><td>Protocolo, testes, di&#225;rio de coleta, tratamento dos dados e reda&#231;&#227;o do TCC</td></tr>
+<tr><td>Integra&#231;&#227;o e valida&#231;&#227;o</td><td>Testes ponta a ponta, registro de evid&#234;ncias e corre&#231;&#227;o de falhas</td></tr>
+</table>
+<p>Os autores devem registrar, em cada encontro, quem executou cada atividade e a evid&#234;ncia correspondente.</p>
+<h2>Cronograma interno resumido</h2>
+<table>
+<tr><th>Marco</th><th>Per&#237;odo previsto</th></tr>
+<tr><td>Planejamento, arquitetura e ambiente</td><td>22/09 a 29/09/2026</td></tr>
+<tr><td>Consolida&#231;&#227;o do banco, API e estrutura da aplica&#231;&#227;o</td><td>06/10 a 13/10/2026</td></tr>
+<tr><td>Fun&#231;&#245;es priorit&#225;rias e integra&#231;&#227;o do n&#243;</td><td>20/10 a 03/11/2026</td></tr>
+<tr><td>Testes, ajustes e documenta&#231;&#227;o</td><td>10/11 a 24/11/2026</td></tr>
+<tr><td>Demonstra&#231;&#227;o e valida&#231;&#227;o final</td><td>01/12/2026</td></tr>
+</table>
+<h2>Evid&#234;ncias anex&#225;veis</h2>
+<ul>
+<li><code>projeto/contexto.md</code>, <code>projeto/decisoes.md</code> e <code>projeto/pendencias.md</code>;</li>
+<li><code>software/README.md</code> e <code>software/api/contrato.md</code>;</li>
+<li><code>software/database/schema.sql</code> e <code>software/database/migrations/</code>;</li>
+<li><code>experimento/protocolo.md</code>, <code>experimento/testes.md</code> e <code>experimento/firmware/</code>.</li>
+</ul>
+<h2>Situa&#231;&#227;o da entrega</h2>
+<p>Planejamento documentado. A defini&#231;&#227;o das datas da coleta-piloto e da coleta principal, a disponibilidade de instrumentos de refer&#234;ncia e a valida&#231;&#227;o experimental com o n&#243; f&#237;sico continuam pendentes e n&#227;o s&#227;o declaradas como conclu&#237;das neste documento.</p></body></html>

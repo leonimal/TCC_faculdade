@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-08-25T21:00:06.045Z",
+  "environment": "local-controlled",
+  "nominal_requests": 100,
+  "additional_controlled_requests": 11,
+  "server_errors_5xx": 0,
+  "api_internal_latency_ms": {
+    "minimum": 11.034,
+    "average": 42.308319999999995,
+    "p95": 149.558,
+    "maximum": 230.156
+  },
+  "request_response_latency_ms": {
+    "p95": 152.33430000000044,
+    "maximum": 325.7137
+  },
+  "database_audit": {
+    "expected_unique_rows": 100,
+    "stored_unique_rows": 100,
+    "duplicate_identifiers": 0,
+    "fully_matching_rows": 100,
+    "ingestion_attempts": {
+      "STORED": 100,
+      "ALREADY_STORED": 5,
+      "INTEGRITY_CONFLICT": 1
+    }
+  },
+  "limitations": [
+    "Execução local controlada, sem firmware físico e sem rede da sala.",
+    "A latência interna utiliza o cabeçalho Server-Timing do Route Handler.",
+    "A latência requisição–resposta é suplementar e inclui a pilha HTTP local."
+  ]
+}

@@ -1,0 +1,27 @@
+# Dependências e artefatos gerados
+**/node_modules/
+**/.next/
+**/coverage/
+**/out/
+**/build/
+**/*.tsbuildinfo
+
+# Credenciais e configurações locais
+**/.env
+**/.env.local
+**/.env.*.local
+**/*.env.local
+**/*.pem
+**/.pio/
+**/FirmwareConfig.local.h
+
+# Metadados e índices locais de ferramentas de assistência
+.codex/
+.frontend-slides/
+.agents/
+graphify-out/
+
+# Arquivos temporários e logs
+*.log
+.DS_Store
+Thumbs.db

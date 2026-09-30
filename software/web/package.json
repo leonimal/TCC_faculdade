@@ -1,0 +1,45 @@
+{
+  "name": "tcc-iot-monitoramento",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:quality-analysis": "node --test --test-isolation=none ../../experimento/analises/quality-analysis.test.mjs",
+    "db:migrate": "node --env-file=../database/.env.local scripts/db-migrate.mjs",
+    "db:seed": "node --env-file=.env.local scripts/db-seed-development.mjs",
+    "users:bootstrap-admin": "node --env-file=.env.local scripts/bootstrap-admin.mjs",
+    "test:integration": "node --env-file=.env.local scripts/test-measurement-ingestion.mjs",
+    "test:api:quality": "node --env-file=.env.local scripts/test-api-quality.mjs",
+    "test:configuration": "node --env-file=.env.local scripts/test-device-configuration.mjs",
+    "test:device-status": "node --env-file=.env.local scripts/test-device-status.mjs",
+    "demo:dashboard": "node --env-file=.env.local scripts/demo-dashboard.mjs",
+    "demo:local-monitoring": "node --env-file=.env.local scripts/demo-local-monitoring.mjs",
+    "test:dashboard": "node --env-file=.env.local scripts/test-dashboard.mjs",
+    "test:dashboard:latency": "node --env-file=.env.local scripts/test-dashboard-latency.mjs",
+    "test:local-monitoring": "node --env-file=.env.local scripts/test-local-monitoring.mjs",
+    "test:classrooms": "node --env-file=.env.local scripts/test-classrooms.mjs",
+    "test:devices": "node --env-file=.env.local scripts/test-devices.mjs"
+  },
+  "dependencies": {
+    "mysql2": "^3.24.2",
+    "next": "16.3.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.2",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  }
+}

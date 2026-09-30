@@ -1,0 +1,88 @@
+topic: "Seleção de microcontrolador e sensores ambientais para o TCC IoT"
+current_date: "2026-08-14"
+time_range: "mercado atual"
+objective: >-
+  Comparar alternativas tecnicamente defensáveis e disponíveis no Brasil para
+  selecionar o microcontrolador, o sensor de temperatura e umidade relativa e
+  o sensor de iluminância do protótipo, sem confundir especificação nominal com
+  desempenho validado no sistema real.
+
+items:
+  - id: esp8266
+    name: "ESP8266 / NodeMCU"
+    category: microcontrolador
+    role: "Referência econômica e histórica"
+  - id: esp32_wroom_32
+    name: "ESP32-WROOM-32 / DevKit"
+    category: microcontrolador
+    role: "Alternativa madura de uso geral"
+  - id: esp32_c3
+    name: "ESP32-C3 / DevKit ou SuperMini"
+    category: microcontrolador
+    role: "Alternativa moderna de baixo custo"
+
+  - id: dht22_am2302
+    name: "DHT22 / AM2302"
+    category: temperatura_umidade
+    role: "Referência econômica amplamente usada"
+  - id: aht20
+    name: "AHT20 / DHT20"
+    category: temperatura_umidade
+    role: "Alternativa I2C econômica"
+  - id: sht31
+    name: "Sensirion SHT31"
+    category: temperatura_umidade
+    role: "Alternativa intermediária com documentação sólida"
+  - id: sht40
+    name: "Sensirion SHT40"
+    category: temperatura_umidade
+    role: "Alternativa recente com boa especificação"
+  - id: bme280
+    name: "Bosch BME280"
+    category: temperatura_umidade
+    role: "Alternativa multivariável comum em módulos"
+
+  - id: bh1750
+    name: "ROHM BH1750"
+    category: iluminancia
+    role: "Referência econômica amplamente disponível"
+  - id: veml7700
+    name: "Vishay VEML7700"
+    category: iluminancia
+    role: "Alternativa com ampla faixa dinâmica"
+  - id: opt3001
+    name: "Texas Instruments OPT3001"
+    category: iluminancia
+    role: "Alternativa com resposta espectral próxima da visão humana"
+  - id: tsl2591
+    name: "ams-OSRAM TSL2591"
+    category: iluminancia
+    role: "Alternativa de alta faixa dinâmica"
+
+supplementary_items:
+  - id: esp32_c6
+    reason: "Limite superior moderno; recursos excedem a necessidade atual do TCC."
+  - id: hdc1080
+    reason: "Alternativa intermediária de temperatura e umidade a reconsiderar se preço e disponibilidade forem favoráveis."
+  - id: si7021_htu21d
+    reason: "Família legada útil como referência evolutiva, não prioritária para compra em 2026."
+
+selection_constraints:
+  measured_variables:
+    - temperatura_do_ar
+    - umidade_relativa
+    - iluminancia
+  excluded_variables:
+    - ruido
+    - ocupacao
+    - co2
+  architecture: "sensores -> microcontrolador Wi-Fi -> HTTP/JSON -> API -> MySQL -> aplicação web"
+  validation: "parcial, condicionada aos instrumentos de referência disponíveis"
+  market: "Brasil"
+  decision_status: "proposta; somente registrar DEC-006 após confirmação dos autores"
+
+execution:
+  batch_size: 4
+  items_per_agent: 3
+  output_dir: "./results"
+

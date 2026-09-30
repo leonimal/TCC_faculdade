@@ -1,0 +1,155 @@
+topic: "Monitoramento ambiental com IoT em salas de aula"
+field_categories:
+  - category: identificacao
+    fields:
+      - name: bibliographic_reference
+        description: "Titulo, autores, ano, periodico/evento, volume, paginas e editora."
+        detail_level: detailed
+      - name: persistent_identifier
+        description: "DOI, URL persistente ou outro identificador."
+        detail_level: brief
+      - name: publication_type
+        description: "Artigo, conferencia, revisao, tese ou documento tecnico."
+        detail_level: brief
+      - name: country_and_climate
+        description: "Pais, cidade, zona climatica e estacao do ano."
+        detail_level: moderate
+  - category: escopo_e_metodo
+    fields:
+      - name: objective_and_research_question
+        description: "Objetivo, pergunta, hipotese e finalidade do monitoramento."
+        detail_level: detailed
+      - name: study_design
+        description: "Desenho observacional, experimental, longitudinal, transversal, piloto, estudo de caso ou revisao."
+        detail_level: moderate
+      - name: educational_context
+        description: "Nivel de ensino, tipo de instituicao, edificio, sala, ventilacao e climatizacao."
+        detail_level: detailed
+      - name: sample_and_duration
+        description: "Numero de escolas, salas e participantes, duracao, sazonalidade e periodos monitorados."
+        detail_level: detailed
+  - category: ambiente_ocupacao_e_exposicao
+    fields:
+      - name: environmental_variables
+        description: "Grandezas, unidades, faixas, limites e indicadores ambientais medidos."
+        detail_level: detailed
+      - name: outdoor_conditions_and_baseline
+        description: "Medidas externas, fontes proximas, razao indoor/outdoor, clima e eventos extremos."
+        detail_level: detailed
+      - name: occupancy_and_activity
+        description: "Densidade, cronograma, duracao, trocas de turma, atividade fisica/vocal e overrides dos usuarios."
+        detail_level: detailed
+      - name: ventilation_and_filtration_operation
+        description: "Janelas, portas, HVAC, fracao de ar externo, ACH, recirculacao, CADR, filtros e manutencao."
+        detail_level: detailed
+      - name: spatial_granularity
+        description: "Quantidade, altura e posicao dos sensores e representatividade espacial."
+        detail_level: detailed
+  - category: sensores_e_dados
+    fields:
+      - name: sensor_specification
+        description: "Fabricante, modelo, principio, faixa, resolucao, exatidao e custo."
+        detail_level: detailed
+      - name: calibration_and_qaqc
+        description: "Co-location, referencia, warm-up, calibracao, firmware, deriva, recalibracao e incerteza."
+        detail_level: detailed
+      - name: acquisition_and_data_quality
+        description: "Frequencia, sincronizacao, completude, dados faltantes, limpeza, imputacao e disponibilidade."
+        detail_level: detailed
+      - name: sensor_lifecycle
+        description: "Bateria, uptime de rede, falhas, manutencao, substituicao e vida util."
+        detail_level: moderate
+      - name: recommended_sensor_by_variable
+        description: "Classe, tecnologia e modulo recomendado para cada variavel, alternativas viaveis e justificativa baseada em evidencia."
+        detail_level: detailed
+      - name: useful_output_and_units
+        description: "Saida efetivamente util: CO2 em ppm, T em graus C, UR em %, PM em microgramas por metro cubico, indice VOC, LAeq em dBA, lux ou presenca/contagem."
+        detail_level: detailed
+      - name: direct_measurement_or_proxy
+        description: "Distinguir medicao fisica direta de proxy inferido, especialmente CO2 NDIR/PAS versus eCO2, VOC absoluto versus indice MOS e ocupacao explicita versus inferida."
+        detail_level: detailed
+      - name: measurement_principle_and_selectivity
+        description: "Principio fisico, seletividade e adequacao: NDIR/PAS, espalhamento optico, MOS/MOX, MEMS, fotometrico, PIR, mmWave ou ToF."
+        detail_level: detailed
+      - name: useful_range_and_real_performance
+        description: "Faixa relevante para sala de aula e desempenho observado em laboratorio e campo, nao apenas especificacao nominal."
+        detail_level: detailed
+      - name: operating_regime
+        description: "Intervalo de amostragem, agregacao, tempo de resposta, warm-up, duty cycle e operacao continua ou single-shot."
+        detail_level: detailed
+      - name: interferences_and_confounders
+        description: "Efeitos de temperatura, umidade, autoaquecimento, fluxo, sol, aerossois higroscopicos, ruido, oclusao e campo de visao."
+        detail_level: detailed
+      - name: affordable_validation_protocol
+        description: "Instrumento de referencia, co-location, duracao, condicoes, ground truth e procedimento de correcao reproduzivel no TCC."
+        detail_level: detailed
+      - name: validation_metrics
+        description: "Bias, MAE, RMSE, erro normalizado, slope/intercept, r ou R2, precisao, tempo de resposta, completude e uptime."
+        detail_level: detailed
+      - name: installation_and_enclosure
+        description: "Altura, afastamentos, plano de medicao, inlet, ventilacao da caixa e impactos do encapsulamento e da PCB."
+        detail_level: detailed
+      - name: hardware_integration
+        description: "Interface, tensao, corrente media e de pico, MCU, alimentacao, sincronizacao, buffer local e requisitos de fan ou inlet."
+        detail_level: detailed
+      - name: total_implementation_cost
+        description: "Sensor, microcontrolador, fonte, caixa, conectividade, montagem, calibracao, manutencao e reposicao, com moeda e data."
+        detail_level: detailed
+      - name: evidence_maturity
+        description: "Nivel da evidencia: datasheet, teste de bancada, co-location, campo geral ou validacao em sala de aula."
+        detail_level: detailed
+      - name: variable_specific_cautions
+        description: "CO2 real versus eCO2; VOC como indice; confiabilidade de PM10; autocalibracao de CO2; self-heating de T/UR; metrica acustica; plano de iluminancia; presenca versus contagem."
+        detail_level: detailed
+  - category: arquitetura_iot
+    fields:
+      - name: system_architecture
+        description: "Dispositivos, gateway, edge, nuvem, banco de dados, fluxo e latencia."
+        detail_level: detailed
+      - name: connectivity_and_protocols
+        description: "Wi-Fi, BLE, Zigbee, LoRaWAN, MQTT, HTTP e protocolos correlatos."
+        detail_level: detailed
+      - name: interoperability_and_data_model
+        description: "APIs, formatos, ontologias, BIM/gemeo digital e dependencia de fornecedor."
+        detail_level: moderate
+      - name: cybersecurity_privacy_and_ethics
+        description: "Ameacas, controles, consentimento, anonimizacao, governanca e aderencia a LGPD."
+        detail_level: detailed
+  - category: analise_e_decisao
+    fields:
+      - name: analytical_methods
+        description: "Estatistica, series temporais, aprendizado de maquina, fusao de sensores e inferencia causal."
+        detail_level: detailed
+      - name: derived_index_or_model
+        description: "Formula, pesos, hipoteses, entradas, Wells-Riley/rebreathed fraction e validacao."
+        detail_level: detailed
+      - name: decision_rules_and_standards
+        description: "Limiares, norma/guia, logica de alerta, destinatario, resposta e acao executada."
+        detail_level: detailed
+      - name: intervention_and_automation
+        description: "Feedback, mudanca comportamental, ventilacao, filtracao, HVAC, iluminacao e controle automatico."
+        detail_level: detailed
+  - category: resultados_e_avaliacao
+    fields:
+      - name: environmental_outcomes
+        description: "Mudancas em IAQ/IEQ, ventilacao, exposicao, risco, conforto e consumo de energia."
+        detail_level: detailed
+      - name: health_and_learning_outcomes
+        description: "Sintomas, saude, cognicao, desempenho, absenteismo e aprendizagem."
+        detail_level: detailed
+      - name: objective_subjective_integration
+        description: "POE, percepcao, satisfacao, controle percebido e feedback de alunos e docentes."
+        detail_level: detailed
+      - name: quantitative_results
+        description: "Valores, efeitos, metricas, intervalos de confianca, significancia e desempenho preditivo."
+        detail_level: detailed
+      - name: feasibility_and_acceptance
+        description: "Custo, energia, manutencao, usabilidade, aceitacao, escalabilidade e integracao institucional."
+        detail_level: detailed
+      - name: validity_and_limitations
+        description: "Vieses, confundidores, validade interna/externa, generalizacao e reprodutibilidade."
+        detail_level: detailed
+      - name: contribution_and_research_gaps
+        description: "Novidade, implicacoes para projeto/politica/operacao e lacunas declaradas ou inferidas."
+        detail_level: detailed
+uncertain: []

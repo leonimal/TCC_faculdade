@@ -1,0 +1,64 @@
+<!doctype html><html lang='pt-BR'><head><meta charset='utf-8'><title>cronograma_entrega2</title><style>
+@page { size: A4; margin: 18mm 15mm; }
+body { color: #17212b; font: 10.5pt/1.45 Arial, sans-serif; }
+h1 { color: #0b4f6c; font-size: 19pt; line-height: 1.2; margin: 0 0 14pt; }
+h2 { color: #0b4f6c; font-size: 13pt; margin: 18pt 0 7pt; border-bottom: 1px solid #9fc4d5; padding-bottom: 3pt; }
+h3 { font-size: 11.5pt; margin: 14pt 0 5pt; }
+p { margin: 5pt 0; } ul { margin: 5pt 0 8pt; padding-left: 18pt; } li { margin: 2pt 0; }
+table { width: 100%; border-collapse: collapse; margin: 8pt 0 12pt; font-size: 9pt; page-break-inside: avoid; }
+th { background: #0b4f6c; color: white; font-weight: bold; } th, td { border: 1px solid #b9c8d0; text-align: left; vertical-align: top; padding: 5pt; }
+tr:nth-child(even) td { background: #f3f8fa; } code { background: #edf2f4; padding: 1pt 2pt; font-size: 8.5pt; } pre { background: #f3f6f7; border-left: 3px solid #0b4f6c; padding: 7pt; white-space: pre-wrap; font-size: 8.5pt; }
+.numbered { margin-left: 10pt; }
+</style></head><body><h1>Entrega 2 — Prepara&#231;&#227;o do ambiente de desenvolvimento</h1>
+<p><strong>Etapa prevista:</strong> 2. Prepara&#231;&#227;o do ambiente  </p>
+<p><strong>Data de refer&#234;ncia:</strong> 29/09/2026</p>
+<h2>Ambiente configurado</h2>
+<table>
+<tr><th>Item</th><th>Configura&#231;&#227;o do projeto</th><th>Evid&#234;ncia dispon&#237;vel</th></tr>
+<tr><td>Aplica&#231;&#227;o</td><td>Next.js com TypeScript, App Router e ESLint</td><td><code>software/web/package.json</code> e <code>software/web/</code></td></tr>
+<tr><td>Banco de dados</td><td>MySQL 8.4 em Docker Compose, com volume persistente e porta local</td><td><code>software/compose.yaml</code> e <code>software/database/README.md</code></td></tr>
+<tr><td>Acesso ao banco</td><td>Driver <code>mysql2</code> e vari&#225;veis locais n&#227;o versionadas</td><td><code>software/web/package.json</code> e arquivos <code>.env.example</code></td></tr>
+<tr><td>Estrutura de banco</td><td>Esquema SQL e migra&#231;&#245;es incrementais com checksum</td><td><code>software/database/schema.sql</code> e <code>software/database/migrations/</code></td></tr>
+<tr><td>Firmware</td><td>PlatformIO e framework Arduino para ESP32</td><td><code>experimento/firmware/platformio.ini</code></td></tr>
+<tr><td>Execu&#231;&#227;o e opera&#231;&#227;o</td><td>Roteiro para subir banco, aplica&#231;&#227;o e servi&#231;os locais</td><td><code>software/COMO_SUBIR_APLICACAO.md</code></td></tr>
+</table>
+<h2>Estrutura inicial implementada</h2>
+<pre><code>
+software/
+├── api/          contrato HTTP/JSON
+├── database/     esquema, migra&#231;&#245;es e configura&#231;&#227;o do MySQL
+├── docs/         documenta&#231;&#227;o t&#233;cnica
+└── web/          aplica&#231;&#227;o Next.js, interface e rotas da API
+
+experimento/
+├── firmware/     c&#243;digo do n&#243; ESP32 e configura&#231;&#227;o PlatformIO
+├── dados-brutos/ dados originais da coleta
+├── dados-tratados/ dados derivados
+└── analises/     scripts reproduz&#237;veis de an&#225;lise
+</code></pre>
+<h2>Entregas funcionais j&#225; presentes no ambiente</h2>
+<ul>
+<li>rota de sa&#250;de e endpoints de ingest&#227;o e consulta de medi&#231;&#245;es;</li>
+<li>banco MySQL com migra&#231;&#245;es e carga de desenvolvimento;</li>
+<li>dashboard, relat&#243;rios com exporta&#231;&#227;o CSV, cadastro de salas e n&#243;s e alertas locais;</li>
+<li>autentica&#231;&#227;o de usu&#225;rios e perfis administrativos;</li>
+<li>firmware com aquisi&#231;&#227;o dos sensores, telemetria, fila persistente e reenvio ordenado;</li>
+<li>scripts de teste, lint, build, migra&#231;&#227;o e seed declarados no projeto web.</li>
+</ul>
+<h2>Procedimento de execu&#231;&#227;o local</h2>
+<p class='numbered'>Configurar os arquivos locais de ambiente conforme os exemplos do projeto, sem expor credenciais.</p>
+<p class='numbered'>Iniciar o MySQL com <code>docker compose -f software/compose.yaml up -d</code>.</p>
+<p class='numbered'>Em <code>software/web/</code>, aplicar migra&#231;&#245;es e seed com <code>npm run db:migrate</code> e <code>npm run db:seed</code>.</p>
+<p class='numbered'>Iniciar a aplica&#231;&#227;o com <code>npm run dev</code> e executar os testes pertinentes antes de demonstrar uma funcionalidade.</p>
+<h2>Evid&#234;ncias para apresenta&#231;&#227;o</h2>
+<ul>
+<li>&#225;rvore de diret&#243;rios e arquivos citados acima;</li>
+<li>execu&#231;&#227;o local do banco e da aplica&#231;&#227;o;</li>
+<li>tela do dashboard ou de uma rota administrativa autenticada;</li>
+<li>sa&#237;da de migra&#231;&#227;o, testes, lint ou build;</li>
+<li>documenta&#231;&#227;o de instala&#231;&#227;o em <code>software/COMO_SUBIR_APLICACAO.md</code>.</li>
+</ul>
+<h2>Pend&#234;ncia de controle de vers&#227;o</h2>
+<p>O enunciado solicita reposit&#243;rio Git/GitHub e primeiro commit. N&#227;o foi localizado metadado <code>.git</code> no material disponibilizado neste diret&#243;rio; portanto, este requisito deve ser confirmado pelos autores antes do envio. Esta observa&#231;&#227;o evita afirmar uma evid&#234;ncia que n&#227;o est&#225; presente na pasta recebida.</p>
+<h2>Situa&#231;&#227;o da entrega</h2>
+<p>O ambiente, a estrutura do projeto e os principais artefatos de software est&#227;o documentados e implementados. A valida&#231;&#227;o experimental completa com o n&#243; f&#237;sico e a coleta em sala permanecem etapas posteriores.</p></body></html>

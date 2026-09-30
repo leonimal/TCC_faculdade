@@ -1,0 +1,4 @@
+interface:
+  display_name: "TCC ABNT Excelência"
+  short_description: "Pesquisa e redação acadêmica rigorosa em ABNT"
+  default_prompt: "Use $tcc-abnt-excelencia para planejar, pesquisar, redigir e revisar meu TCC conforme as normas da minha instituição e da ABNT."

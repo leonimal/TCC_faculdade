@@ -1,0 +1,60 @@
+topic: "Parâmetros tecnicamente fundamentados para alertas ambientais em sala de aula"
+
+objective: >-
+  Verificar fontes primárias e vigentes que possam fundamentar indicadores e alertas
+  de temperatura do ar, umidade relativa e iluminância no dashboard do TCC,
+  distinguindo triagem técnica, conformidade normativa e limitações de interpretação.
+
+items:
+  - id: temperatura_ar
+    name: "Temperatura do ar"
+    scope: >-
+      Critérios aplicáveis a salas de aula ocupadas no período noturno, considerando
+      regime de ventilação, climatização, perfil dos ocupantes e variáveis térmicas
+      não medidas pelo protótipo.
+
+  - id: umidade_relativa
+    name: "Umidade relativa do ar"
+    scope: >-
+      Faixas e condições de atenção aplicáveis ao contexto do estudo de caso, com
+      verificação de vigência normativa e separação entre conforto, umidade predial,
+      qualidade do ar e simples triagem operacional.
+
+  - id: iluminancia
+    name: "Iluminância"
+    scope: >-
+      Requisitos para salas de aula noturnas e educação de adultos, incluindo plano
+      de trabalho, posição, orientação, uniformidade, quadro/lousa e limites de uma
+      medição pontual com o VEML7700.
+
+cross_cutting_items:
+  - "Vigência, revogação e hierarquia das fontes"
+  - "Representatividade espacial da medição"
+  - "Metrologia e qualidade do sensor"
+  - "Persistência, agregação, histerese, rearme e tratamento de lacunas"
+  - "Mensagens do dashboard e risco de sobreinterpretação"
+  - "Condição observada e possível investigação gerencial"
+
+known_constraints:
+  - "O protótipo mede somente temperatura do ar, umidade relativa e iluminância."
+  - "Temperatura e umidade, isoladamente, não comprovam conforto térmico."
+  - "Um único ponto de iluminância não demonstra uniformidade ou conformidade de toda a sala."
+  - "A RE Anvisa 9/2003 foi revogada pela RDC 886/2024 e não será usada como limite vigente."
+  - "Regras temporais do dashboard serão identificadas como decisões de engenharia quando não forem normativas."
+  - "Os alertas não diagnosticarão saúde, aprendizagem, conforto percebido ou causas da condição medida."
+
+candidate_sources_to_verify:
+  - "ABNT NBR 16401-2:2024"
+  - "ABNT NBR 17037:2023"
+  - "ISO 7730:2025"
+  - "ANSI/ASHRAE Standard 55-2023"
+  - "ABNT NBR ISO/CIE 8995-1:2013"
+  - "ISO/CIE 8995-1:2025"
+  - "RDC Anvisa 886/2024"
+  - "Literatura primária sobre conforto térmico e monitoramento em salas de aula"
+
+execution:
+  batch_size: 3
+  items_per_agent: 1
+  output_dir: "./results"
+

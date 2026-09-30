@@ -1,0 +1,83 @@
+topic: "Parâmetros tecnicamente fundamentados para alertas ambientais em sala de aula"
+
+field_categories:
+  - category: source_identification
+    description: "Identificação, autoridade e situação da fonte."
+    detail_level: detailed
+    fields:
+      - {name: title, description: "Título completo da fonte.", detail_level: detailed}
+      - {name: author_or_body, description: "Autor, organização ou órgão responsável.", detail_level: detailed}
+      - {name: edition_year, description: "Edição, ano e datas relevantes.", detail_level: detailed}
+      - {name: persistent_identifier, description: "DOI, URL oficial ou identificador persistente.", detail_level: detailed}
+      - {name: source_type, description: "Norma, regulamento, documento oficial ou artigo primário.", detail_level: detailed}
+      - {name: normative_status, description: "Vigente, revogada, substituída, histórica ou apenas técnica.", detail_level: detailed}
+      - {name: source_hierarchy, description: "Peso da fonte para a decisão e justificativa.", detail_level: detailed}
+
+  - category: applicability
+    description: "Condições nas quais a evidência pode ser aplicada."
+    detail_level: detailed
+    fields:
+      - {name: country_or_jurisdiction, description: "País, jurisdição ou alcance internacional.", detail_level: detailed}
+      - {name: environment_type, description: "Sala de aula, ambiente de trabalho, edifício climatizado ou outro.", detail_level: detailed}
+      - {name: occupant_profile, description: "Adultos, adolescentes, crianças, professores ou população geral.", detail_level: detailed}
+      - {name: education_stage, description: "Ensino superior, educação de adultos ou outra etapa.", detail_level: detailed}
+      - {name: room_operation_mode, description: "Ventilação natural, modo misto ou climatização artificial.", detail_level: detailed}
+      - {name: operating_context, description: "Ocupação, horário, estação, janelas, ventiladores, ar-condicionado e persianas.", detail_level: detailed}
+      - {name: excluded_conditions, description: "Situações às quais a fonte não pode ser aplicada.", detail_level: detailed}
+
+  - category: parameter_and_measurement
+    description: "Parâmetro, grandeza e método de medição."
+    detail_level: detailed
+    fields:
+      - {name: variable, description: "Temperatura do ar, umidade relativa ou iluminância.", detail_level: detailed}
+      - {name: unit, description: "Unidade da grandeza.", detail_level: detailed}
+      - {name: limit_or_range, description: "Limite, faixa, valor mantido ou categoria; não preencher sem fonte conferida.", detail_level: detailed}
+      - {name: meaning_of_parameter, description: "Conforto, projeto luminotécnico, manutenção, triagem ou outra finalidade.", detail_level: detailed}
+      - {name: spatial_reference_zone, description: "Zona ocupada, plano de trabalho, centro, quadro/lousa ou área de tarefa.", detail_level: detailed}
+      - {name: measurement_position, description: "Altura e distância de paredes, janelas, ocupantes, fontes de calor e HVAC.", detail_level: detailed}
+      - {name: sensor_orientation, description: "Orientação necessária para a medição, especialmente de iluminância.", detail_level: detailed}
+      - {name: spatial_representativeness, description: "Pontual, grade, média da área ou outra representação.", detail_level: detailed}
+      - {name: unmeasured_relevant_variables, description: "Temperatura radiante, velocidade do ar, vestimenta, atividade e outras limitações.", detail_level: detailed}
+
+  - category: metrology_and_data_quality
+    description: "Capacidade do instrumento e validade dos dados usados pelo alerta."
+    detail_level: detailed
+    fields:
+      - {name: instrument_specification, description: "Modelo, faixa, resolução, exatidão e rastreabilidade.", detail_level: detailed}
+      - {name: calibration_status, description: "Procedimento ou evidência de comparação com referência.", detail_level: detailed}
+      - {name: response_time, description: "Tempo de resposta relevante para a janela temporal.", detail_level: detailed}
+      - {name: sensor_hysteresis_and_drift, description: "Histerese, deriva e impacto na regra.", detail_level: detailed}
+      - {name: sampling_interval, description: "Intervalo bruto de aquisição.", detail_level: detailed}
+      - {name: valid_data_requirement, description: "Quantidade ou percentual mínimo de amostras válidas.", detail_level: detailed}
+      - {name: gap_and_outlier_handling, description: "Tratamento de lacunas, leituras inválidas e valores incomuns.", detail_level: detailed}
+
+  - category: alert_rule
+    description: "Transformação transparente do dado em indicador."
+    detail_level: detailed
+    fields:
+      - {name: aggregation_window, description: "Janela de média, mediana ou outra agregação.", detail_level: detailed}
+      - {name: trigger_rule, description: "Limiar, duração mínima e recorrência necessárias.", detail_level: detailed}
+      - {name: clear_rule, description: "Condição de encerramento, histerese e rearme.", detail_level: detailed}
+      - {name: rule_basis, description: "Normativa, regulatória, científica ou regra interna de engenharia.", detail_level: detailed}
+      - {name: dashboard_state, description: "Normal, atenção, alerta ou dados insuficientes.", detail_level: detailed}
+      - {name: dashboard_message, description: "Mensagem que descreve somente a condição efetivamente observada.", detail_level: detailed}
+      - {name: possible_management_investigation, description: "Verificação possível, sem diagnosticar causa nem prescrever intervenção.", detail_level: detailed}
+
+  - category: limitations_and_traceability
+    description: "Limites das conclusões e rastreabilidade no TCC."
+    detail_level: detailed
+    fields:
+      - {name: interpretation_limits, description: "O que não se pode concluir sobre conforto, saúde, aprendizagem ou conformidade.", detail_level: detailed}
+      - {name: overinterpretation_risk, description: "Risco de o usuário interpretar indevidamente o indicador.", detail_level: detailed}
+      - {name: project_requirement, description: "Requisito, decisão ou objetivo específico relacionado.", detail_level: detailed}
+      - {name: destination_in_text, description: "Seção do TCC em que a evidência será usada.", detail_level: detailed}
+      - {name: verification_state, description: "Pendente, parcial ou verificada na fonte original.", detail_level: detailed}
+
+uncertain:
+  - "Faixas de temperatura e umidade que possam ser usadas como triagem no contexto real da sala."
+  - "Adoção brasileira da edição ISO/CIE 8995-1:2025 e relação com a ABNT NBR ISO/CIE 8995-1:2013."
+  - "Valor aplicável de iluminância mantida para a sala noturna efetivamente utilizada."
+  - "Posição e altura definitivas do nó e do sensor de iluminância."
+  - "Regime de ventilação e climatização da sala escolhida."
+  - "Instrumentos de referência disponíveis."
+  - "Janelas de persistência e histerese, a justificar como engenharia se não houver regra normativa."

@@ -1,0 +1,203 @@
+topic: "Monitoramento ambiental com IoT em salas de aula"
+scope:
+  time_range: "2019-2026"
+  study_environments:
+    - "educacao infantil"
+    - "ensino fundamental e medio"
+    - "ensino tecnico e superior"
+  languages:
+    - "portugues"
+    - "ingles"
+    - "espanhol"
+  research_question: >-
+    Como sistemas IoT vem sendo projetados, validados e utilizados para monitorar
+    as condicoes ambientais de salas de aula, e quais efeitos, limitacoes e lacunas
+    sao relatados quanto a qualidade ambiental, saude, conforto, aprendizagem e
+    operacao predial?
+  practical_subquestion: >-
+    Qual e a forma tecnicamente mais adequada e economicamente viavel de selecionar,
+    posicionar, configurar, calibrar e validar sensores IoT baratos para medir CO2,
+    temperatura, umidade, material particulado, VOC, ruido, iluminancia e ocupacao
+    em uma sala de aula real?
+  databases:
+    - "Scopus"
+    - "Web of Science"
+    - "IEEE Xplore"
+    - "ACM Digital Library"
+    - "PubMed/MEDLINE"
+    - "ScienceDirect"
+    - "SciELO"
+    - "Google Scholar (busca complementar e citacoes)"
+  search_blocks:
+    context:
+      - "classroom*"
+      - "school*"
+      - "learning environment*"
+      - "educational building*"
+    technology:
+      - "internet of things"
+      - "IoT"
+      - "wireless sensor network*"
+      - "smart sensor*"
+      - "real-time monitor*"
+      - "low-cost sensor*"
+    environment:
+      - "indoor environmental quality"
+      - "indoor air quality"
+      - "IEQ"
+      - "IAQ"
+      - "CO2"
+      - "thermal comfort"
+      - "particulate matter"
+      - "noise"
+      - "lighting"
+      - "ventilation"
+  example_query: >-
+    (classroom* OR school* OR "learning environment*" OR "educational building*")
+    AND (IoT OR "internet of things" OR "wireless sensor network*" OR
+    "smart sensor*" OR "real-time monitor*" OR "low-cost sensor*") AND
+    ("indoor environmental quality" OR "indoor air quality" OR IEQ OR IAQ OR
+    CO2 OR "thermal comfort" OR "particulate matter" OR noise OR lighting OR
+    ventilation)
+  inclusion_criteria:
+    - "Publicado entre 2019 e 2026."
+    - "Estudo primario, revisao ou documento tecnico diretamente pertinente."
+    - "Monitoramento realizado em sala de aula ou ambiente educacional comparavel."
+    - "Uso de sensores conectados, rede IoT ou arquitetura digital de aquisicao e analise."
+    - "Apresenta arquitetura, metodo, validacao, dados ambientais, intervencao ou desfecho relevante."
+  exclusion_criteria:
+    - "Monitoramento exclusivamente externo sem relacao com o ambiente interno escolar."
+    - "Edificios nao educacionais sem resultados transferiveis para salas de aula."
+    - "Propostas conceituais sem implementacao, avaliacao ou contribuicao metodologica verificavel."
+    - "Duplicatas, resumos sem texto completo e publicacoes sem informacao suficiente."
+  screening:
+    stages:
+      - "remocao de duplicatas"
+      - "triagem por titulo e resumo"
+      - "avaliacao do texto completo"
+      - "busca reversa e direta de citacoes"
+    record_reasons_for_exclusion: true
+    recommended_reporting: "PRISMA 2020"
+items:
+  - id: co2_ventilacao
+    name: "CO2, ventilacao e renovacao do ar"
+    priority: "alta"
+  - id: conforto_termico
+    name: "Temperatura, umidade e conforto termico"
+    priority: "alta"
+  - id: material_particulado
+    name: "Material particulado (PM1, PM2.5 e PM10)"
+    priority: "alta"
+  - id: vocs_gases
+    name: "VOCs e poluentes gasosos (CO, NO2, O3 e formaldeido)"
+    priority: "media"
+  - id: ruido
+    name: "Ruido e ambiente acustico"
+    priority: "media"
+  - id: iluminacao
+    name: "Iluminacao e conforto visual"
+    priority: "media"
+  - id: ocupacao
+    name: "Ocupacao, atividade e contexto de uso"
+    priority: "alta"
+  - id: bioaerossois
+    name: "Bioaerossois e risco de infeccao aerea"
+    priority: "alta"
+  - id: filtracao_purificacao
+    name: "Filtracao, purificadores portateis e UVGI"
+    priority: "alta"
+  - id: ambiente_externo
+    name: "Condicoes externas, infiltracao e eventos extremos"
+    priority: "alta"
+  - id: sensores_calibracao
+    name: "Sensores de baixo custo, calibracao e QA/QC"
+    priority: "alta"
+  - id: no_iot_baixo_custo
+    name: "Projeto e validacao de um no IoT de baixo custo para salas de aula"
+    priority: "alta"
+    research_focus: >-
+      Comparar tecnologias e modulos comerciais por variavel, distinguindo medicao
+      direta de proxy, e definir selecao, instalacao, amostragem, calibracao,
+      validacao, custo total, consumo, conectividade e manutencao.
+    expected_output: >-
+      Matriz pratica por variavel com principio recomendado, sensor ou classe de
+      sensor, faixa, precisao real, posicao, frequencia, calibracao, custo,
+      consumo, limitacoes, alternativas e nivel de evidencia.
+    recommended_core:
+      - "CO2 real por NDIR ou PAS"
+      - "temperatura e umidade relativa"
+      - "PM1 e PM2.5 por espalhamento optico"
+    secondary_or_exploratory:
+      - "PM10"
+      - "iluminancia"
+      - "ruido ambiental"
+      - "VOC/TVOC por MOS como indice ou proxy"
+      - "ocupacao por PIR, mmWave ou ToF"
+  - id: conectividade
+    name: "Conectividade, protocolos e interoperabilidade IoT"
+    priority: "alta"
+  - id: edge_nuvem
+    name: "Edge, gateways, nuvem e gestao de dados"
+    priority: "alta"
+  - id: dashboards_automacao
+    name: "Dashboards, alertas, regras de decisao e automacao"
+    priority: "alta"
+  - id: indices_ieq
+    name: "Indices compostos de IEQ/IAQ e ferramentas de decisao"
+    priority: "alta"
+  - id: saude_aprendizagem
+    name: "Saude, conforto, cognicao e aprendizagem"
+    priority: "alta"
+  - id: privacidade_seguranca
+    name: "Privacidade, ciberseguranca, etica e LGPD"
+    priority: "media"
+  - id: viabilidade
+    name: "Custo, energia, manutencao, escalabilidade e sustentabilidade"
+    priority: "alta"
+  - id: aceitacao
+    name: "Aceitacao, usabilidade e integracao a rotina escolar"
+    priority: "media"
+  - id: bim_gemeo_digital
+    name: "BIM, gemeos digitais e interoperabilidade semantica"
+    priority: "exploratoria"
+execution:
+  batch_size: 4
+  items_per_agent: 2
+  output_dir: "./results"
+preliminary_sources:
+  - title: "Low-cost IoT-enabled indoor air quality monitoring systems: A systematic review"
+    year: 2023
+    url: "https://doi.org/10.3233/AIS-220577"
+  - title: "Smart Healthy Schools: An IoT-enabled concept for multi-room dynamic air quality control"
+    year: 2024
+    url: "https://doi.org/10.1016/j.iotcps.2023.05.005"
+  - title: "Systematic Review for the Assessment of Indoor Environment Quality Factors and Sub-Indicators of Classrooms"
+    year: 2024
+    url: "https://doi.org/10.18280/ijsdp.190837"
+  - title: "Decision tools for schools using continuous indoor air quality monitors: a case study of CO2 in Boston Public Schools"
+    year: 2025
+    url: "https://doi.org/10.1016/j.lana.2025.101148"
+  - title: "Real-Time Monitoring of Environmental Parameters in Schools to Improve Indoor Resilience Under Extreme Events"
+    year: 2025
+    url: "https://doi.org/10.3390/smartcities8010007"
+  - title: "Classroom air quality in a randomized crossover trial with portable HEPA air cleaners"
+    year: 2025
+    url: "https://doi.org/10.1038/s41370-025-00743-9"
+  - title: "A Simplified Classroom Indoor Air Quality Risk Index"
+    year: 2025
+    url: "https://doi.org/10.3390/app15074033"
+  - title: "ASHRAE Position Document on Indoor Carbon Dioxide"
+    year: 2025
+    url: "https://www.ashrae.org/file%20library/about/position%20documents/pd-on-indoor-carbon-dioxide-english.pdf"
+  - title: "EPA - Low-Cost Air Pollution Monitors and Indoor Air Quality"
+    accessed: "2026-08-11"
+    url: "https://www.epa.gov/indoor-air-quality-iaq/low-cost-air-pollution-monitors-and-indoor-air-quality"
+  - title: "EPA - A Guide to Siting and Installing Air Sensors"
+    accessed: "2026-08-11"
+    url: "https://www.epa.gov/air-sensor-toolbox/guide-siting-and-installing-air-sensors"
+  - title: "SchoolAIR: A Citizen Science IoT Framework Using Low-Cost Sensors"
+    year: 2024
+    url: "https://www.mdpi.com/1424-8220/24/1/148"
+  - title: "Monitoring Indoor Air Quality in Classrooms Using Low-Cost Sensors"
+    year: 2024
+    url: "https://www.mdpi.com/2073-4433/15/12/1450"

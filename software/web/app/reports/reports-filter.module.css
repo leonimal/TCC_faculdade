@@ -1,0 +1,70 @@
+.ribbon.ribbon {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.primary {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) 3.5rem minmax(0, 0.8fr) minmax(11rem, 1.25fr);
+  align-items: end;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.time {
+  grid-column: 1 / -1;
+  width: min(22rem, 100%);
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.ribbon input,
+.ribbon select {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.45rem 0;
+}
+
+.ribbon select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--moisture) 50%), linear-gradient(135deg, var(--moisture) 50%, transparent 50%);
+  background-position: calc(100% - 0.55rem) 52%, calc(100% - 0.25rem) 52%;
+  background-repeat: no-repeat;
+  background-size: 0.3rem 0.3rem;
+  padding-right: 1.2rem;
+}
+
+.ribbon select:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (max-width: 1080px) {
+  .ribbon.ribbon {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .ribbon.ribbon {
+    grid-template-columns: 1fr;
+  }
+
+  .primary {
+    grid-template-columns: 1fr;
+  }
+
+  .primary :global(.period-ribbon__line) {
+    display: none;
+  }
+
+  .room {
+    margin-top: 0.35rem;
+  }
+}

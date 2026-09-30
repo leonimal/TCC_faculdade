@@ -1,0 +1,137 @@
+field_categories:
+  - category: identification
+    description: "Identificação inequívoca do componente analisado."
+    fields:
+      - name: manufacturer
+        description: "Fabricante original do chip."
+        detail_level: brief
+      - name: model
+        description: "Modelo e variantes relevantes."
+        detail_level: moderate
+      - name: object_level
+        description: "Distinguir chip, módulo breakout e placa de desenvolvimento."
+        detail_level: detailed
+      - name: lifecycle_status
+        description: "Status de produção e recomendação para novos projetos."
+        detail_level: moderate
+      - name: official_documentation
+        description: "Datasheet, página oficial e documentação primária."
+        detail_level: detailed
+
+  - category: measurement
+    description: "Desempenho declarado e adequação à faixa real de uso."
+    fields:
+      - name: measured_quantities
+        description: "Grandezas efetivamente medidas."
+        detail_level: brief
+      - name: measurement_principle
+        description: "Princípio físico e tipo de saída."
+        detail_level: moderate
+      - name: nominal_range
+        description: "Faixa nominal do fabricante e faixa útil esperada em sala."
+        detail_level: detailed
+      - name: resolution
+        description: "Resolução declarada, sem tratá-la como exatidão."
+        detail_level: moderate
+      - name: stated_accuracy
+        description: "Exatidão declarada e condições aplicáveis."
+        detail_level: detailed
+      - name: repeatability_hysteresis_drift
+        description: "Repetibilidade, histerese e deriva quando disponíveis."
+        detail_level: detailed
+      - name: response_time
+        description: "Tempo de resposta e estabilização."
+        detail_level: moderate
+      - name: spectral_response
+        description: "Para iluminância: aproximação fotópica, sensibilidade a IR e dependência da fonte luminosa."
+        detail_level: detailed
+
+  - category: integration
+    description: "Compatibilidade elétrica e maturidade do firmware."
+    fields:
+      - name: interface
+        description: "I2C, barramento proprietário, ADC ou outra interface."
+        detail_level: moderate
+      - name: supply_and_logic_voltage
+        description: "Alimentação, níveis lógicos e compatibilidade com 3,3 V."
+        detail_level: detailed
+      - name: i2c_addressing
+        description: "Endereços, conflitos e possibilidade de múltiplos sensores."
+        detail_level: detailed
+      - name: module_electrical_implementation
+        description: "Regulador, level shifter, pull-ups e diferenças entre módulos comerciais."
+        detail_level: detailed
+      - name: firmware_ecosystem
+        description: "Suporte mantido em Arduino, ESP-IDF e bibliotecas relevantes."
+        detail_level: detailed
+
+  - category: operation
+    description: "Fatores que afetam o protótipo e o posicionamento."
+    fields:
+      - name: power_consumption
+        description: "Consumo ativo, repouso e implicações para alimentação USB."
+        detail_level: moderate
+      - name: self_heating
+        description: "Autoaquecimento do chip ou influência da placa e do regulador."
+        detail_level: detailed
+      - name: thermal_mechanical_coupling
+        description: "Distância do MCU, ventilação, cabo, janela óptica e invólucro."
+        detail_level: detailed
+      - name: interference_and_positioning
+        description: "Interferências e requisitos de posição, altura e orientação."
+        detail_level: detailed
+
+  - category: validation
+    description: "Possibilidade de produzir evidência defensável no TCC."
+    fields:
+      - name: calibration_support
+        description: "Certificados, rastreabilidade, correção por offset e recomendações do fabricante."
+        detail_level: detailed
+      - name: independent_evidence
+        description: "Estudos independentes relevantes, sem substituir o datasheet."
+        detail_level: detailed
+      - name: proposed_validation_protocol
+        description: "Instrumento de referência, estabilização, pontos, métricas e critérios de aceitação."
+        detail_level: detailed
+      - name: interpretation_limits
+        description: "Afirmações que o componente e o protocolo não permitem fazer."
+        detail_level: detailed
+
+  - category: feasibility
+    description: "Custo e risco real de aquisição no Brasil."
+    fields:
+      - name: brazil_price_range
+        description: "Faixa de preço atual, data da consulta e tipo de vendedor."
+        detail_level: detailed
+      - name: availability
+        description: "Disponibilidade em distribuidor autorizado e marketplace."
+        detail_level: detailed
+      - name: supply_origin
+        description: "Origem, prazo, impostos e repetibilidade de compra."
+        detail_level: detailed
+      - name: counterfeit_or_substitution_risk
+        description: "Risco de falsificação, chip substituto ou módulo incompatível."
+        detail_level: detailed
+      - name: total_node_cost
+        description: "Impacto no custo total, incluindo placa, conectores, alimentação e encapsulamento."
+        detail_level: moderate
+
+  - category: recommendation
+    description: "Síntese comparativa orientada ao TCC."
+    fields:
+      - name: strengths
+        description: "Vantagens verificadas para o projeto."
+        detail_level: moderate
+      - name: weaknesses
+        description: "Limitações e riscos verificados."
+        detail_level: moderate
+      - name: fit_for_tcc
+        description: "Adequação ao escopo, arquitetura e validação parcial."
+        detail_level: detailed
+      - name: recommendation_status
+        description: "recomendado, alternativa, referência comparativa ou não recomendado."
+        detail_level: brief
+
+uncertain:
+  description: "Registrar aqui valores conflitantes, ausentes ou não confirmados em fonte primária."
+  detail_level: detailed

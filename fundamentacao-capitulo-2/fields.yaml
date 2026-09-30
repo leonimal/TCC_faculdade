@@ -1,0 +1,19 @@
+fields:
+  - name: "fonte_original"
+    description: "URL/DOI da fonte primária, órgão ou periódico e ano."
+    detail_level: detailed
+  - name: "afirmacao_defensavel"
+    description: "Proposição limitada que a fonte realmente sustenta."
+    detail_level: detailed
+  - name: "secao_indicada"
+    description: "Subseção do Capítulo 2 em que a evidência pode ser usada."
+    detail_level: brief
+  - name: "limitacoes_de_uso"
+    description: "Inferências que a fonte não autoriza para este TCC."
+    detail_level: detailed
+  - name: "dados_bibliograficos"
+    description: "Dados para BibTeX e citação autor-data."
+    detail_level: detailed
+uncertain:
+  - "Parâmetros ambientais e limites de alertas dependentes de normas técnicas originais."
+  - "Instrumentos de referência que estarão disponíveis para a validação parcial."

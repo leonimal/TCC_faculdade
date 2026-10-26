@@ -36,6 +36,11 @@ export type LocalMonitoringProfile = {
   rules: LocalMonitoringRule[];
 };
 
+export type SaveLocalMonitoringProfileResult = {
+  profile: LocalMonitoringProfile;
+  changed: boolean;
+};
+
 export type LocalMonitoringOccurrence = {
   id: number;
   classroomCode: string;
@@ -91,6 +96,35 @@ function toRule(row: RuleRow): LocalMonitoringRule {
   };
 }
 
+function sameRules(
+  current: LocalMonitoringRule[],
+  requested: NonNullable<LocalMonitoringProfilePatch["rules"]>,
+): boolean {
+  if (current.length !== requested.length) return false;
+
+  const byVariable = new Map(current.map((rule) => [rule.variable, rule]));
+  return requested.every((rule) => {
+    const currentRule = byVariable.get(rule.variable);
+    return currentRule != null &&
+      currentRule.lowerLimit === rule.lower_limit &&
+      currentRule.upperLimit === rule.upper_limit;
+  });
+}
+
+function matchesPatch(
+  current: ProfileRow,
+  currentRules: LocalMonitoringRule[],
+  patch: LocalMonitoringProfilePatch,
+): boolean {
+  return (
+    current.status === (patch.enabled ? "ENABLED" : "DISABLED") &&
+    current.requested_by === patch.requested_by &&
+    current.justification === patch.justification &&
+    current.source_reference === (patch.source_reference ?? null) &&
+    sameRules(currentRules, patch.rules ?? [])
+  );
+}
+
 async function getRulesForProfile(profileId: number): Promise<LocalMonitoringRule[]> {
   const [rows] = await getDatabasePool().execute<RuleRow[]>(
     `SELECT variable, lower_limit, upper_limit
@@ -133,7 +167,7 @@ export async function getLatestLocalMonitoringProfile(
 export async function createLocalMonitoringProfile(
   devicePublicId: string,
   patch: LocalMonitoringProfilePatch,
-): Promise<LocalMonitoringProfile> {
+): Promise<SaveLocalMonitoringProfileResult> {
   const connection = await getDatabasePool().getConnection();
 
   try {
@@ -160,13 +194,38 @@ export async function createLocalMonitoringProfile(
     const [versionRows] = await connection.execute<ProfileRow[]>(
       `SELECT id, version, status, requested_by, justification, source_reference, effective_at
          FROM local_monitoring_profiles
-        WHERE device_id = ?
+        WHERE device_id = ? AND status IN ('ENABLED', 'DISABLED')
         ORDER BY version DESC
         LIMIT 1
         FOR UPDATE`,
       [device.id],
     );
-    const nextVersion = Number(versionRows[0]?.version ?? 0) + 1;
+    const current = versionRows[0];
+    if (current) {
+      const [currentRuleRows] = await connection.execute<RuleRow[]>(
+        `SELECT id, variable, lower_limit, upper_limit
+           FROM local_monitoring_rules
+          WHERE profile_id = ?`,
+        [current.id],
+      );
+      const currentRules = currentRuleRows.map(toRule);
+      if (matchesPatch(current, currentRules, patch)) {
+        await connection.commit();
+        return {
+          profile: {
+            version: Number(current.version),
+            status: current.status,
+            requestedBy: current.requested_by,
+            justification: current.justification,
+            sourceReference: current.source_reference,
+            effectiveAt: current.effective_at,
+            rules: currentRules,
+          },
+          changed: false,
+        };
+      }
+    }
+    const nextVersion = Number(current?.version ?? 0) + 1;
 
     await connection.execute<ResultSetHeader>(
       `UPDATE local_monitoring_profiles
@@ -213,13 +272,16 @@ export async function createLocalMonitoringProfile(
 
     await connection.commit();
     return {
-      version: Number(created.version),
-      status: created.status,
-      requestedBy: created.requested_by,
-      justification: created.justification,
-      sourceReference: created.source_reference,
-      effectiveAt: created.effective_at,
-      rules,
+      profile: {
+        version: Number(created.version),
+        status: created.status,
+        requestedBy: created.requested_by,
+        justification: created.justification,
+        sourceReference: created.source_reference,
+        effectiveAt: created.effective_at,
+        rules,
+      },
+      changed: true,
     };
   } catch (error) {
     await connection.rollback();

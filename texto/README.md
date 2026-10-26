@@ -1,6 +1,6 @@
 # Texto do TCC
 
-Os capítulos serão mantidos separadamente durante a redação. A versão consolidada será gerada somente após revisão de conteúdo e referências.
+Os capítulos são mantidos em arquivos separados para edição. A segunda revisão editorial integral foi aprovada pelos autores e aplicada em 22/10/2026. `TCC-completo.md` reúne o texto ativo para leitura; sua atualização é feita pelo script `scripts/gerar_tcc_completo_md.py`, após editar os capítulos individuais.
 
 ## Ordem de trabalho
 
@@ -12,4 +12,8 @@ Os capítulos serão mantidos separadamente durante a redação. A versão conso
 6. Considerações finais
 7. Referências
 
-O resumo e o abstract serão escritos por último, quando os resultados forem conhecidos. A consolidação em DOCX será realizada depois da revisão de conteúdo, da conferência das referências e da confirmação do manual ou template institucional da UNIP.
+O resumo e o abstract foram redigidos após a consolidação dos resultados e alinhados à revisão em `00-resumo.md` e `00-abstract.md`. A lista ativa contém dez referências. O relatório das alterações está em `revisao-editorial-2026-10-22.md`.
+
+A conferência pontual de 23/10/2026 sobre o alcance dos critérios técnicos no capítulo 5 está registrada em `revisao-redacao-2026-10-23.md`.
+
+O DOCX é gerado por `scripts/gerar_tcc_docx.py`; `scripts/finalizar_tcc_docx.py` atualiza o sumário no Word e exporta a prévia PDF. As versões revisadas ficam em `entrega/TCC-IoT-UNIP-2026-revisado.docx` e `entrega/TCC-IoT-UNIP-2026-revisado.pdf`. A entrega final ainda depende da leitura dos autores/orientador, da ficha catalográfica, dos dados da folha de aprovação e da confirmação de eventuais regras específicas do curso.

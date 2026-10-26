@@ -158,10 +158,14 @@ export async function PATCH(
   }
 
   try {
-    const profile = await createLocalMonitoringProfile(deviceId, parsed.data);
+    const result = await createLocalMonitoringProfile(deviceId, parsed.data);
     return Response.json(
-      { device_id: deviceId, profile: profileResponse(profile) },
-      { headers: { "Cache-Control": "no-store" }, status: 201 },
+      {
+        device_id: deviceId,
+        changed: result.changed,
+        profile: profileResponse(result.profile),
+      },
+      { headers: { "Cache-Control": "no-store" }, status: result.changed ? 201 : 200 },
     );
   } catch (error) {
     if (error instanceof LocalMonitoringDeviceNotFoundError) {

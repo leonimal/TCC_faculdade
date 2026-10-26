@@ -36,7 +36,7 @@
 ## DEC-005 — Orientador oficial
 
 - Data: 2026-08-11
-- Status: aceita
+- Status: substituída pela `DEC-037`
 - Decisão: Prof. Me. Aldriano José da Silva.
 - Consequência: remover referências conflitantes a outro orientador na versão final.
 
@@ -93,10 +93,10 @@
 - Justificativa: cada objetivo corresponde a um entregável ou conjunto de evidências que poderá ser apresentado nos capítulos de método, desenvolvimento, resultados e conclusão. A avaliação parcial dos sensores permanece separada da avaliação ponta a ponta, e o apoio à gestão não é tratado como utilidade comprovada.
 - Consequências: requisitos, cronograma, testes, resultados e conclusão deverão manter rastreabilidade com os nove objetivos. A formulação aprovada pelos autores deverá ser submetida ao orientador e somente será alterada mediante nova decisão registrada.
 
-## DEC-011 — Duração e período da coleta principal
+## DEC-011 — Duração e período da coleta principal (substituída por DEC-041)
 
 - Data: 2026-08-20
-- Status: aceita
+- Status: substituída por DEC-041 em 2026-10-16
 - Contexto: os autores frequentam aulas exclusivamente no período noturno, de segunda a sexta-feira, e precisam conciliar repetição entre dias, avaliação da estabilidade do sistema e prazo para análise dos dados.
 - Alternativas: coleta curta de três a cinco dias; coleta intermediária de duas semanas letivas; coleta longa de quatro semanas ou mais.
 - Decisão: realizar a coleta principal durante duas semanas letivas consecutivas, de segunda a sexta-feira, no período noturno, abrangendo todo o período de aula. A meta será de 10 noites de coleta, com mínimo de 8 noites válidas. As aulas ocorrem das 19h15 às 22h00; o monitoramento diário deverá ocorrer das 18h45 às 22h00, começando 30 minutos antes da primeira aula e terminando no encerramento da última. Antes da coleta principal, será realizada uma coleta-piloto correspondente a um período de aula.
@@ -349,6 +349,104 @@
 **Justificativa.** Um CSV que apresenta precisão diferente da tela consultada pode induzir a interpretações divergentes do mesmo registro. A opção técnica preserva a rastreabilidade dos valores persistidos sem substituir a visão de leitura usual.
 
 **Consequências.** A opção selecionada é transportada somente à URL de exportação. Ela não altera as medições armazenadas, estados técnicos, totais nem estatísticas. Para os valores exibidos, o CSV usa vírgula como separador decimal e ponto e vírgula como separador de colunas, compatível com a abertura usual no Excel em português do Brasil.
+
+## DEC-037 — Alteração do orientador oficial
+
+- Data: 2026-10-06
+- Status: aceita
+- Contexto: os autores informaram a substituição do orientador na reta final do TCC.
+- Alternativas: manter a identificação anterior nos materiais ativos; alterar os materiais ativos e preservar o histórico da orientação anterior.
+- Decisão: adotar Prof. Me. Rafael Marcelino de Jesus como orientador oficial do TCC.
+- Evidências: confirmação explícita dos autores em 06/10/2026.
+- Consequências: a identificação foi atualizada em `projeto/contexto.md`, `README.md`, resumo para orientação, relatório de acompanhamento e modelo de autorização de coleta. A `DEC-005` permanece como registro histórico e foi marcada como substituída. Materiais históricos não são reescritos como se a orientação anterior não tivesse existido.
+
+## DEC-038 — Recuperação escalonada da conexão Wi-Fi
+
+- Data: 2026-10-06
+- Status: aceita
+- Contexto: no teste preparatório do hotspot, o nó permaneceu sem conexão após a rede tornar-se disponível e só retomou a comunicação após reinicialização manual.
+- Alternativas: depender apenas da reconexão padrão; exigir intervenção manual; repetir associações, recuperar o rádio e reiniciar o nó somente como último recurso.
+- Decisão: tentar a reconexão a cada 10 segundos; depois de seis falhas consecutivas, desligar e reativar o rádio Wi-Fi sem apagar a configuração; depois de três recuperações de rádio sem êxito, reiniciar o nó de forma controlada.
+- Evidências: relato observado no teste preparatório de 06/10/2026; implementação identificada pela versão de firmware `0.1.2`; compilação local aprovada em 06/10/2026; ensaio físico pendente de registro.
+- Consequências: a coleta e a fila persistente continuam ativas durante a indisponibilidade. A reinicialização automática reduz a necessidade de intervenção no piloto, mas T010 permanece parcial até que o cenário seja reproduzido e auditado com registros de fila e API.
+
+## DEC-039 — Encerramento de T010 com evidência operacional consolidada
+
+- Data: 2026-10-15
+- Status: aceita
+- Contexto: a telemetria e as tentativas de ingestão demonstraram recuperação, reenvio e limpeza da fila, mas o esvaziamento foi distribuído por mais de um dia e o banco não preservou um estado exatamente em `256/256`.
+- Decisão: encerrar T010 como validação funcional e operacional com base na auditoria dos 256 últimos envios `REPLAYED` e na confirmação explícita dos autores de que a fila atingiu 256 registros durante o ensaio. O registro técnico deverá conservar que foram apuradas 254 medições únicas, 254 respostas `STORED`, duas `ALREADY_STORED`, zero falhas de envio, estado final de fila `0/256` e uma perda explicitamente contabilizada.
+- Evidências: consulta somente leitura ao MySQL em 15/10/2026; `experimento/firmware/teste-t010-persistencia-2026-10-07.md`; confirmação explícita dos autores em 15/10/2026.
+- Consequências: não afirmar que o banco telemetrizou pico de `256/256`, nem que o tempo de esvaziamento foi medido em até cinco minutos após conexão estável. Essas limitações permanecem no relatório do ensaio, em `experimento/testes.md`, no contexto e em qualquer texto acadêmico que use T010.
+
+## DEC-040 — Validação funcional dos sensores sem instrumento de referência
+
+- Data: 2026-10-15
+- Status: aceita
+- Contexto: os autores confirmaram que não terão instrumentos de referência disponíveis para a coleta real de temperatura, umidade relativa e iluminância.
+- Decisão: conduzir a coleta e a avaliação dos sensores somente no nível funcional, registrando inicialização, leituras válidas, resposta qualitativa, continuidade da aquisição e integridade da cadeia de dados. Não realizar comparação metrológica nem calcular indicadores de exatidão contra referência.
+- Consequências: não declarar calibração, exatidão, viés, MAE, RMSE, MAPE ou aprovação metrológica dos sensores. A limitação deve aparecer no protocolo, nos resultados, na conclusão e em apresentações, sem impedir a validação funcional e ponta a ponta do sistema.
+
+## DEC-041 — Redesenho da coleta principal para sessões reais e ensaio de endurance (substituída por DEC-042)
+
+- Data: 2026-10-16
+- Status: substituída por DEC-042 em 2026-10-16
+- Contexto: a mudança no calendário de aulas tornou inviável realizar oito a dez noites em duas semanas consecutivas. A coleta principal ainda não foi iniciada; portanto, o protocolo pode ser ajustado antes de produzir dados válidos.
+- Alternativas: manter oito a dez noites distribuídas por mais de três semanas; reduzir a coleta somente a uma sessão de aula; substituir integralmente as sessões de aula por um ensaio contínuo de 24 horas; combinar sessões de aula com um ensaio contínuo de endurance.
+- Decisão: substituir a campanha de duas semanas por três sessões completas de aula, realizadas nos dias e horários em que os autores efetivamente tiverem aula, sem exigência de consecutividade, e por um ensaio contínuo de 24 horas. Cada sessão de aula começará 30 minutos antes do início da aula e terminará no seu encerramento; seus horários efetivos serão definidos e registrados antes da execução. O ensaio de 24 horas usará o mesmo nó, firmware, intervalo configurado e cadeia de dados da coleta; o local e a conectividade empregados serão registrados. Ele avaliará endurance operacional, não condições ambientais de uma aula.
+- Evidências: alteração relatada pelos autores no calendário de aulas; piloto de conectividade real concluído; métricas e critérios técnicos previamente definidos em `DEC-014`; operação offline já avaliada separadamente em T010.
+- Justificativa: as sessões demonstram o funcionamento no contexto real de aula sem impor uma rotina que os autores não possuem. O ensaio contínuo amplia o tempo de observação técnica e permite medir disponibilidade, completude, regularidade temporal, sincronização, integridade e perdas sob execução prolongada. A combinação preserva a distinção entre validação técnica do artefato e caracterização meramente descritiva das condições observadas.
+- Consequências: não será alegada caracterização de duas semanas consecutivas nem comparação ambiental direta entre horários distintos. As métricas técnicas serão calculadas por execução e também consolidadas quando pertinente; a caracterização ambiental será descritiva e identificará cada sessão, seu horário e seus eventos. A metodologia, o protocolo, o cronograma, os capítulos de resultados e a apresentação deverão refletir o novo desenho antes do início da coleta principal.
+
+## DEC-042 — Consolidação das evidências físicas existentes e ensaio final de endurance (substituída por DEC-043)
+
+- Data: 2026-10-16
+- Status: substituída por DEC-043 em 2026-10-16
+- Contexto: auditoria somente leitura no MySQL identificou 345 medições do nó físico `classroom-node-physical-01`, todas válidas e sincronizadas, distribuídas em oito datas entre 18/09 e 15/10/2026. Os autores confirmaram que houve testes na sala de aula. No banco, contudo, os registros não possuem `run_id` e estão associados ao cadastro `DEV-01`; eles não serão reclassificados nem terão a sala histórica alterada.
+- Alternativas: exigir três novas sessões de aula além do ensaio de 24 horas; reclassificar retrospectivamente as medições existentes como coleta principal; reconhecer as medições existentes como evidência operacional prévia e realizar somente o ensaio de endurance formal.
+- Decisão: considerar as medições físicas já existentes como evidência operacional prévia de funcionamento do nó em sessões reais relatadas pelos autores, preservando suas limitações de rastreabilidade no banco. Não serão exigidas novas sessões de aula para a validação técnica final. A única execução pendente será um ensaio contínuo de endurance de 24 horas, formalmente planejado e registrado antes do início, com o mesmo nó, firmware, intervalo configurado e cadeia de dados; seu local e conectividade deverão ser documentados.
+- Evidências: consulta somente leitura ao MySQL em 16/10/2026, registrada em `experimento/auditoria-medicoes-fisicas-2026-10-16.md`; noite-piloto de conectividade; T007 físico; T010 de persistência; confirmação explícita dos autores sobre os testes em sala.
+- Justificativa: a decisão aproveita a evidência física já observada sem inventar metadados ou transformar testes passados em coleta formal retrospectivamente. O ensaio de 24 horas fecha a lacuna de execução prolongada, permitindo calcular as métricas técnicas da cadeia em uma janela única, definida e auditável.
+- Consequências: os registros históricos não integrarão a caracterização ambiental principal nem serão usados para alegar cobertura integral de aulas. A conclusão poderá afirmar que o sistema teve funcionamento físico observado em múltiplas sessões, com ressalvas de rastreabilidade, e que sua estabilidade prolongada foi avaliada pelo ensaio de 24 horas. Protocolo, metodologia, pendências, resultados e apresentação deverão tratar o ensaio como a única execução experimental final pendente.
+
+## DEC-043 — Três sessões formais de estabilidade operacional de oito horas
+
+- Data: 2026-10-16
+- Status: aceita
+- Contexto: o servidor da avaliação é o computador pessoal dos autores, o que torna inadequado exigir uma execução contínua de 24 horas sem supervisão. As evidências físicas anteriores permanecem preservadas como evidência operacional prévia, conforme `DEC-042`.
+- Alternativas: manter um ensaio contínuo de 24 horas; executar três sessões independentes de oito horas; executar quatro ou mais sessões obrigatórias de oito horas.
+- Decisão: substituir o ensaio contínuo por três sessões formais, não consecutivas, de oito horas cada, totalizando 24 horas acumuladas de estabilidade operacional. Será realizada uma quarta sessão somente se alguma das três primeiras for invalidada. Cada sessão usará o mesmo nó, firmware, intervalo configurado, cadeia de rede e critérios técnicos; terá `run_id` exclusivo e registro prévio de janela, local, conectividade e responsável.
+- Evidências: viabilidade operacional relatada pelos autores; escopo de validação técnico-funcional do projeto; análise por council em 16/10/2026; métricas definidas em `DEC-014`.
+- Justificativa: três sessões fornecem duração acumulada suficiente e repetição entre inicializações, sem transformar uma limitação prática de infraestrutura em risco metodológico. A quarta sessão preserva a meta caso haja invalidação, sem elevar desnecessariamente a exigência de coleta.
+- Consequências: cada sessão será avaliada individualmente para completude, disponibilidade, regularidade temporal, sincronização, consistência, duplicidade e latência online. A síntese agregada será apresentada somente após os resultados individuais e não poderá ocultar sessão inválida ou abaixo dos critérios. Não será alegada operação contínua por 24 horas, autonomia ininterrupta ou resistência a falhas acumuladas durante uma janela única de 24 horas.
+
+## DEC-044 — Atribuição da segunda placa ESP32 e custo do protótipo
+
+- Data: 2026-10-22
+- Status: aceita
+- Contexto: os pedidos pagos incluíram duas placas ESP32, anteriormente descritas como unidade principal e reserva do TCC.
+- Decisão: por esclarecimento dos autores, apenas uma placa integrou o protótipo do estudo; a outra foi adquirida no mesmo pedido, mas não era destinada a este TCC e não deve ser descrita como reserva.
+- Evidências: confirmação dos autores em 22/10/2026; capturas dos pedidos em `modules/` para quantidade e valores pagos.
+- Consequências: manter R$ 125,98 como total dos pedidos, mas atribuir ao protótipo apenas metade dos R$ 52,48 pagos pelas duas placas, resultando em R$ 54,34 para o conjunto eletrônico e R$ 99,74 para a montagem de bancada com acessórios. Na metodologia e na conclusão, descrever um único nó físico e uma unidade operacional de cada sensor.
+
+## DEC-045 — Uso contextual da edição de 2008 da ABNT NBR 16401-2
+
+- Data: 2026-10-22
+- Status: aceita
+- Contexto: o acervo do projeto contém a edição de 2008, fornecida pela UNIP e conferida anteriormente. Catálogos técnicos consultados em 22/10/2026 listam uma edição de 2024 como vigente, mas seu texto não está disponível no projeto.
+- Alternativas: obter e conferir a edição de 2024 antes de citá-la; manter a edição de 2008 apenas como documento contextual, identificando seu ano e sem atribuir-lhe vigência atual.
+- Decisão: por escolha explícita dos autores, manter a edição de 2008 como referência contextual no TCC. Não substituir a citação pela edição de 2024 sem acesso ao texto original.
+- Evidências: cópia da edição de 2008 em `NBR/`; confirmação dos autores em 22/10/2026; listagem da edição de 2024 como vigente em catálogos técnicos de distribuição.
+- Consequências: explicitar no texto que se trata da edição consultada de 2008; não afirmar conformidade normativa nem utilizar seus parâmetros para classificar o ambiente ou definir alertas. Qualquer avaliação normativa futura exigirá conferência da edição vigente e de fontes específicas para as grandezas medidas.
+
+## DEC-046 — Segunda revisão editorial integral da redação
+
+- Data: 2026-10-22
+- Status: aceita
+- Contexto: após a revisão por capítulo e a primeira conferência do DOCX, os autores solicitaram nova leitura crítica e aprovaram expressamente os seis conjuntos de melhorias apresentados.
+- Decisão: uniformizar os tempos verbais da metodologia; priorizar os procedimentos efetivamente realizados; concentrar as ressalvas nas seções pertinentes; desenvolver a discussão dos resultados com a literatura e uma síntese do alcance dos critérios; tornar a conclusão mais centrada na contribuição; corrigir numeração, terminologia e definição de umidade relativa. Alinhar resumo, abstract e versões consolidadas.
+- Evidências: autorização dos autores em 22/10/2026 (“pode aplicar todas”); capítulos ativos; dados e critérios já documentados; definição de umidade relativa conferida em Allen et al. (1998), publicação original da FAO.
+- Consequências: preservar dados, custos, critérios prévios e limites de evidência. Manter explícitos os ensaios não documentados e as verificações parciais. Registrar a décima fonte em bibliografia e matriz de evidências. O relatório da revisão está em `texto/revisao-editorial-2026-10-22.md`; a ficha catalográfica e o preenchimento da folha de aprovação permanecem pendências de entrega.
 
 ## DEC-XXX — Título
 

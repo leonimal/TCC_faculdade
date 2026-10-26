@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-21T20:53:34.646Z",
+  "raw_file": "C:\\Users\\leonardor\\Documents\\TCC\\experimento\\dados-brutos\\sessoes-formais-2026-10-19-a-21.json",
+  "raw_sha256": "9e32b809b22239f6c406905b9523306f87065f0e14d30c454df1dabd0d0cb85c",
+  "sessions": [
+    {
+      "run_id": "98d1dd84-49ae-41c5-aa46-28ba98f7fd78",
+      "actual_start": "2026-10-19T12:01:06.000Z",
+      "actual_end": "2026-10-19T21:10:16.000Z",
+      "expected_records": 550,
+      "stored_records_in_window": 549,
+      "completeness_pct": 99.81818181818181,
+      "synchronized_pct": 100,
+      "fully_valid_records": 549,
+      "interval_error_p95_seconds": 0,
+      "api_latency_p95_seconds": 2.353,
+      "missing_slots": 1,
+      "largest_missing_sequence": 1,
+      "duplicate_ingestion_attempts": 0,
+      "unique_measurement_ids": 549
+    },
+    {
+      "run_id": "4719d5b0-9425-4de0-a57c-5f5a39bd80ec",
+      "actual_start": "2026-10-20T11:25:44.000Z",
+      "actual_end": "2026-10-20T20:12:30.637Z",
+      "expected_records": 527,
+      "stored_records_in_window": 526,
+      "completeness_pct": 99.81024667931689,
+      "synchronized_pct": 100,
+      "fully_valid_records": 526,
+      "interval_error_p95_seconds": 0,
+      "api_latency_p95_seconds": 2.606,
+      "missing_slots": 1,
+      "largest_missing_sequence": 1,
+      "duplicate_ingestion_attempts": 0,
+      "unique_measurement_ids": 526
+    },
+    {
+      "run_id": "00e0ee37-26e8-40a9-838f-fc1751c0129a",
+      "actual_start": "2026-10-21T11:09:41.000Z",
+      "actual_end": "2026-10-21T20:06:16.051Z",
+      "expected_records": 537,
+      "stored_records_in_window": 534,
+      "completeness_pct": 99.4413407821229,
+      "synchronized_pct": 100,
+      "fully_valid_records": 534,
+      "interval_error_p95_seconds": 0,
+      "api_latency_p95_seconds": 2.511,
+      "missing_slots": 3,
+      "largest_missing_sequence": 1,
+      "duplicate_ingestion_attempts": 0,
+      "unique_measurement_ids": 534
+    }
+  ],
+  "cumulative": {
+    "expected_records": 1614,
+    "stored_records_in_window": 1609,
+    "fully_valid_records": 1609,
+    "completeness_pct": 99.69
+  },
+  "methodology": {
+    "imputation": "none",
+    "slot_assignment": "nearest expected instant",
+    "window": "start inclusive, end exclusive"
+  }
+}

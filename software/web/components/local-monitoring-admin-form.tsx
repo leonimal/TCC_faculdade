@@ -5,7 +5,7 @@ import { useState, type FormEvent } from "react";
 type Variable = "TEMPERATURE_C" | "RELATIVE_HUMIDITY_PCT" | "ILLUMINANCE_LX";
 type EditableRule = { enabled: boolean; lower: string; upper: string };
 type Profile = { version: number; enabled: boolean; status: "ENABLED" | "DISABLED"; requested_by: string; justification: string; source_reference: string | null; effective_at: string; rules: Array<{ variable: Variable; lower_limit: number; upper_limit: number }> };
-type ApiResponse = { profile?: Profile | null; error?: { code?: string; message?: string; details?: Array<{ field: string; reason: string }> } };
+type ApiResponse = { changed?: boolean; profile?: Profile | null; error?: { code?: string; message?: string; details?: Array<{ field: string; reason: string }> } };
 
 const variables: Array<{ id: Variable; label: string; unit: string; tone: string }> = [
   { id: "TEMPERATURE_C", label: "Temperatura do ar", unit: "°C", tone: "thermal" },
@@ -91,7 +91,9 @@ export function LocalMonitoringAdminForm({ deviceId, deviceName }: { deviceId: s
       const { response, payload } = await requestProfile(deviceId, "PATCH", { enabled, requested_by: requestedBy.trim(), justification: justification.trim(), source_reference: sourceReference.trim() || null, rules: enabled ? parsedRules : [] });
       if (!response.ok || !payload.profile) { setError(messageFromResponse(payload, "Não foi possível salvar as faixas locais.")); return; }
       applyProfile(payload.profile);
-      setNotice(`Versão ${payload.profile.version} salva. As próximas leituras já usarão esta configuração.`);
+      setNotice(payload.changed === false
+        ? `Nenhuma alteração detectada. A versão ${payload.profile.version} foi mantida.`
+        : `Versão ${payload.profile.version} salva. As próximas leituras já usarão esta configuração.`);
     } catch { setError("Não foi possível alcançar a aplicação. Nenhuma alteração foi confirmada."); }
     finally { setIsLoading(false); }
   }
@@ -108,7 +110,7 @@ export function LocalMonitoringAdminForm({ deviceId, deviceName }: { deviceId: s
         <div className="admin-meta-grid"><label>Responsável informado<input value={requestedBy} onChange={(event) => setRequestedBy(event.target.value)} maxLength={120} required disabled={isLoading} placeholder="Nome ou identificação" /></label><label>Referência de origem <span>opcional</span><input value={sourceReference} onChange={(event) => setSourceReference(event.target.value)} maxLength={500} disabled={isLoading} placeholder="Ex.: definição administrativa interna" /></label><label className="admin-meta-grid__wide">Justificativa<textarea value={justification} onChange={(event) => setJustification(event.target.value)} maxLength={500} required disabled={isLoading} placeholder="Por que esta faixa será acompanhada?" rows={3} /></label></div>
         <fieldset disabled={isLoading || !enabled} className="admin-range-fieldset"><legend>Variáveis e limites</legend><p>Selecione as variáveis que deseja acompanhar. Os limites são locais, não normativos.</p><div className="admin-range-grid">{variables.map((variable) => { const rule = rules[variable.id]; return <article key={variable.id} className={`admin-range-card admin-range-card--${variable.tone} ${rule.enabled ? "is-selected" : ""}`}><label className="admin-range-toggle"><input type="checkbox" checked={rule.enabled} onChange={(event) => updateRule(variable.id, { enabled: event.target.checked })} /><span>{variable.label}</span><small>{variable.unit}</small></label><div className="admin-range-inputs"><label>Mínimo<input type="number" inputMode="decimal" step="any" value={rule.lower} onChange={(event) => updateRule(variable.id, { lower: event.target.value })} disabled={!rule.enabled} aria-label={`Mínimo de ${variable.label}`} /></label><span aria-hidden="true">até</span><label>Máximo<input type="number" inputMode="decimal" step="any" value={rule.upper} onChange={(event) => updateRule(variable.id, { upper: event.target.value })} disabled={!rule.enabled} aria-label={`Máximo de ${variable.label}`} /></label></div></article>; })}</div></fieldset>
         {error ? <p className="admin-message admin-message--error" role="alert">{error}</p> : null}{notice ? <p className="admin-message admin-message--success" role="status">{notice}</p> : null}
-        <div className="admin-save-row"><p>A alteração cria uma nova versão. Alertas já registrados preservam a faixa vigente no momento da leitura.</p><button type="submit" disabled={isLoading}>{isLoading ? "Salvando…" : enabled ? "Salvar faixas locais" : "Desativar acompanhamento"}</button></div>
+        <div className="admin-save-row"><p>Salvar sem mudar os dados mantém a versão atual. Uma alteração real cria uma nova versão para preservar o histórico dos alertas.</p><button type="submit" disabled={isLoading}>{isLoading ? "Salvando…" : enabled ? "Salvar faixas locais" : "Desativar acompanhamento"}</button></div>
       </form>}
       {!isLoaded && (error || notice) ? <div className="mt-5">{error ? <p className="admin-message admin-message--error" role="alert">{error}</p> : null}{notice ? <p className="admin-message admin-message--success" role="status">{notice}</p> : null}</div> : null}
     </section>

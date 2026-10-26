@@ -17,8 +17,10 @@
 
 namespace {
 
-constexpr char kFirmwareVersion[] = "0.1.0";
+constexpr char kFirmwareVersion[] = "0.1.2";
 constexpr uint32_t kWifiReconnectIntervalMs = 10000;
+constexpr uint8_t kWifiAttemptsBeforeRadioReset = 6;
+constexpr uint8_t kWifiRadioResetsBeforeRestart = 3;
 constexpr uint32_t kTimeSyncRetryIntervalMs = 60000;
 constexpr uint32_t kSendAttemptIntervalMs = 1000;
 constexpr uint32_t kSensorRetryIntervalMs = 30000;
@@ -26,6 +28,8 @@ constexpr time_t kEarliestSynchronizedEpoch = 1704067200;  // 2024-01-01 UTC
 
 QueueStore queueStore;
 Preferences settingsPreferences;
+Preferences t010StressPreferences;
+WiFiClientSecure reusableSecureClient;
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 Adafruit_VEML7700 veml7700 = Adafruit_VEML7700();
 
@@ -37,7 +41,12 @@ bool sht31Ready = false;
 bool veml7700Ready = false;
 bool wasOnline = false;
 bool pendingOfflineStatus = false;
+bool deliveryRecoveryActive = false;
 uint32_t lastWifiAttemptAt = 0;
+uint8_t consecutiveWifiAttempts = 0;
+uint8_t consecutiveWifiRadioResets = 0;
+uint32_t wifiReconnectAttemptsTotal = 0;
+uint32_t wifiRadioResetsTotal = 0;
 uint32_t lastTimeSyncAttemptAt = 0;
 uint32_t lastSensorAttemptAt = 0;
 uint32_t lastSampleAt = 0;
@@ -148,8 +157,12 @@ bool beginHttpClient(HTTPClient& http, WiFiClientSecure& secureClient,
                      const String& url) {
   if (url.startsWith("https://")) {
     secureClient.setCACert(kTryCloudflareRootCa);
+    secureClient.setHandshakeTimeout(5);
+    secureClient.setTimeout(5000);
+    http.setConnectTimeout(5000);
     return http.begin(secureClient, url);
   }
+  http.setConnectTimeout(5000);
   return http.begin(url);
 }
 
@@ -247,9 +260,20 @@ void beginWifi() {
     return;
   }
   WiFi.mode(WIFI_STA);
+  WiFi.setAutoReconnect(true);
   WiFi.begin(TCC_WIFI_SSID, TCC_WIFI_PASSWORD);
   lastWifiAttemptAt = millis();
   Serial.println("Tentativa de conexão Wi-Fi iniciada.");
+}
+
+void resetWifiRadio() {
+  WiFi.disconnect(true, false);
+  WiFi.mode(WIFI_OFF);
+  delay(150);
+  WiFi.mode(WIFI_STA);
+  WiFi.setAutoReconnect(true);
+  WiFi.begin(TCC_WIFI_SSID, TCC_WIFI_PASSWORD);
+  lastWifiAttemptAt = millis();
 }
 
 void maintainWifi(uint32_t now) {
@@ -257,6 +281,12 @@ void maintainWifi(uint32_t now) {
   if (online) {
     if (!wasOnline) {
       Serial.printf("Wi-Fi conectado: %s\n", WiFi.localIP().toString().c_str());
+      if (consecutiveWifiAttempts > 0 || consecutiveWifiRadioResets > 0) {
+        Serial.printf("Wi-Fi recuperado após %u tentativa(s) e %u reinicialização(ões) do rádio.\n",
+                      consecutiveWifiAttempts, consecutiveWifiRadioResets);
+      }
+      consecutiveWifiAttempts = 0;
+      consecutiveWifiRadioResets = 0;
       if (configurePublicDns()) {
         Serial.printf("Public DNS configured: %s, %s\n",
                       kPrimaryPublicDns.toString().c_str(),
@@ -278,14 +308,34 @@ void maintainWifi(uint32_t now) {
       offlineObservedAt = "";
     }
     pendingOfflineStatus = true;
+    deliveryRecoveryActive = true;
     Serial.println("Wi-Fi desconectado; aquisição e fila local continuarão ativas.");
   }
   wasOnline = false;
 
   if (networkConfigurationIsUsable() &&
       elapsed(now, lastWifiAttemptAt, kWifiReconnectIntervalMs)) {
-    WiFi.disconnect();
-    WiFi.begin(TCC_WIFI_SSID, TCC_WIFI_PASSWORD);
+    consecutiveWifiAttempts++;
+    wifiReconnectAttemptsTotal++;
+    if (consecutiveWifiAttempts < kWifiAttemptsBeforeRadioReset) {
+      WiFi.disconnect();
+      WiFi.begin(TCC_WIFI_SSID, TCC_WIFI_PASSWORD);
+      Serial.printf("Wi-Fi indisponível; nova tentativa (%u/%u).\n", consecutiveWifiAttempts,
+                    kWifiAttemptsBeforeRadioReset);
+    } else {
+      consecutiveWifiAttempts = 0;
+      consecutiveWifiRadioResets++;
+      wifiRadioResetsTotal++;
+      Serial.printf("Wi-Fi sem resposta; reiniciando rádio (%u/%u).\n",
+                    consecutiveWifiRadioResets, kWifiRadioResetsBeforeRestart);
+      resetWifiRadio();
+      // A fila e a aquisição devem sobreviver a indisponibilidades longas.
+      // Recomeçar o ESP aqui interrompia o esvaziamento a cada três ciclos.
+      if (consecutiveWifiRadioResets >= kWifiRadioResetsBeforeRestart) {
+        Serial.println("Recuperação Wi-Fi prolongada; mantendo o nó ativo e repetindo o rádio.");
+      }
+      return;
+    }
     lastWifiAttemptAt = now;
   }
 }
@@ -334,7 +384,9 @@ void assignReading(JsonObject target, float value, float lowerLimit, float upper
 String newMeasurementRecord() {
   StaticJsonDocument<2048> document;
   JsonObject record = document.to<JsonObject>();
-  record["replay"] = false;
+  // Uma leitura adquirida sem enlace, ou durante a recuperação de uma entrega
+  // anterior, deve permanecer identificável como reenvio no banco.
+  record["replay"] = deliveryRecoveryActive || WiFi.status() != WL_CONNECTED;
   JsonObject measurement = record.createNestedObject("measurement");
   measurement["measurement_id"] = makeUuid();
   measurement["device_id"] = TCC_DEVICE_ID;
@@ -372,28 +424,76 @@ String newMeasurementRecord() {
   return serialized;
 }
 
+String newSyntheticMeasurementRecord(uint16_t index) {
+  StaticJsonDocument<2048> document;
+  JsonObject record = document.to<JsonObject>();
+  record["replay"] = true;
+  JsonObject measurement = record.createNestedObject("measurement");
+  measurement["measurement_id"] = makeUuid();
+  measurement["device_id"] = TCC_DEVICE_ID;
+  measurement["boot_id"] = bootId;
+  measurement["sequence_number"] = deviceSettings.nextSequenceNumber();
+  measurement["run_id"] = nullptr;
+  measurement["configuration_version"] = deviceSettings.configurationVersion();
+  String measuredAt;
+  const bool isSynchronized = synchronizedTimestamp(measuredAt);
+  if (isSynchronized) {
+    measurement["measured_at"] = measuredAt;
+  } else {
+    measurement["measured_at"] = nullptr;
+  }
+  measurement["device_uptime_ms"] = millis();
+  measurement["time_sync_status"] = isSynchronized ? "SYNCED" : "UNSYNCED";
+  JsonObject readings = measurement.createNestedObject("readings");
+  assignReading(readings.createNestedObject("temperature_c"), 22.0F + index * 0.1F,
+                -40.0F, 125.0F, true);
+  assignReading(readings.createNestedObject("relative_humidity_pct"),
+                45.0F + (index % 10), 0.0F, 100.0F, true);
+  assignReading(readings.createNestedObject("illuminance_lx"),
+                200.0F + index * 20.0F, 0.0F, 140000.0F, true);
+  String serialized;
+  serializeJson(document, serialized);
+  return serialized;
+}
+
 bool postJson(const String& url, const String& body, int& statusCode, String& response) {
   if (WiFi.status() != WL_CONNECTED || !networkConfigurationIsUsable()) {
     statusCode = 0;
     return false;
   }
-  WiFiClientSecure secureClient;
   HTTPClient http;
   http.setTimeout(5000);
-  if (!beginHttpClient(http, secureClient, url)) {
+  Serial.println("HTTP: iniciando preparação do cliente.");
+  const uint32_t beginStartedAt = millis();
+  if (!beginHttpClient(http, reusableSecureClient, url)) {
+    Serial.printf("HTTP: preparação falhou após %lu ms.\n",
+                  static_cast<unsigned long>(millis() - beginStartedAt));
     statusCode = 0;
     return false;
   }
+  // Os reenvios de uma fila usam o mesmo host. Manter o socket TLS vivo evita
+  // repetir o handshake para cada registro e permite recuperar 256 pendências
+  // dentro do limite de cinco minutos definido para T010.
+  http.setReuse(url.startsWith("https://"));
+  const uint32_t beginDurationMs = millis() - beginStartedAt;
+  Serial.printf("HTTP: cliente preparado em %lu ms.\n",
+                static_cast<unsigned long>(beginDurationMs));
   const char* headers[] = {"Date"};
   http.collectHeaders(headers, 1);
   http.addHeader("Content-Type", "application/json");
   http.addHeader("Authorization", String("Bearer ") + TCC_NODE_API_KEY);
+  Serial.println("HTTP: iniciando POST.");
+  const uint32_t postStartedAt = millis();
   statusCode = http.POST(body);
+  const uint32_t postDurationMs = millis() - postStartedAt;
   if (statusCode > 0) {
     synchronizeTimeFromHttpDate(http);
   }
   response = statusCode > 0 ? http.getString() : "";
   http.end();
+  Serial.printf("HTTP: preparação=%lu ms; POST=%lu ms; status=%d.\n",
+                static_cast<unsigned long>(beginDurationMs),
+                static_cast<unsigned long>(postDurationMs), statusCode);
   return statusCode > 0;
 }
 
@@ -402,22 +502,35 @@ bool getJson(const String& url, int& statusCode, String& response) {
     statusCode = 0;
     return false;
   }
-  WiFiClientSecure secureClient;
   HTTPClient http;
   http.setTimeout(5000);
-  if (!beginHttpClient(http, secureClient, url)) {
+  Serial.println("HTTP GET: iniciando preparação do cliente.");
+  const uint32_t beginStartedAt = millis();
+  if (!beginHttpClient(http, reusableSecureClient, url)) {
+    Serial.printf("HTTP GET: preparação falhou após %lu ms.\n",
+                  static_cast<unsigned long>(millis() - beginStartedAt));
     statusCode = 0;
     return false;
   }
+  http.setReuse(url.startsWith("https://"));
+  const uint32_t beginDurationMs = millis() - beginStartedAt;
+  Serial.printf("HTTP GET: cliente preparado em %lu ms.\n",
+                static_cast<unsigned long>(beginDurationMs));
   const char* headers[] = {"Date"};
   http.collectHeaders(headers, 1);
   http.addHeader("Authorization", String("Bearer ") + TCC_NODE_API_KEY);
+  Serial.println("HTTP GET: iniciando requisição.");
+  const uint32_t getStartedAt = millis();
   statusCode = http.GET();
+  const uint32_t getDurationMs = millis() - getStartedAt;
   if (statusCode > 0) {
     synchronizeTimeFromHttpDate(http);
   }
   response = statusCode > 0 ? http.getString() : "";
   http.end();
+  Serial.printf("HTTP GET: preparação=%lu ms; requisição=%lu ms; status=%d.\n",
+                static_cast<unsigned long>(beginDurationMs),
+                static_cast<unsigned long>(getDurationMs), statusCode);
   return statusCode > 0;
 }
 
@@ -438,11 +551,14 @@ bool acceptedMeasurementResponse(int statusCode, const String& response,
 }
 
 void sendOldestMeasurement() {
+  Serial.println("T010: procurando o próximo registro pendente.");
   String path;
   String serializedRecord;
   if (!queueStore.peek(path, serializedRecord)) {
+    deliveryRecoveryActive = false;
     return;
   }
+  Serial.printf("T010: registro pendente aberto em %s.\n", path.c_str());
 
   // Estes documentos são grandes para a pilha curta da loopTask do ESP32.
   // A alocação dinâmica evita o estouro durante a leitura do LittleFS e o POST.
@@ -452,6 +568,7 @@ void sendOldestMeasurement() {
     Serial.printf("Registro de fila inválido preservado em %s.\n", path.c_str());
     return;
   }
+  Serial.println("T010: registro pendente validado; preparando envio.");
 
   DynamicJsonDocument payload(3072);
   payload["schema_version"] = 1;
@@ -482,6 +599,7 @@ void sendOldestMeasurement() {
   }
 
   record["replay"] = true;
+  deliveryRecoveryActive = true;
   String updatedRecord;
   serializeJson(record, updatedRecord);
   queueStore.replace(path, updatedRecord);
@@ -513,7 +631,11 @@ bool sendStatusReport(const char* connectionStatus, const String& observedAt) {
   details["i2c_ready"] = i2cConfigured;
   details["sht31_ready"] = sht31Ready;
   details["veml7700_ready"] = veml7700Ready;
+  details["boot_id"] = bootId;
+  details["uptime_ms"] = millis();
   details["reset_reason"] = static_cast<uint32_t>(esp_reset_reason());
+  details["wifi_reconnect_attempts_total"] = wifiReconnectAttemptsTotal;
+  details["wifi_radio_resets_total"] = wifiRadioResetsTotal;
   if (WiFi.status() == WL_CONNECTED) {
     details["wifi_rssi_dbm"] = WiFi.RSSI();
   }
@@ -605,6 +727,75 @@ void takeMeasurement() {
   }
 }
 
+void fillQueueForT010StressOnce() {
+  if (!firmware_config::kT010StressFillOnBoot) {
+    return;
+  }
+  if (firmware_config::kT010StressSession == 0) {
+    Serial.println("T010: sessão de estresse ausente; preenchimento bloqueado.");
+    return;
+  }
+
+  Serial.println("T010: abrindo marcador persistente.");
+  t010StressPreferences.begin("t010-stress", false);
+  Serial.println("T010: marcador persistente aberto.");
+  if (t010StressPreferences.getUShort("fill-session", 0) ==
+      firmware_config::kT010StressSession) {
+    Serial.printf("T010: sessão de estresse %u já executada neste nó.\n",
+                  firmware_config::kT010StressSession);
+    return;
+  }
+
+  deliveryRecoveryActive = true;
+  Serial.println("T010: contando registros pendentes.");
+  const uint16_t depthBefore = queueStore.depth();
+  Serial.printf("T010: profundidade inicial=%u.\n", depthBefore);
+  uint16_t currentDepth = depthBefore;
+  uint16_t inserted = 0;
+  while (currentDepth < QueueStore::kCapacity) {
+    if (!queueStore.enqueueUnchecked(newMeasurementRecord())) {
+      break;
+    }
+    ++inserted;
+    ++currentDepth;
+  }
+
+  // A tentativa adicional verifica que a fila cheia preserva pendências e
+  // contabiliza a perda sem descarte silencioso.
+  const bool overflowAccounted = !queueStore.enqueue(newMeasurementRecord());
+  t010StressPreferences.putUShort("fill-session",
+                                  firmware_config::kT010StressSession);
+  Serial.printf(
+      "T010: sessão=%u; fila %u->%u; %u inseridos; overflow contabilizado=%s; perdas=%lu.\n",
+      firmware_config::kT010StressSession, depthBefore, currentDepth, inserted,
+      overflowAccounted ? "sim" : "não",
+      static_cast<unsigned long>(queueStore.droppedTotal()));
+}
+
+void preloadSyntheticQueueForT010Once() {
+  if (firmware_config::kT010SyntheticPreloadCount == 0) {
+    return;
+  }
+  Preferences preloadPreferences;
+  preloadPreferences.begin("t010-drain", false);
+  if (preloadPreferences.getUShort("preload-session", 0) ==
+      firmware_config::kT010SyntheticPreloadSession) {
+    return;
+  }
+  deliveryRecoveryActive = true;
+  uint16_t inserted = 0;
+  while (queueStore.depth() < firmware_config::kT010SyntheticPreloadCount &&
+         queueStore.depth() < QueueStore::kCapacity) {
+    if (!queueStore.enqueueUnchecked(newSyntheticMeasurementRecord(inserted))) {
+      break;
+    }
+    ++inserted;
+  }
+  preloadPreferences.putUShort("preload-session",
+                               firmware_config::kT010SyntheticPreloadSession);
+  Serial.printf("T010: %u registros sintéticos preparados para reenvio.\n", inserted);
+}
+
 }  // namespace
 
 void setup() {
@@ -618,7 +809,13 @@ void setup() {
   if (!queueStore.begin()) {
     Serial.println("ERRO: LittleFS indisponível; não é seguro iniciar a coleta.");
   }
+  if (firmware_config::kT010ClearQueueOnBoot) {
+    queueStore.clear();
+    Serial.println("T010: fila de teste removida por solicitação dos autores.");
+  }
   initializeSensors();
+  fillQueueForT010StressOnce();
+  preloadSyntheticQueueForT010Once();
   beginWifi();
   lastSampleAt = millis() - deviceSettings.samplingIntervalSeconds() * 1000UL;
 }
@@ -628,7 +825,8 @@ void loop() {
   maintainWifi(now);
   maintainSensors(now);
 
-  if (elapsed(now, lastSampleAt, deviceSettings.samplingIntervalSeconds() * 1000UL)) {
+  if (!firmware_config::kT010PauseAcquisition &&
+      elapsed(now, lastSampleAt, deviceSettings.samplingIntervalSeconds() * 1000UL)) {
     lastSampleAt = now;
     takeMeasurement();
   }
@@ -642,7 +840,8 @@ void loop() {
       sendOldestMeasurement();
     }
     if (elapsed(now, lastConfigurationPollAt,
-                firmware_config::kConfigurationPollIntervalSeconds * 1000UL)) {
+                firmware_config::kConfigurationPollIntervalSeconds * 1000UL) &&
+        queueStore.depth() == 0) {
       lastConfigurationPollAt = now;
       refreshConfiguration();
     }

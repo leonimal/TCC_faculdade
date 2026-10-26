@@ -1,61 +1,106 @@
 # 5 Testes, resultados e discussão
 
-Este capítulo reúne somente evidências efetivamente observadas. Até o recebimento e ensaio do hardware, há resultados locais da API, banco, dashboard e tratamento de dados; não há resultados de sensores, coleta ambiental ou validação ponta a ponta com o nó físico.
+Este capítulo reúne os resultados da avaliação técnica do protótipo: funcionamento dos sensores, estabilidade da cadeia IoT, recuperação de falhas, processamento dos dados e custo observado. A apresentação articula as três sessões formais aos ensaios complementares, relacionando as evidências aos critérios definidos e aos trabalhos discutidos na fundamentação.
 
-## 5.1 Caracterização das evidências disponíveis
+## 5.1 Rastreabilidade da análise
 
-As evidências atualmente disponíveis provêm de ensaios locais controlados, executados com MySQL, API e aplicação web. Esses ensaios utilizam registros temporários e são removidos ao final, não constituindo coleta ambiental. A integração com a placa anunciada como ESP32-WROOM-32D-38P, SHT31 e VEML7700, a identificação da sala, as datas de coleta e a autorização institucional permanecem pendentes.
+As três sessões formais de estabilidade operacional foram executadas em 19, 20 e 21 de outubro de 2026, com o nó `classroom-node-physical-01`, firmware 0.1.2, configuração aplicada de 60 s e `run_id` exclusivo por sessão. A exportação somente leitura do MySQL foi preservada em `experimento/dados-brutos/sessoes-formais-2026-10-19-a-21.json`, com SHA-256 `9e32b809b22239f6c406905b9523306f87065f0e14d30c454df1dabd0d0cb85c`.
 
-Quando os componentes forem recebidos, esta seção registrará: identificação das unidades, versão do firmware, GPIOs e endereços I2C confirmados, posição e altura de instalação, intervalo aprovado, datas e horários efetivos, instrumento de referência e ocorrências relevantes.
+Os dados derivados foram produzidos por scripts versionados e estão em `experimento/dados-tratados/2026-10-21-sessoes-formais-v1/`. O procedimento construiu a grade temporal de cada sessão, classificou os registros, identificou lacunas e preservou os subconjuntos operacionais sem imputação. Portanto, valores ausentes não foram preenchidos artificialmente.
 
-## 5.2 Validação parcial dos sensores
+## 5.2 Avaliação funcional dos sensores
 
-Não há resultado físico a apresentar nesta etapa. Após a montagem, serão inseridos separadamente os resultados de T001, T002 e T003: tentativas esperadas e válidas, falhas de leitura, faixas observadas, instrumento de referência, pareamento temporal, viés, MAE, RMSE, erro absoluto P95 e, para iluminância a partir de 50 lx, MAPE.
+Nas janelas formais foram armazenadas 1.609 medições com valores válidos para temperatura do ar, umidade relativa e iluminância e estado temporal sincronizado. Em conjunto com a inicialização dos módulos e as observações qualitativas descritas na seção 3.8, esses registros sustentam a avaliação funcional dos sensores: produção de leituras, continuidade da aquisição e integração à cadeia de transmissão e armazenamento.
 
-Uma classificação comparativa somente será apresentada se o instrumento de referência possuir identificação, resolução, estado de calibração ou incerteza documentados e desempenho adequadamente superior. Caso contrário, o resultado permanecerá funcional e descritivo, sem atribuir precisão metrológica ao protótipo.
+## 5.3 Estabilidade operacional da cadeia IoT
 
-## 5.3 Resultados da comunicação e disponibilidade
+A Tabela 2 apresenta a duração efetiva, as posições esperadas, as medições armazenadas e os indicadores apurados em cada sessão.
 
-Os resultados de T004, T009, T010 e T011 dependem da execução do firmware na placa física. Após os ensaios, esta seção apresentará completude, perda, regularidade temporal, latência leitura–API, disponibilidade, sincronização temporal, persistência após reinicialização, ocupação máxima da fila, reenvios, duplicidades e tempo de recuperação após interrupção controlada.
+Tabela 2 — Síntese das sessões formais de estabilidade operacional.
 
-O critério de aceitação e os procedimentos já estão definidos no plano de testes. Nenhum valor de desempenho físico é antecipado neste capítulo.
+| Data | Duração efetiva | Posições esperadas | Medições armazenadas | Completude | P95 até a API | Lacunas |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 19/10/2026 | 9 h 09 min 10 s | 550 | 549 | 99,818% | 2,353 s | 1 |
+| 20/10/2026 | 8 h 46 min 46 s | 527 | 526 | 99,810% | 2,606 s | 1 |
+| 21/10/2026 | 8 h 56 min 35 s | 537 | 534 | 99,441% | 2,511 s | 3 |
+| **Acumulado** | **26 h 52 min 31 s** | **1.614** | **1.609** | **99,690%** | — | **5** |
 
-## 5.4 Resultados da API, do banco e do tratamento de dados
+Fonte: elaboração dos autores a partir da exportação preservada e da análise reproduzível das sessões formais (2026).
 
-Em 25 de agosto de 2026, um benchmark local controlado executou 100 requisições nominais válidas e 11 casos adicionais, incluindo reenvios idênticos, conflito de integridade, conteúdo incompleto, timestamp incompatível, JSON malformado, tipo de conteúdo incorreto e credencial inválida. Todos os casos retornaram o resultado HTTP especificado e não houve resposta 5xx.
+As três sessões superaram o critério de completude de 95% previsto para cada execução formal. Seus percentuais também ficaram acima de 99%, mas esse resultado não substitui o ensaio controlado de aquisição a cada 10 s descrito na seção 3.8. O erro de intervalo apresentou P95 de 0 s nas três janelas, e a latência P95 até a API permaneceu abaixo de 5 s. As cinco lacunas foram preservadas como `MISSING_SLOT`; a maior sequência consecutiva de ausências foi de uma posição em cada sessão. Não houve imputação, colisão de posições ou tentativa de ingestão `ALREADY_STORED` nos subconjuntos formais analisados.
 
-A duração interna do Route Handler apresentou mínimo de 11,034 ms, média de 42,308 ms, P95 de 149,558 ms e máximo de 230,156 ms. No ambiente local avaliado, o resultado atende ao critério de P95 de até 500 ms de T005. A medição suplementar de requisição–resposta teve P95 de 152,334 ms e máximo de 325,714 ms; esses valores não representam hospedagem definitiva nem a rede da sala.
+A telemetria registrada nas janelas apresentou fila máxima de 0/256. O contador de perdas permaneceu em 1, valor já existente antes das sessões formais, sem nova perda telemetrizada. Na terceira sessão ocorreu troca de fonte de energia, com novo `boot_id`; o nó retornou `ONLINE`, com relógio sincronizado e fila vazia. O evento foi mantido no diário e a lacuna correspondente não foi removida da apuração.
 
-A auditoria no MySQL encontrou 100 das 100 linhas esperadas, com correspondência integral de identificadores, sequências, configurações, timestamps, valores, estados técnicos, hashes e payloads brutos, sem identificadores duplicados. Foram reconciliadas 100 tentativas `STORED`, cinco `ALREADY_STORED` e uma `INTEGRITY_CONFLICT`. A limpeza final confirmou a remoção dos registros temporários.
+## 5.4 API, banco de dados e visualização
 
-O motor inicial de tratamento foi verificado com um conjunto artificial de cinco posições. Ele reconciliou registro válido, falha de leitura, duplicata, lacuna, exclusão manual, configuração divergente, instante fora da janela e ausência de sincronização sem alterar a entrada nem imputar valores. Essa é evidência parcial de T012, pois a integração com arquivos brutos reais e checksums ainda não foi executada.
+O teste local controlado da API abrangeu 111 casos, sem resposta 5xx e com P95 interno de 149,558 ms no conjunto nominal. A auditoria do banco encontrou correspondência integral em 100 registros controlados, sem duplicidade canônica. Nas sessões formais, os 1.609 registros dentro das janelas analisadas também apresentaram identificadores únicos.
 
-## 5.5 Resultados do dashboard, relatórios e alertas
+O ensaio T007, realizado com nó físico e rede real em 15 de outubro de 2026, mostrou 20 de 20 medições válidas e sincronizadas no dashboard autenticado. O P95 entre a leitura e a resposta HTML renderizada solicitada foi de 6,173 s, abaixo da meta de 10 s para essa consulta. No mesmo ensaio, o P95 entre a leitura e a API foi de 5,705 s, acima da meta específica de 5 s; nas sessões formais posteriores, os três valores de P95 até a API ficaram abaixo dela. A atualização visual periódica do navegador não foi cronometrada isoladamente, por isso o resultado da resposta HTML não representa a latência completa da atualização automática.
 
-Um teste local controlado validou a cadeia API–MySQL–dashboard com três medições temporárias, incluindo uma lacuna de temperatura preservada após `READ_ERROR`. A página apresentou valores recentes, unidades, histórico com lacuna, estado operacional controlado e ausência de credenciais no HTML. A limpeza confirmou que os dados temporários não permaneceram no banco.
+## 5.5 Recuperação de falhas e reprodutibilidade
 
-Em benchmark posterior de 100 medições sequenciais, houve correspondência entre as amostras enviadas e os valores apresentados pelo dashboard. A latência leitura–resposta renderizada apresentou média de 40,78 ms, P50 de 38 ms, P95 de 56 ms e máximo de 98 ms, calculado pelo método do posto mais próximo. O ensaio mede somente o caminho local API–MySQL–renderização sob solicitação imediata; não inclui firmware físico, rede da sala nem espera pela atualização periódica no navegador. Por isso, T007 permanece parcialmente atendido.
+No ensaio físico T010, o nó continuou a adquirir medições durante a indisponibilidade da conexão e preservou registros na fila após interrupção da alimentação. Com a reconexão, retomou os envios. A auditoria complementar dos 256 últimos envios marcados como `REPLAYED` identificou 254 respostas `STORED` e duas `ALREADY_STORED`: 254 medições únicas foram persistidas, sem duplicatas canônicas. A advertência de ocupação foi observada em 213/256, e o estado posterior registrou fila vazia (`0/256`) e uma perda contabilizada.
 
-O relatório descritivo também foi verificado com dados temporários, preservando leituras inválidas, filtros, indicadores e exportação CSV. A implementação unitária das faixas locais verifica campos obrigatórios, limites ordenados, unicidade das variáveis e desabilitação explícita; a integração controlada com MySQL de casos abaixo, no limite e acima da faixa permanece pendente em T008. Não há alerta ambiental normativo ativo, pois seus parâmetros aguardam a conferência das fontes técnicas originais.
+Os autores relataram que a fila chegou à capacidade de 256 registros, mas não há telemetria persistida desse instante. Também não foi cronometrado o tempo de esvaziamento após conexão estável. Portanto, T010 sustenta a recuperação funcional, o reenvio e a deduplicação, sem comprovar a meta temporal de esvaziamento em até cinco minutos.
 
-## 5.6 Condições ambientais observadas
+O motor de análise T012 foi executado inicialmente com dados controlados e, após as sessões formais, aplicado à exportação real. O pipeline preservou a entrada bruta, registrou o checksum, produziu subconjuntos operacionais, classificações e arquivos de lacunas para cada execução. A reconciliação manteve a regra de janela semiaberta e a associação ao instante esperado mais próximo, sem modificar valores de origem.
 
-Esta seção será preenchida após a coleta-piloto e a coleta principal com dados do subconjunto ambiental válido. Serão apresentados os períodos analisados, número de noites válidas, número de observações, lacunas, mínimo, média, máximo, séries temporais e eventos que possam contextualizar as medições. Não serão feitas afirmações sobre conforto, aprendizagem, qualidade ambiental global ou causalidade.
+## 5.6 Custo observado do protótipo
 
-## 5.7 Comparação com trabalhos relacionados
+Os seis pedidos de componentes foram pagos em 28 de agosto de 2026 e totalizaram R$ 125,98, incluindo os valores de frete, tributos e demais encargos exibidos nos pedidos. Esse total inclui duas placas ESP32, mas apenas uma integrou o protótipo do TCC. A apuração utiliza os valores efetivamente pagos, documentados nas capturas dos pedidos, e não preços atuais de anúncios.
 
-Após a obtenção dos resultados físicos, a comparação será restrita ao escopo técnico: variáveis medidas, arquitetura, duração, integridade dos dados, perdas, limitações e modo de validação. Diferenças de sensores, ambiente, posição de instalação, rede e protocolo impedirão comparação direta de valores ambientais entre estudos.
+Os valores pagos nos seis pedidos são apresentados na Tabela 3. A quantidade adquirida é mantida no registro da compra, enquanto a atribuição ao protótipo considera os itens efetivamente destinados ao estudo.
 
-## 5.8 Discussão da pergunta de pesquisa
+Tabela 3 — Valores pagos nos pedidos de componentes.
 
-A resposta final à pergunta de pesquisa será construída somente após consolidar a evidência do nó físico e da coleta. Ela indicará, requisito a requisito, o que foi atendido, parcialmente atendido ou não atendido, sustentando a conclusão com as métricas e limitações registradas. As evidências locais de software serão distinguidas da validação ponta a ponta.
+| Item | Quantidade adquirida | Valor pago |
+| --- | ---: | ---: |
+| Placa de desenvolvimento ESP32-WROOM-32D-38P | 2 | R$ 52,48 |
+| Módulo SHT31 | 1 | R$ 17,92 |
+| Módulo VEML7700 | 1 | R$ 10,18 |
+| Cabo USB de dados | 1 | R$ 14,69 |
+| Protoboard MB102 | 1 | R$ 15,19 |
+| Kit de jumpers Dupont | 1 | R$ 15,52 |
+| **Total dos pedidos** |  | **R$ 125,98** |
 
-## 5.9 Custo e reprodutibilidade
+Fonte: elaborada pelos autores a partir dos pedidos pagos em 28 ago. 2026.
 
-Os componentes iniciais foram pagos em 28 de agosto de 2026, com desembolso total de R$ 125,98, incluindo duas placas ESP32, os dois módulos sensores, protoboard, cabo USB de dados e jumpers. Os pedidos ainda aguardavam entrega no registro de 31 de agosto de 2026. O custo final de um nó não pode ser apresentado: há uma placa de reserva no pedido e ainda faltam confirmar recebimento, funcionamento, encapsulamento, fonte de operação e a alocação dos acessórios. A classificação do valor como baixo custo dependerá de um custo-alvo ou referencial de comparação explicitado pelos autores.
+Das duas placas incluídas no pedido, apenas uma foi destinada ao protótipo deste estudo. Considerando metade do valor pago pelas placas (R$ 26,24), o conjunto eletrônico de uma placa, SHT31 e VEML7700 corresponde a R$ 54,34. Com o cabo, a protoboard e os jumpers utilizados na montagem de bancada, o custo atribuível à unidade experimental é R$ 99,74; os R$ 26,24 da segunda placa não integram esse valor.
 
-Até esta etapa, a reprodutibilidade do software é sustentada pelo firmware versionado, pelo contrato HTTP/JSON, pelas migrações do banco, pelos testes automatizados e pela documentação de inicialização da aplicação. A reprodução integral do sistema ainda depende da confirmação da placa, dos GPIOs, das ligações, da alimentação, do encapsulamento e das versões efetivamente utilizadas na montagem física.
+A apuração corresponde à montagem de bancada e exclui fonte de operação, encapsulamento, computador, internet, energia, mão de obra e infraestrutura já disponível. A expressão “baixo custo” caracteriza o gasto observado nesse recorte. Uma comparação econômica entre soluções ou a estimativa de uma unidade pronta para implantação exigiria incluir os respectivos recursos de operação e reprodução.
 
-## 5.10 Limitações
+## 5.7 Discussão dos resultados
 
-As limitações já conhecidas incluem estudo de caso em uma única sala, uma unidade inicial de cada componente, dependência de instrumentos de referência, coleta em período delimitado e ausência de avaliação com usuários. Até a execução física, acrescentam-se a ausência de resultados dos sensores, da operação offline real, da latência ponta a ponta e das condições ambientais da sala.
+A completude obtida nas três sessões, associada à preservação das lacunas e dos identificadores, mostra que o desempenho pode ser examinado a partir de registros rastreáveis. A retomada após reinicialização e o ensaio de reenvio acrescentam evidências de recuperação da cadeia. O resultado relevante é a integração desses mecanismos: aquisição, comunicação e armazenamento permanecem vinculados a uma medição identificável, inclusive quando há falhas ou tentativas repetidas de entrega.
+
+Hernández e Cañas (2024) também articulam sensoriamento, comunicação e armazenamento em uma solução destinada a salas de aula. Neste TCC, essa relação foi examinada em um único nó, com três variáveis e métricas próprias da cadeia de dados. A aproximação está na avaliação da integração; as diferenças de rede, escala e duração orientam uma comparação de abordagem, sem estabelecer equivalência numérica de desempenho entre os sistemas.
+
+A distinção entre funcionamento da cadeia e desempenho metrológico também é importante para interpretar as leituras válidas. Rus et al. (2025) observaram associação entre séries acompanhada de diferenças sistemáticas em relação a um instrumento profissional. À luz dessa evidência, a continuidade e a validade técnica dos registros deste protótipo sustentam seu funcionamento, enquanto a estimação do erro de medição permanece uma etapa própria de avaliação comparativa.
+
+O Quadro 2 sintetiza a relação entre critérios e evidências. Ele distingue os resultados quantitativos obtidos dos aspectos acompanhados operacionalmente e dos critérios cuja verificação permaneceu parcial.
+
+**Quadro 2 — Síntese da avaliação dos critérios técnicos**
+
+| Aspecto e critério | Evidência obtida | Alcance da verificação |
+|---|---|---|
+| Aquisição funcional dos três sensores | 1.609 registros formais com valores válidos e resposta qualitativa observada em testes exploratórios | Funcionamento verificado; ensaio específico de uma hora a 10 s não documentado |
+| Completude: pelo menos 95% por sessão | De 99,441% a 99,818%; 99,690% no acumulado | Critério atendido nas três sessões |
+| Regularidade: P95 dentro da tolerância definida na Tabela 1 | P95 do erro de intervalo de 0 s em cada sessão | Critério atendido no intervalo de 60 s |
+| Latência até a API: P95 de até 5 s | De 2,353 s a 2,606 s nas sessões formais; 5,705 s no T007 anterior | Critério atendido nas sessões formais e excedido no ensaio anterior |
+| Consistência integral e ausência de duplicatas | Correspondência em 100/100 registros controlados e identificadores únicos nas sessões formais | Verificação nos conjuntos auditados |
+| Visualização: P95 de até 10 s até o dashboard | 20/20 medições conferidas; P95 de 6,173 s até a resposta HTML solicitada | Consulta verificada; atualização visual automática não cronometrada |
+| Recuperação offline e esvaziamento em até 5 min | Persistência após interrupção de energia; 254 respostas `STORED` e duas `ALREADY_STORED` nos 256 envios auditados | Recuperação funcional verificada; tempo de esvaziamento não cronometrado |
+| Disponibilidade: pelo menos 95% do tempo programado | Telemetria e continuidade dos registros | Acompanhamento operacional; percentual de tempo disponível não apurado |
+| Sincronização: erro absoluto de até 2 s | Estado de sincronização presente em todos os registros formais | Marcação verificada; erro absoluto do relógio não medido independentemente |
+
+**Fonte:** elaborado pelos autores a partir dos critérios e dos ensaios do projeto (2026).
+
+## 5.8 Limitações
+
+As sessões formais avaliaram a estabilidade operacional no local de trabalho de um dos autores. As evidências prévias em sala de aula permaneceram separadas, com as limitações de identificação descritas na metodologia. A duração e o número de unidades avaliadas delimitam a aplicação dos resultados às condições ensaiadas.
+
+A avaliação dos sensores foi funcional, sem comparação com instrumento de referência. Os critérios temporais e os aspectos verificados parcialmente estão sintetizados no Quadro 2. O apoio à gestão permanece uma finalidade informacional da solução, cuja utilidade depende de avaliação posterior com usuários.
+
+## 5.9 Resposta à pergunta de pesquisa
+
+No recorte avaliado, o sistema atendeu aos critérios de completude, regularidade e latência até a API nas três sessões formais. As auditorias de registros, o ensaio de visualização e a recuperação offline complementaram a verificação funcional da aquisição, da transmissão, do armazenamento e da consulta. O Quadro 2 distingue esses resultados dos critérios que permaneceram sem medição independente ou com verificação parcial. Assim, a resposta à pergunta de pesquisa se apoia no funcionamento integrado demonstrado, dentro das condições e métricas efetivamente examinadas.

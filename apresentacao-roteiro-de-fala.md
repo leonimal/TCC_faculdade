@@ -59,11 +59,11 @@ Transição: “Antes de explicar a solução, situamos o problema que ela busca
 
 “O protocolo prevê primeiro uma coleta-piloto de uma aula, usada para verificar montagem, conectividade e registro temporal. Só depois ocorre a coleta principal.”
 
-“A coleta principal está planejada para duas semanas letivas noturnas, com meta de dez noites e mínimo de oito noites válidas. Datas, sala final e autorização formal ainda serão registrados antes da execução.”
+“Testes físicos já realizados em sala demonstraram o funcionamento do nó em múltiplas datas, com as limitações de rastreabilidade registradas. A validação operacional final terá três sessões formais não consecutivas de oito horas, totalizando 24 horas acumuladas.”
 
 ### 9. Qualidade e tratamento dos dados
 
-“O trabalho preserva duas perspectivas. A operacional registra falhas, duplicatas, lacunas e eventos de fila. A ambiental principal recebe apenas medições válidas, únicas, sincronizadas e de noites válidas.”
+“O trabalho preserva a perspectiva operacional: falhas, duplicatas, lacunas e eventos de fila em cada sessão formal. Os registros ambientais anteriores são descritivos e permanecem separados, pois não possuem a rastreabilidade necessária para uma caracterização ambiental formal.”
 
 “Não há interpolação ou preenchimento artificial de ausências. Uma posição esperada sem medição válida é registrada como `MISSING_SLOT`.”
 

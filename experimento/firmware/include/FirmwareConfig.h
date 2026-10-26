@@ -45,6 +45,36 @@
 #define TCC_LOCK_REMOTE_CONFIGURATION false
 #endif
 
+// Definido somente para uma execução formal ativa; vazio fora dela.
+#ifndef TCC_RUN_ID
+#define TCC_RUN_ID ""
+#endif
+
+// Uso exclusivo no ensaio controlado T010. Mantê-lo falso fora do ensaio.
+#ifndef TCC_T010_STRESS_FILL_ON_BOOT
+#define TCC_T010_STRESS_FILL_ON_BOOT false
+#endif
+
+#ifndef TCC_T010_STRESS_SESSION
+#define TCC_T010_STRESS_SESSION 0
+#endif
+
+#ifndef TCC_T010_PAUSE_ACQUISITION
+#define TCC_T010_PAUSE_ACQUISITION false
+#endif
+
+#ifndef TCC_T010_CLEAR_QUEUE_ON_BOOT
+#define TCC_T010_CLEAR_QUEUE_ON_BOOT false
+#endif
+
+#ifndef TCC_T010_SYNTHETIC_PRELOAD_COUNT
+#define TCC_T010_SYNTHETIC_PRELOAD_COUNT 0
+#endif
+
+#ifndef TCC_T010_SYNTHETIC_PRELOAD_SESSION
+#define TCC_T010_SYNTHETIC_PRELOAD_SESSION 0
+#endif
+
 namespace firmware_config {
 
 // Confirmar os GPIOs no silk-screen da placa recebida e nos módulos. Não usar
@@ -62,9 +92,15 @@ constexpr uint32_t kStatusIntervalSeconds = 60;
 // Antes de uma coleta válida, definir como true no arquivo local para impedir
 // que uma configuração pendente seja aplicada pelo nó durante a execução.
 constexpr bool kLockRemoteConfiguration = TCC_LOCK_REMOTE_CONFIGURATION;
+constexpr bool kT010StressFillOnBoot = TCC_T010_STRESS_FILL_ON_BOOT;
+constexpr uint16_t kT010StressSession = TCC_T010_STRESS_SESSION;
+constexpr bool kT010PauseAcquisition = TCC_T010_PAUSE_ACQUISITION;
+constexpr bool kT010ClearQueueOnBoot = TCC_T010_CLEAR_QUEUE_ON_BOOT;
+constexpr uint16_t kT010SyntheticPreloadCount = TCC_T010_SYNTHETIC_PRELOAD_COUNT;
+constexpr uint16_t kT010SyntheticPreloadSession = TCC_T010_SYNTHETIC_PRELOAD_SESSION;
 
 // A execução experimental será registrada pelo software antes da coleta. Até
 // então o firmware envia null, conforme o contrato v0.1.
-constexpr const char* kRunId = "";
+constexpr const char* kRunId = TCC_RUN_ID;
 
 }  // namespace firmware_config

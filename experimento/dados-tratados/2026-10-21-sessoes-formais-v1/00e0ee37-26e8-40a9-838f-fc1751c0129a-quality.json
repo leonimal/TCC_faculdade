@@ -1,0 +1,3287 @@
+{
+  "schema_version": 1,
+  "run": {
+    "id": "00e0ee37-26e8-40a9-838f-fc1751c0129a",
+    "start": "2026-10-21T11:09:41.000Z",
+    "end": "2026-10-21T20:06:16.051Z",
+    "sampling_interval_seconds": 60,
+    "configuration_version": 4
+  },
+  "metrics": {
+    "expected_slots": 537,
+    "occupied_storage_slots": 534,
+    "valid_environmental_slots": 534,
+    "missing_valid_slots": 3,
+    "storage_completeness_pct": 99.4413407821229,
+    "valid_slot_completeness_pct": 99.4413407821229,
+    "synchronized_canonical_pct": 99.4413407821229,
+    "regularity_error_p95_seconds": 0,
+    "largest_missing_sequence": 1,
+    "duplicate_input_records": 0,
+    "duplicate_ingestion_attempts": 0,
+    "slot_collisions": 0
+  },
+  "reconciliation": {
+    "input_records": 537,
+    "canonical_records": 537,
+    "duplicate_input_records": 0,
+    "primary_classification_total": 537,
+    "primary_classification_counts": {
+      "VALID": 534,
+      "TIME_UNSYNC": 3
+    },
+    "identity_holds": true
+  },
+  "classifications": [
+    {
+      "measurement_id": "bec62933-d79c-4ee5-b08f-7b548ce9461d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:09:41.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cde13533-4b3e-44ce-ae16-d0ceed1d8a33",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:11:31.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e998fd54-227b-4885-b451-df0aa05c3de4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:12:31.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8e19ab95-36ee-45ef-ad9c-dd6b7450ea38",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:14:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ba9c5158-15d7-4170-b3df-1b60d1d9c6a8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:15:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "97c5f6c7-e2b6-436b-b5c9-988ea865fac4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:16:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a48eea09-1579-4df1-ad62-67bb7c491b40",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:17:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "09283f4c-75ed-4c61-bb98-d2c7f56c5bb9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:18:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4030d707-6a37-4955-aabb-5a969db13eb3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:19:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8bbf31fe-c36f-4f51-8158-99ea0b7670b6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:20:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1858c94d-31d5-480e-99f2-931261d87230",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:21:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e95d934f-dcb6-458f-96c3-3a0b276d676d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:22:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4fc68ee2-c8ad-4be2-bf85-72fe2e9f2deb",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:23:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a07219d8-73e3-439b-b184-c7c8021286d3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:24:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a59f9aa0-25b0-429b-8c9f-0ebb3b69cbef",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:25:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "18cd52b8-8e7f-413b-8a34-70d5cda29689",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:26:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "851e5c07-c644-4c70-a729-105f160c57d9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:27:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b05c92be-a16e-4c21-87df-56a8f40d57f4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:28:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4b4e7b40-5868-4912-a614-1aadaf215943",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:29:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "57ec0eea-6089-432d-9e44-dd6b14fd9af5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:30:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0b937d63-8c65-456a-ad8a-7ffcbd4a5c7e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:31:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5f3f73ab-5ad7-40c8-8869-757c4dfc67fc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:32:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "be56dd9c-dcab-45fc-863a-450808a4e1c9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:33:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e52bcdbe-4b5d-4fe3-ac75-d1d264afaa56",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:34:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d6a18c62-2e35-4eb0-a13c-4993566b2647",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:35:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2cb41984-55e7-49b1-a28e-5b1a32b316ea",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:36:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8bf5bb88-40b1-4539-80f3-6b80f4277a8f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:37:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9d6185c0-098c-47f5-9e15-11075f9b6210",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:38:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c0784e77-13be-48fd-bf73-48c514e732af",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:39:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f704852c-7bb9-4f71-9e0c-9e0a3904f2ee",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:40:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "09fd790a-d3ed-47f5-b636-7b873f73f22d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:41:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b4dc9dc7-7058-420e-9e5d-fe79bd3b4a23",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:42:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8f5d115d-32f2-4891-aaeb-961b18fe8b4d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:43:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "231ef92b-d23f-4233-b14b-581768b10551",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:44:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cfd92876-3f0e-453d-a3bc-3cda214c546b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:45:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3f69e583-732b-4b19-82a9-a75d4daa4397",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:46:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "11fb5998-8603-463e-a0d3-988990489317",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:47:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9d47ca73-ff43-4ffa-b83f-dc92bace75cf",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:48:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f5992515-3ed0-4b29-9149-9554ca428c55",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:49:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9caebb60-7e7b-479b-b9b4-31cc4654b34b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:50:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c8ea132f-d46f-48d1-bff7-cb3851864004",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:51:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b158171c-0f54-4d08-9cf3-50101f8f69b9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:52:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3538a4c5-dbf3-4181-b8d3-a98948f0fe73",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:53:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "da9032cb-a523-4d8d-9d0a-38d67609bb8c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:54:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a17850a8-48f7-4d52-9fa0-e62f8b1682ac",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:55:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2db5a678-0977-4c90-8030-3e6a71f2f1e3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:56:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eb3fc923-0a48-4fe6-b8d4-9afce2387e5e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:57:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8c66166f-ee70-4f85-867b-a58de35bc239",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:58:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "285f284f-fb6a-4013-9b3a-25d4dff99b6d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T11:59:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5a347c3b-127f-4035-a9e9-2e2a414a5fa0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:00:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "61d36f2c-1a13-4c60-b9e5-9eca70af353f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:01:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e8dbd9db-2b0a-42e9-8ac7-23a58b0262a0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:02:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "740c4934-ec0a-49a5-8029-f9615c100f49",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:03:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "39bca37b-84f6-4fbc-ba5f-eb87b8bd984e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:04:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c7eea28d-96e0-418e-a109-30a16414ab4b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:05:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "87970f82-4537-4e37-b9a2-fb96a7cc4ee2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:06:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c27d796b-c15f-4aa1-8c78-025b237bbbed",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:07:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c1dd1bfa-1dad-429f-9a6a-aaa4e061797c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:08:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e8dfaf7e-e228-4f0b-9afe-2136a0388d10",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:09:47.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "de6ad2ec-ba0a-47e3-aa7f-a9e0d171dabf",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:10:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "467caf21-471c-4e4f-8479-3f32b7453299",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:11:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "41268b4f-6e4c-4bb3-97ae-a357a0d9da94",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:12:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0d931451-d0b7-4f9a-bbdb-7bacfc1f9832",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:13:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f28caa12-5877-409b-9efc-e1a9108ddd65",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:14:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5c175c32-b67b-41a6-b5a5-ce5e78ec0493",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:15:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "fe66d3a0-210a-463a-bd47-3907b510e0b2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:16:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1135b225-a740-44af-81fb-4c63a4f5f117",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:17:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e9f9232f-e47b-4589-b710-35cd40086a38",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:18:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e2532f68-b0e5-4748-89dd-b4fc00862b17",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:19:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8308def8-f689-44c9-b10c-5208b85802e3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:20:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "60f1e8b8-4a1d-40fd-909c-3646bc45f4fd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:21:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d124bad5-27e8-4dfb-98d6-51be62eeea2b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:22:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "af4ec087-ce5c-47c8-938d-cf912a604085",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:23:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9cdea5b4-4764-411d-9ae7-0a9401448e4f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:24:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "086fb74f-0393-40fd-bfe1-99954f82a9a3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:25:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e4872070-b359-4c32-b8f3-da9da04e40f0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:26:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "81c6d0f6-b51b-416f-a69d-a17e9845f02d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:27:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ebe0eeb0-410b-49ee-9e40-05bc450a99d2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:28:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9a318570-6f31-421b-b80e-5b494b9c3f77",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:29:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a6cc6964-6ce8-4b58-8d06-c15b29edd405",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:30:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c8b62b78-32de-412d-872a-052f04215c09",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:31:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cad9205d-bd90-450d-8faa-bb9f7446f73e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:32:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9a024ced-6f82-43a4-a28c-ef89d86cf955",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:33:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "25819dca-0d1e-4e48-ba8e-41da1b5ac860",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:34:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d3e7c437-7b92-4426-b368-9dc5ed42ea1d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:35:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b59a9ec9-c7de-4c5d-b5fc-ce6c6a58f476",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:36:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c3372c9f-7795-46a0-a195-70b58c407cfd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:37:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "dc357010-be7b-4a56-bc2f-7497ff9efdfd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:38:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "574eec76-df19-4e04-9022-bb2898c69f20",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:39:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "85125696-4295-4575-b583-13c173593f4d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:40:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0a18f662-2fc5-47be-bdfa-efbc067642aa",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:41:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "be3f94e9-2567-4fa3-b9de-a609cc6caed2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:42:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6132d4a5-b211-4d17-bd5b-32b3cdb45353",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:43:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bad70aa1-7f5d-40ce-8354-839a274ef07b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:44:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "32e36efb-640d-4a88-9ff4-f8cc3460e364",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:45:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e58bc784-e7db-43cc-82b6-c034bc723379",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:46:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0a398294-8484-4276-98dc-dfea97a353a4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:47:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5e3dae2c-2331-4c65-b038-d62323de2a46",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:48:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "29d22ffb-1e86-44bb-8e24-db16ccd4ec4c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:49:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "92c6a307-cee0-45fa-a6e8-9a0072e7d2b1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:50:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "60775603-ce90-4d51-96a9-b992061a879f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:51:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9e97cbe9-dafc-4908-831b-daee8e8ebcde",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:52:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "269f2d56-916a-4a66-9fdf-fd1bbb7283a8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:53:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8f1e4417-ebcd-4cbc-a3aa-a77c51d50e3a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:54:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bd9af079-189c-4171-911b-321fd8e31ea5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:55:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "da527c5e-f77e-4a04-b646-d08f67ebb5ae",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:56:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c9ffa13b-0480-454c-af80-e2973df82689",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:57:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9db2b0e3-5292-4bf2-91a7-79c3e62d1552",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:58:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b7b3d87a-1be6-4bef-9dbb-b8e29f3fddf6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T12:59:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "88e727ab-1753-4c68-a5c2-93ea7a9630b3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:00:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac21f4c7-6e87-4ca8-b943-416fa9c57ee6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:01:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "fadf6fb3-de3b-4c2b-bf8e-e444e225a257",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:02:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5b37bbbc-4df1-439f-9941-3ec46c12e2a3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:03:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0b751952-83c7-4822-b10f-2e6142695f8d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:04:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0e875b35-cffb-4bfc-bb8f-2ee92d6c16d4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:05:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8f8273ba-47c7-42be-aa6f-336a6c105286",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:06:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "850e939c-00ab-40d1-8dbe-b1250d662919",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:07:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1379f79e-271b-427e-923c-412ae7c89cec",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:08:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5d90d31b-4b7c-40d3-9be6-f99e6283d76c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:09:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1bf2e06c-9c55-4adb-890e-cc9f5bc8b5fc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:10:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "43e897ce-0caa-4128-bd87-62340a5b42f3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:11:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "543bb746-817b-4d06-a4f0-3189101b3d4f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:12:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "184c2699-49e2-469c-b95c-fcfe5cb5c0f0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:13:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "272dc41a-507b-4c27-bcee-35fd7bb5cdde",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:14:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "da6a43ae-8f31-4875-a59c-b3e4c6e2467e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:15:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4829a3b0-dea0-412e-8f6f-af1aca2b5b1f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:16:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "51b72be9-e06f-4a27-929a-0babf10cd7b9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:17:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2871034e-1f5b-4599-a637-dfb5a172105a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:18:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac5c49fb-78a1-4332-807b-3529f1a2439d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:19:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4220dfc2-a6f6-4708-9254-4655d075b6d2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:20:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3a70d0ab-6529-49ce-9fd8-8b485f3381ed",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:21:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0dc41dd7-7d36-44e0-89af-1c57db4c7494",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:22:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b9f10147-6a54-4d0a-ab51-e75fff8957ad",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:23:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6b5dbd69-cbcd-4989-a4b2-fd1fe4f9ce20",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:24:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2dd915de-23ea-445f-9fc4-c03a23f9da90",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:25:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8abef7bf-8c0b-4034-ab98-55088daec865",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:26:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1094eb4c-af8a-4776-bc59-c26890775ea6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:27:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "fa4a2ad0-df9c-4ed2-9c44-111c44f6fea3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:28:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "083a76c2-9c2f-4f19-9326-6ba15ecea36f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:29:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7d0a5b14-f90f-4b26-a3e6-091f5e10a653",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:30:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ea4095ee-9f17-4fce-ae5c-9add1d1a2912",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:31:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "06d4585b-d140-45a7-a52b-ad4fb8118e29",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:32:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "646e3d30-7239-4955-9498-0632799402f3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:33:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "539020d2-4c9b-4200-8990-3f50c8a4021f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:34:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bfa9c71c-5456-42e2-a9d4-94b2ca689ad6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:35:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "82d63dc8-3bdf-478e-8470-d15bdbb5b7ca",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:36:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "473409e2-5401-4640-b21b-073c37e87745",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:37:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac099f01-5f24-4d2f-9529-aff8ec3842c0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:38:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "704b64af-7608-488a-9d48-8768ca9f8a7b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:39:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9c483f88-e303-416b-a5b3-4a22d119c983",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:40:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6274bcde-c2f0-40af-88f8-39b7efd43e98",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:41:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c0568fb0-9af3-4938-9f9c-4a703f2483b6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:42:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e42f24c2-2206-459a-9a82-4cf60c087ce3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:43:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "04cfd152-8578-418c-9b2f-77ad2ea0ea33",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:44:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d8d5137e-535c-4797-8838-42d4ed975a73",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:45:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "881f5f18-1e03-4b90-92fb-07169a9e7d2d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:46:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "fa6ce069-b3f5-4009-9d36-fc860f342669",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:47:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "adbfe958-bbb9-4332-a9b2-5f56ceb764de",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:48:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4c99a522-b024-40c2-af93-f42ce21d1b49",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:49:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ebe390a1-8eca-4ab7-8d34-748cdd57976d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:50:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4c639f6d-db2b-43c2-8182-d1ae2726702b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:51:48.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a7b9ebf4-17c9-4ff8-83d6-454ee14184f7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:52:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b678dd96-fc83-40cc-a23d-6dfc96cce533",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:53:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c15578a7-9f23-4f85-9eb8-421fe9d1c5d8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:54:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8378ceed-bb9a-4dbf-b282-ac646de0d1d8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:55:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2c0a431c-b06a-47db-80e2-183de8249135",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:56:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c5032eeb-07ea-49a4-918e-c8dca206e1ae",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:57:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2ee0ee8c-b6ac-4201-8664-65c9518807b4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:58:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "88e500f9-93bb-4a7b-8355-98429c49d5f3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T13:59:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "05e67139-e4ff-4b8b-9569-4efc3f71dae8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:00:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6a85d957-3ab6-4513-8d94-c1dbddbc8fc3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:01:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e301b613-fa24-43d8-b4f9-9dac6ac7af85",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:02:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3660fc00-1577-4b9b-8ae5-678978ffd9e8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:03:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bd45d3dc-d925-4bcd-8b9e-ac903952b1ae",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:04:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "de8f8076-355e-42a9-b8d9-4c382f8e66d0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:05:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ad785b92-0290-49c8-892d-e0b6e9cbe477",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:06:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a142931b-d739-4e58-99dd-4d523b472f51",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:07:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "68a79a99-d1b6-45af-8894-f5795b69da3c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:08:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac3a106a-8ae7-4c66-b371-e925017dfb75",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:09:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6383357d-a3dc-4f3b-acd3-ecab6c2a0179",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:10:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f82106f8-0c73-4f52-a775-594fff5ac13e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:11:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9c86e425-b118-48c9-8149-c3d7e141a832",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:12:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e427a981-effc-4157-9f1d-b3cdcc7e1c79",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:13:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "184a2477-cb8b-4fc5-a09f-64b9a368ed1b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:14:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "da6ee454-4270-4fee-b4ad-51909b2accd9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:15:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cdb7dae1-791f-474f-ab46-36a7e67be111",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:16:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bf295c80-1bb8-4e7a-a4ac-95e2f32ac6db",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:17:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1ead6aa1-c874-4cb0-aedb-47e07c7a4022",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:18:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2e5e8128-c890-439d-b3fb-6620d808b223",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:19:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6b4e4243-0cb0-40cf-b0c0-9f7d8f58eb19",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:20:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f82f6af6-6bde-4d2b-b4a6-baa24aa40f4d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:21:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "db4a4406-74f0-4eef-89d6-a1a135ff7a80",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:22:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "75e82df5-2417-4ae1-8aa6-406d3597cad9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:23:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "830c98e2-f428-4ab4-85e9-53e833fa4c06",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:24:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "aa96eedd-a980-4973-9abf-6e2a4dcd8763",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:25:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3b990000-d156-4c64-b076-89d02d1205a4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:26:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "513c2351-745a-4159-9b8e-7d9c41ed6966",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:27:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eee819ac-9d16-450e-8d5c-33100820d4b3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:28:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f5a3f6a0-71a4-4c85-b810-9a78a337d8b6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:29:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "782fa3ae-c71a-4c75-b7be-3c00faf0e2b4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:30:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0a81c2c4-a18c-40a8-bf9f-b98ff8a57a45",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:31:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3e90b112-d920-4aca-85c7-45a2951d4026",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:32:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c91dc748-9106-4905-b757-333acf121633",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:33:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bf2b8bac-856d-4c8a-869b-556459574013",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:34:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2b8b2c60-4e98-4468-8532-d88d510d2d52",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:35:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "89a40959-0acb-410b-a93e-d86d041978e0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:36:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e56ac0e1-b761-4da8-9fb4-9365b271ae1e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:37:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ef80c329-3cb1-4ca0-a7c8-013ac2a286d4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:38:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6614f87c-4aac-4063-873b-6219a31e3f3e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:39:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d48b14ce-16f4-4b29-b823-5d1a25256409",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:40:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b6a0cefb-b82a-45f7-9973-ef87e0783da3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:41:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e1810340-41cc-47a6-98cc-3ccb916d6848",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:42:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "454f685a-16a8-47c3-b58e-49ab880ebc20",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:43:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3067c9cb-27d0-4447-be1f-679e66e77404",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:44:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e48f23b1-db21-49a7-b3f2-2fb7b39d03fd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:45:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7455bc14-71bb-4fd3-b532-1c8ea00e94d7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:46:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2e55ba9b-18c8-4880-96ba-95db89371bbd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:47:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a3028b28-a96d-42e5-99f3-a2414417589b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:48:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "56b3e8a2-bab4-44b4-bacf-14e656065d10",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:49:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "daa37a76-044b-44e7-a29a-eb0cb4ef6b08",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:50:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "dbffc4d0-4edd-4ca7-a7ec-3d8a713b5ad1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:51:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4373200c-238c-4a6d-b0ef-7291339a1752",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:52:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8f03dbcb-12a8-440d-9511-a9f589c07f9f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:53:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e259c3cc-9f81-4f5b-8f67-df330116b55c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:54:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "473ec8b5-37dd-4d46-b12d-141eaf5c2c26",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:55:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9e44e895-9eb1-44d7-a71b-6e96b0920867",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:56:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7344e6e5-d355-4429-95ab-0e5caa04c330",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:57:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6633ee35-e75a-4fe4-8c89-29c736c0164b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:58:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eb698e66-3de5-47a7-9208-350e163feacb",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T14:59:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "dc8c2fbe-e92d-41c1-8454-99cb724e1543",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:00:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d4102d2f-91c0-47a8-817a-57a299d1133f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:01:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ffd9b412-c4c2-471e-8913-cdf94fe9e7c7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:02:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "17a6a615-80df-4cc4-adb1-05043c7f023d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:03:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "90d0d5ee-8da4-4d1d-9555-2076f71f6637",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:04:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b1bc1a3b-a52b-44f4-99c4-76ff8c8db948",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:05:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b2d52e90-ac55-4462-abcc-86572afbe055",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:06:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a6b72298-85e5-410a-b4e7-5cea352b40d8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:07:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d6d8a554-2309-4920-bd88-5eb29f4d8973",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:08:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d6206384-a1ca-4e8f-92a4-b456697fabd7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:09:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5fca47ff-4579-42c5-a1a6-199792c8cc82",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:10:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "04975226-2f66-4d38-a72e-99d8639779a4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:11:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "07688a4e-238a-4bbb-bf2a-4d8f72805785",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:12:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d863481e-7c8f-463a-a02a-3d377ceaf0b8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:13:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "12353367-c54e-4e7d-bd78-42f8a668ab16",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:14:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1d07e07c-4738-437c-bd32-b16087b95069",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:15:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3901cf4a-a739-4a06-8cfd-cf4f49f7079f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:16:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a5017ff6-fee3-4212-9f70-70bda7203216",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:17:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "73465ea3-a4bf-4f7b-a9ca-8f566d9a88cb",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:18:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "27921efe-d035-450c-9aa9-cb7b999d9543",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:19:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a3d710ab-3d26-45f4-ba5a-3fa2506256da",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:20:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3455707f-c463-4d1c-9b00-d75982d35325",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:21:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5f315ab3-8da5-423e-aaa2-ae993f1698ec",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:22:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0ec19e0f-438d-4d75-8223-99eb11575097",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:23:49.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b76cbd65-4723-4d01-a6aa-7818b51a8629",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:24:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c7ae067c-accc-40ba-9126-d4ae03739aaa",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:25:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f70447a6-8ccf-4d20-8c80-39cb62584788",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:26:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d14d7116-4254-4cde-95de-a7d0aedfd948",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:27:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9694b6e7-dd0f-41ed-8c80-33f914d224c4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:28:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6f761af3-9b3c-4658-bce7-37bd624fc0d9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:29:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b8350458-e941-4c2b-be94-607f4bdb0237",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:30:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8a2e3c88-c5f4-4205-a6ff-74f97da14479",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:31:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f16fa74d-ad7d-4e22-a202-fc2b81411560",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:32:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c3f22bed-772b-4a1d-9a4c-893e02a8fea1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:33:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "14cd7ad7-6f31-474a-bec2-0665b937563f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:34:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c7ec0cf5-6d27-43d9-a474-c3dedc8d5b89",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:35:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "db773e3c-5bef-49de-919f-9bf4f2b34b3c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:36:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d32bd522-9fa8-4d08-85ea-466bdf259fe5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:37:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "41186a93-42b1-4d88-88a3-f0cd8b44c610",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:38:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e8357b6a-0136-4f3b-bc14-c0b63d767d01",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:39:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4a611ed0-f2d6-4ae5-aac0-1341b65653de",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:40:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "981f5c3c-0b25-4441-bc12-66c000a68830",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:41:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b4e3c6e2-c29f-4153-91e3-e0cf39faa9a5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:42:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9628985b-f3d3-4b8a-8b03-027f23e57abf",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:43:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2847c53b-18bb-4961-af7a-1b7af9a6b32c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:44:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b6fab63d-ceb6-4b06-868a-da493dc965a2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:45:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2a175b87-b2c6-4d15-b57a-8890a1c4ca0f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:46:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6286479b-ac7c-4fc9-be4e-8ac9606119de",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:47:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "61e55202-dca3-46ea-8033-1a42f487fabe",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:48:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3503aec2-94dd-440d-aa4d-5b83a0a4179d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:49:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "be162a5f-5a72-4d8e-9a18-50c0a1172e83",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:50:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "43b38f75-0f0e-41e3-a5ab-c21739bd1a11",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:51:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c6809722-8ff8-453b-aad6-2719a4526cb2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:52:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "62f86644-a66c-4d2b-8eaf-1596284a202d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:53:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "591a6fc0-ee8e-43e7-bbbf-746234968497",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:54:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "45654eb8-7253-478b-9917-265198e041c0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:55:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ab68b463-916f-4ea5-a679-ae10422af9bc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:56:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "96866431-f05f-4085-9f3a-d83da52fb7b6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:57:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "96ae0b15-9fdb-4e10-952a-9914f9020f53",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:58:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "875e323f-f064-4abd-b51a-09d6c9489346",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T15:59:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f14b30fd-156d-4301-bcc9-f114f4dc8152",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:00:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8d7bb957-d314-45c0-8d9e-8a921f76c373",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:01:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "67a9d50f-d1a1-47b8-ba34-d90bad0c3307",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:02:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "31bbfa4b-d372-4f04-adb6-5f34392dfd42",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:03:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c41ada67-2e3e-4831-a8f7-f241129d9897",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:04:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5642a846-7734-41d2-ae47-b47a4cac6462",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:05:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eb04a42c-a5e6-4081-931b-c809e8ad647a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:06:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "42b766e2-8827-4ffe-8cd3-2848282be5f6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:07:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6134ff22-4786-415d-84ac-d41aae29e88f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:08:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d3c5894f-f5fe-447b-a62d-cc305e71d6d1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:09:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1c7f5541-9259-416d-88d6-bc0b69540c69",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:10:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ba51415e-9a8e-4c9d-af3f-9194227f2c0c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:11:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cf203afd-4d65-41ce-8e9b-55985926e726",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:12:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9e24a723-5cdf-4ac4-ba10-783a8b4503fe",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:13:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2a81c8f1-9f67-4265-962e-febbb72845f3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:14:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "051d5fbd-cec4-4130-8c45-dab68796cd83",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:15:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a90b8b45-77fa-4e24-912f-769a392ec9f5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:16:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "230bfaf7-26a0-4944-bbc4-2f2d897c186a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:17:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "efc16211-d00f-4b5c-8c82-a178f300fb41",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:18:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "59ea0562-5f8b-4462-945b-dbfc596d5ca6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:19:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ab439b0a-bbac-45da-a7c0-3bbf5954ac12",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:20:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e286b4c4-24f8-46f3-be60-0535732ff68b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:21:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "573ac859-f578-42b7-a8fb-26377130d253",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:22:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9ef1738f-a0d8-4acd-abe6-8f14ced19ffe",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:23:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "18f188e4-1c80-4cf3-bbf7-bfd2567daf21",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:24:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b68f2c81-a773-442a-be7e-22c636c4f9dd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:25:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f2f3d307-05a5-4445-8bce-9bd2e70ca84f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:26:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "90fce5cd-c0d7-4a79-b743-92847a090757",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:27:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "db03b9e9-475c-45e6-8aac-0f03dcf11d71",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:28:50.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f241a71e-f6d9-4f16-a984-23adecefe2a7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:29:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "51cb0b12-2b44-4943-9cae-505617ae91f6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:30:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b88922fb-27c2-476a-978f-23499203b5b8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:31:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4daac337-7730-4506-a9b2-a6e00fb9128a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:32:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2ee8e745-9ec2-43ee-811d-6837a334ede6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:33:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9f6279ff-f6fa-4c2e-9544-b60074c57d65",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:34:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c582dd3b-ff06-4c0b-a12b-d45211dbe208",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:35:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4c53f996-091a-4ffb-b83e-3d49ff5a5180",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:36:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6ad7d1da-e82f-4993-80d5-3858ee1aae82",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:37:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e38e1510-eaa1-4cc3-89e8-44fcb3e5273d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:38:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e2377384-258b-4590-a796-336f6fd91fcf",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:39:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c49296eb-646b-4c1b-a49c-fe3f4e8f69e4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:40:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0f41bd2f-9754-4099-9407-09b82d545241",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:41:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d3263c50-6403-4f0e-b6db-b6ccec68b899",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:42:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "61ffc11e-e751-44c6-bbc9-1a0758be9b4e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:43:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "edb21817-2f3a-4209-afd4-4b8aad04f7e7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:44:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "68fdc859-919d-4fe4-bd46-c6934baed56e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:45:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "506bb7b3-d95d-45da-83a9-e113fd371d40",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:46:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "19997e9c-57f9-4d81-a05f-77c704d86a1c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:47:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1398fd0c-d3b8-4726-9095-0fd7a425b09c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:48:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a869b4f1-bb62-420a-81f5-ae69c78005ce",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:49:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a20b5ed7-21a7-45cf-9274-c1785b6a50c4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:50:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "09b3df53-7adb-4d72-a6f7-61f9c473009b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:51:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "48166b65-ea47-4ea2-8745-ee86d6142982",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:52:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b6539554-b9b1-4ff1-b060-8cffa21f566c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:53:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "31a5df90-0366-44ad-bfaf-5ebc2b1fbfdd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:54:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac814a9d-6fec-4343-b1a3-dd8210930321",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:55:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "caa6f9a3-b2d1-4a3e-b93f-d0b87275029b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:56:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8c7c1736-41c8-4086-99dc-d3f83c59b769",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:57:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "50d5178a-a3f2-4ec8-b2ca-4abd798cb011",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:58:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "152b3109-48c9-4809-854e-32ad1a797a88",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T16:59:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e266a758-bcb7-4f7a-b728-10bf306a4520",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:00:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "61f5c13a-da79-457a-bca3-9a3040bfa85f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:01:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9b70fcf6-de24-4985-b274-b4702d44c280",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:02:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "17bec0ff-4fc8-4279-a31f-b5e003550696",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:03:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "08eb4951-c23d-4136-ac87-52b7692f356a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:04:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f17a80de-4cf0-49ab-8839-b5784f3c04ee",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:05:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8568aed2-7a5e-494b-8179-9795667e5f6f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:06:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "61195758-4cd5-4c6b-976b-e3eee14787c2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:07:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ca58a95b-9e6e-40dc-9e29-ddb68edf3e53",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:08:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "40465194-5554-4b40-80a3-b3d5f8250db9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:09:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1f6b569f-3716-44b2-959c-58bc0edf45e9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:10:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "371fbf28-9154-47ee-a135-12ddafd817a0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:11:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c638cf08-1f4e-4bda-b667-02c30c21a4bb",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:12:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "44f379ba-5ba6-47c3-bab9-585c857c3272",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:13:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c8297756-1c2a-4252-83e8-b334c8ba5b1c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:14:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b56482f8-a1fc-4cfc-af56-df422e830a89",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:15:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7390c71f-a7e1-4fcb-b538-676847a22bd5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:16:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "440e704c-0b42-4010-95e8-283c1b78bc73",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:17:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b83b12c2-ea0b-441b-9ed6-7f6a6285d00e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:18:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bd03f3d6-fa38-4cff-bb83-71698f9bb1f9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:19:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8bdb49aa-7f6b-43ae-974d-990e130b3917",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:20:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b77b9b39-e46c-4351-83a9-979a59618d6a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:21:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d629edf6-a256-4393-8671-93192076f6c2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:22:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "592253e1-7631-4086-bbf0-82584ad25279",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:23:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "da26d358-2dc0-4680-8291-4d0bbe1c4874",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:24:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f533c570-07d9-4d8f-94c1-d26154857ea7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:25:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "58a1b9d5-7352-4a02-b356-c0f842a9a7c5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:26:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6553692e-5562-4059-ac86-69b3e5d10b02",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:27:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1cb20962-e618-45f4-8b45-d2046d12f3a9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:28:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eda8cfed-0a22-4904-83c2-3246cb982861",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:29:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3b6ea0d4-5b67-4ddf-b462-8324d0a6d88f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:30:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4987e341-257e-43f4-8254-32a04c36e13e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:31:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f20e17da-acde-4104-9e11-37ede1baa48d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:32:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f8643cd0-6c3d-4aea-bb15-bd1154192c15",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:33:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a3b054e0-0b6a-4498-ae5e-3a900794ce37",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:34:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "29eadb7b-35b5-4b28-8b3d-53e2ff12e01e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:35:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "65e94884-2563-440e-90b9-11e37090b669",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:36:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "27b77549-c3b5-4b4b-a686-fdb498b9faed",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:37:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a7413f20-8857-439b-aba0-f29549d04ef9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:38:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "02403682-fda4-4cf8-989f-ecbaf335288e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:39:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "04672c59-18dc-4240-999d-e573aae01eaf",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:40:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3cfea04f-ec49-4a87-9cb5-c3589a0fd18b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:41:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "933e152b-6e9d-4382-8177-d197f6be9969",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:42:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cdd7aa75-baeb-4f67-ae71-959445d96a3b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:43:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b5299b6f-24be-4c43-9bb4-a7306e2babfc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:44:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0e1a308b-17d1-47be-bbd7-3405609df3a2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:45:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "376900d7-95cd-4e77-a865-06bcfc1e8501",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:46:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bf9ee3c9-2c3e-4dfa-bf2c-74f560695ddc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:47:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9c7d4748-1c91-450d-ad69-2a6caae4c910",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:48:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5115fde4-0e68-49f8-bc3c-a1c532ff1ba7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:49:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "645a4e9e-f1ff-4210-a7f6-095db27784d0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:50:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "73f2054f-f2d1-4b3a-9229-46324236bca5",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:51:51.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c9003fb3-7f67-4369-a4fa-256cc633e492",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:52:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "20b3c6bd-b59f-4c87-a896-5d1787c00bce",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:53:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b14671de-5b7c-4015-83a0-f7869bc732e0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:54:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "233ab306-2922-4f87-9d10-4149e6ca1c37",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:55:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d7de4036-81f9-4dd1-a951-f4af2e66d8b3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:56:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a057a0b2-4641-4f83-99d9-b98e445ce238",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:57:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d163ae20-e351-46aa-bfb0-e2fd2a40064a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:58:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5cb4085b-6284-48e9-b6e0-17638ab4f74a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T17:59:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d7d7971d-2374-4978-8b96-2866cd83fe80",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:00:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b22b02bc-6509-43db-bb9c-c1fec907ac72",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:01:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "663be78d-7d42-40a6-b57b-21329e90ea79",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:02:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d884370f-2e1b-4516-b9e0-d944506d33ce",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:03:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "24179651-b0da-4136-a4e3-e5eab64b4c98",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:04:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "aa139c3d-5dbd-422b-bbde-bcfe85b3f3d7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:05:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "799ed06a-d41a-4f61-b97b-8492aa7a82fe",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:06:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4404afd0-aabb-4d90-8a65-edd68eda9c73",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:07:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b4bb8f8f-7c36-41c4-a9c0-c394066ad4b6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:08:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a22c30ae-75c4-404e-9c19-55d2918d7f05",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:09:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7df7e898-03f8-4dd3-89b8-3d38110032c6",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:10:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "695f7313-8610-44fa-9a1e-50e43f683d23",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:11:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bde7c571-a6df-49b7-a2c0-628782a64efd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:12:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e174d38b-76ec-44d5-bf2c-c9da3de975b1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:13:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f579fd3d-01c3-49ad-964f-361037b1f846",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:14:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9b08b781-9618-4843-9217-3bd934eef25a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:15:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "32927f59-921d-4945-ab9f-eb900a0f32e2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:16:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e8ea3687-7089-44da-a354-9608b61fe173",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:17:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a2dc7f3f-2a43-492b-9e35-0b65c294de97",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:18:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "cb68693c-5217-47a7-b791-5ce99bdfa4f8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:19:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "17adde59-210b-41cf-a9eb-f74d445b13be",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:20:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac7e438f-ca96-49d4-a77e-78451158b7b0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:21:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2a2e3c2c-e658-4066-ab64-9513db5f3e21",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:22:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8724b05a-b2a5-45e5-8893-0971c24ab386",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:23:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9930c347-91e4-443b-b7e9-16d6ea75cafd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:24:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6962a311-fe78-45d0-93a5-6ae3d58682d8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:25:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5d9bbb62-fd22-4c09-8ca3-14498c78f3da",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:26:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1f4d9e53-c0d3-4efe-81a2-f24368fe3480",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:27:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "32be9b11-9380-4344-bed2-32d24bd5e604",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:28:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ead1a453-3bfe-4842-815f-63b81674dcd1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:29:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "20ab2fc7-4812-4e97-b182-72288a4c7963",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:30:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b57c8250-86ed-4946-9d83-ba65b956b924",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:31:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e3328555-674e-4a6e-b476-7a5d4620b0f3",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:32:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8fb1709f-3213-4e04-942c-1ca5fd58ef97",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:33:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7eca7820-753b-4392-bb28-0c2004af724e",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:34:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "01f7338f-e4d7-4333-98c9-945bd760b3ad",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:35:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e5accf7b-501a-4419-ac75-31bba650a0ab",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:36:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "328fb5e1-f1fd-407b-bff3-e8178ffacf0a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:37:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2e3ef451-434f-4485-a14e-01fb0bb20b98",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:38:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5bee1c34-fdce-45cb-abed-e4db82bdeeea",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:39:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7bd588c3-f6dc-4f38-a1f6-a8044220f38a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:40:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "00179e6f-1ec1-45c6-9bbf-a28ff9b7e322",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:41:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "915f1ceb-20c7-4d5c-8e78-ffc6fa9f5456",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:42:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "86bd510a-9a90-41a7-a063-53a3bb45f979",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:43:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9de58d0e-78de-4488-bd43-b7193e0ae259",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:44:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2f8a5b2a-5812-423e-bc8e-9dc6f3d123d9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:45:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9d1985a1-2931-4ccb-a689-7f80cd2d2c28",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:46:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "fc840f21-97dc-49c4-a6b0-bd8d6d3dee0f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:47:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9b2d8583-df2f-497d-a6df-d4b488d2e2b1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:48:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "78bb0409-366b-4a25-9fcb-1ba2a2bd8f36",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:49:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5604f9a6-20e8-4b16-a49a-c7feb9694de2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:50:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6adfd058-39ba-4d03-b200-ac2fb2fd3470",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:51:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c4969f98-d7f8-4680-87b4-bc11d2265797",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:52:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f200632c-1230-4787-bab9-3423894a292f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:53:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1f0346e5-cde7-40e8-9757-7b7a28577fd8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:54:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "42461322-ed4e-4ff8-9f3e-18cc4222335b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:55:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "73295283-f0ae-426c-97fb-fb4f0b779fd4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:56:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6b05fc52-82aa-4486-be2e-0ddea686fc3c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:57:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "3d541de6-a491-4c7d-b593-54173ccecb49",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:58:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "25d5a203-5ede-4fbf-a88c-1282dc2e888c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T18:59:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b0aac3de-7050-4edf-aeaa-2224981f215f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:00:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "eebd180b-9e43-4e3d-a8b1-0319c523e370",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:01:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4603c2e7-5a14-422d-8612-7036a36bd226",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:02:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "18b23165-3b77-4982-82b7-e988c273c016",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:03:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d4d60116-1e16-427c-b17e-080c7fc1d9e1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:04:52.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b4413c5e-d2eb-4167-90b2-753e49373b80",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:05:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "353ed5db-3e4b-4765-8a9a-29fda8fe5406",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:06:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "71e7f66b-1993-4dc6-9668-741c670f2ffc",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:07:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "885e05a4-fa81-4bb1-a40e-c37311e65c81",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:08:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1184a860-5fc2-46d0-b596-b214eac8b77a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:09:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2c7207fe-d07d-455b-a591-449101429486",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:10:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8fdb4a82-2588-4a65-a5c4-4d033d675b0f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:11:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "59217138-f5aa-4307-89f4-3bd5006ac778",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:12:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ba83af7a-5b49-4554-a2cd-4b8130741758",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:13:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f05c45d6-9117-4236-9de3-acf6594620a0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:14:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "70fb2919-63db-4c77-aef3-b2e4ca5806e9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:15:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5ed9c07b-12e2-4ef9-8178-f7aae15258de",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:16:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bc23ed2f-8579-4836-a261-f76f773d412d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:17:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6010fe77-9ab5-4eee-8d8e-614c162abbb9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:18:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6521a87d-7020-4870-afe5-e1c37e5c17dd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:19:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4358b23d-db96-4ad2-a32e-b0d99e3c6b98",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:20:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9376a06f-28c4-46a6-9892-2f3fb03397d0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:21:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9dbd6b71-569b-41b8-af68-bb811b194403",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:22:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a6e2f16a-dd1b-43a2-86f6-6db370dc8db9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:23:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "88aebc0e-d40f-4c59-80ab-f87796f5b622",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:24:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "11e7d172-4dd5-4af7-9a21-a329bcabaf1f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:25:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "be9dc07f-427b-4d62-a9d9-9a1680d08b0c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:26:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8da4ec6e-561b-4441-b2e4-88f4476855b2",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:27:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f37e3d6c-e3df-42d9-80a4-ace67255ea41",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:28:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "229d5ef2-1398-42ad-8024-80768efb8d2c",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:29:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ae3bb9e2-a7e2-46d2-ad23-65d3308526bd",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:30:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1c991915-ee03-4516-81a4-1fb3ec098486",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:31:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a340a73d-b31a-44b2-8519-a37365cbfb35",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:32:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "a873b5c8-63e3-4b2a-867e-8ad2ffa5ac08",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:33:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5349ebe4-3649-4357-b2f0-ffd1338ee6e9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:34:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "4d4753ed-cf6b-4ede-86a6-2d732c8d969a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:35:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ced4d2f3-e315-4d1f-9761-0fc2c2fdf648",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:36:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ec033ab6-3262-49c0-80c0-b83885a31470",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:37:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9399cd38-658a-41de-a7fa-a798235eb548",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:38:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "038529eb-f94f-4e19-9652-9023f64fb941",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:39:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "6a19d597-0e70-476d-b164-6d3142b705d1",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:40:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "30954336-26ba-4d16-911f-59c157fd2a4b",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:41:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5633e1e5-fb86-452c-adab-a1552391631d",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:42:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "5278fe01-e86d-4840-94ae-437622541133",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:43:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ac8ab3e5-3ff2-49b3-87f0-c5c3312ebfa0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:44:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "217bcc5c-f60f-4c44-aaaf-a6d2414cda64",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:45:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1d746f0d-2081-487d-9ea2-e1602bd0dc18",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:46:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e4219e97-c125-4717-9547-31bf79110cd7",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:47:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "bc211f6a-561e-404f-b25f-ebcaa3eb7f95",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:48:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "c5a793cd-a813-4d84-bcc8-cf62e65fa894",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:49:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "190e3ad9-3c4b-4904-96ea-0f801dfd02e9",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:50:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "dd4f39b5-7423-4a5d-9a26-6386a9a1452a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:51:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "42f8d251-1d30-41ba-ba89-3c42d8f470f0",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:52:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1bd7900b-ed8c-4579-8755-e6bf34b5ec9f",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:53:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "ca2f88d1-c995-4293-ad7c-8884151fd739",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:54:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "383ed6de-0434-4ed7-b6bb-16179fb1fb96",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:55:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "0a542268-5034-4f0d-9ec4-10a6e630c721",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:56:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "7bb80a38-0a09-4436-8c30-4df3b07c84d8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:57:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "138741d5-5b8d-48c0-b29e-465a20199604",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:58:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "f894cc18-79ab-4d07-ba56-776d8e307fe4",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T19:59:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "d33ec544-777f-4a00-8bcf-b04b5489e9b8",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T20:00:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "1e926ad1-df2c-465f-a4f7-c299bb632c21",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T20:01:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "e6aef8d3-d1ed-4e88-8078-660333796016",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T20:02:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "b261ebb0-3c6d-454e-aa7a-08dd8f7a5067",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T20:03:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "9f790eca-8501-4466-ae9e-013e2b47a39a",
+      "quality_code": "VALID",
+      "measured_at": "2026-10-21T20:04:53.000Z",
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "8f4cf0ba-01c7-4cce-8214-47e3d584c2ad",
+      "quality_code": "TIME_UNSYNC",
+      "measured_at": null,
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "18c5ad34-d450-4520-babd-166e973fe506",
+      "quality_code": "TIME_UNSYNC",
+      "measured_at": null,
+      "manual_exclusion": null
+    },
+    {
+      "measurement_id": "2d4c8675-5433-4f28-b6a9-714e4cd875ce",
+      "quality_code": "TIME_UNSYNC",
+      "measured_at": null,
+      "manual_exclusion": null
+    }
+  ],
+  "duplicate_input_records": [],
+  "missing_slots": [
+    {
+      "slot_index": 1,
+      "expected_at": "2026-10-21T11:10:41.000Z",
+      "quality_code": "MISSING_SLOT",
+      "readings": null
+    },
+    {
+      "slot_index": 4,
+      "expected_at": "2026-10-21T11:13:41.000Z",
+      "quality_code": "MISSING_SLOT",
+      "readings": null
+    },
+    {
+      "slot_index": 536,
+      "expected_at": "2026-10-21T20:05:41.000Z",
+      "quality_code": "MISSING_SLOT",
+      "readings": null
+    }
+  ],
+  "slot_collisions": [],
+  "methodology": {
+    "window": "start inclusive, end exclusive",
+    "slot_assignment": "nearest expected instant",
+    "imputation": "none",
+    "canonical_duplicate_rule": "first occurrence retained in the derived product"
+  }
+}

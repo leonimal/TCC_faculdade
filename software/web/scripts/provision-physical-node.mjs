@@ -39,13 +39,13 @@ async function getConfiguration(path) {
   return body;
 }
 
-const cookie = await login();
 const path = `/api/v1/devices/${deviceId}/configuration`;
 const existing = await getConfiguration(path);
 
 if (existing?.configuration) {
   console.log(JSON.stringify({ action: "existing", deviceId, configuration: existing.configuration }));
 } else {
+  const cookie = await login();
   const created = await requestAsAdmin(cookie, path, {
     method: "PATCH",
     body: JSON.stringify({

@@ -20,7 +20,7 @@ A inspeção manual da atualização periódica pode ser preparada pelo comando 
 
 Para o roteiro operacional do Quick Tunnel HTTPS temporário e da gravação do nó físico, consulte [`GUIA_TUNEL_HTTPS_PILOTO.md`](GUIA_TUNEL_HTTPS_PILOTO.md).
 
-As faixas locais efetivas são configuradas em `http://127.0.0.1:3100/admin/local-monitoring` por uma sessão de usuário com perfil de administrador. A tela cria uma nova versão com responsável e justificativa e aplica os limites às próximas leituras válidas e sincronizadas. Alertas locais ficam em `http://127.0.0.1:3100/alerts`, separados do relatório descritivo e destacados em vermelho suave. Nenhuma dessas telas constitui interface de conformidade normativa.
+As faixas locais efetivas são configuradas em `http://127.0.0.1:3100/admin/local-monitoring` por uma sessão de usuário com perfil de administrador. Salvar uma configuração idêntica mantém a versão atual sem nova escrita; uma alteração real cria uma nova versão com responsável e justificativa, preservando o histórico usado pelos alertas e aplicando os novos limites somente às próximas leituras válidas e sincronizadas. Alertas locais ficam em `http://127.0.0.1:3100/alerts`, separados do relatório descritivo e destacados em vermelho suave. Nenhuma dessas telas constitui interface de conformidade normativa.
 
 ## Configuração do nó
 

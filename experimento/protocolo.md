@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Validar parcialmente os sensores disponíveis e verificar o funcionamento ponta a ponta do sistema em uma sala de aula real.
+Validar funcionalmente os sensores disponíveis e verificar o funcionamento ponta a ponta e a estabilidade operacional do sistema.
 
 ## Variáveis
 
@@ -12,21 +12,19 @@ Validar parcialmente os sensores disponíveis e verificar o funcionamento ponta 
 
 ## Abrangência
 
-A avaliação será realizada em uma sala de aula da UNIP em Araçatuba, tratada como estudo de caso. Os resultados caracterizarão o funcionamento do sistema e as condições observadas nesse ambiente e período, sem generalização automática para outras salas ou instituições.
+A evidência física prévia inclui testes em sala de aula da UNIP em Araçatuba, tratados como estudo de caso. As três sessões formais finais ocorrerão no local de trabalho de um dos autores e avaliarão exclusivamente a estabilidade operacional da cadeia IoT; seus resultados não caracterizarão condições ambientais desse local nem serão generalizados para salas ou instituições.
 
-A coleta foi autorizada pelos responsáveis da UNIP, conforme confirmação dos autores. A ABNT NBR 16401-2:2008 fornecida pela instituição será usada como referência térmica contextual. Ela não será usada para aprovar ou reprovar a sala: o seu método depende de temperatura operativa, velocidade do ar, temperatura radiante e condições dos ocupantes, enquanto o nó mede somente temperatura do ar, umidade relativa e iluminância. A posição e a altura do nó serão registradas antes da coleta, sem alegar que um ponto único reproduz a avaliação completa prevista pela norma.
+A coleta em sala foi autorizada pelos responsáveis da UNIP, conforme confirmação dos autores. A ABNT NBR 16401-2:2008 fornecida pela instituição permanece apenas como referência térmica contextual para os testes em sala. Ela não será usada para aprovar ou reprovar a sala: o seu método depende de temperatura operativa, velocidade do ar, temperatura radiante e condições dos ocupantes, enquanto o nó mede somente temperatura do ar, umidade relativa e iluminância. Nas sessões finais, serão registrados posição e altura do nó sem qualquer interpretação ambiental do local de trabalho.
 
 ## Duração e período
 
 - Coleta-piloto: um período de aula, antes da coleta principal, para verificar instalação, comunicação, registro temporal e geração dos dados.
-- Coleta principal: duas semanas letivas consecutivas, de segunda a sexta-feira, no período noturno.
-- Meta: 10 noites de coleta.
-- Mínimo aceitável de execução: 8 noites válidas, desde que ausências e invalidações sejam justificadas e registradas.
-- Horário das aulas: das 19h15 às 22h00.
-- Janela diária de coleta: das 18h45 às 22h00, totalizando 3 horas e 15 minutos por noite.
-- Datas de calendário: a definir.
+- Evidências físicas prévias: testes do nó em sala de aula relatados pelos autores, com 345 medições válidas e sincronizadas preservadas no banco. Esses registros não possuem `run_id` e estão vinculados a `DEV-01`; serão usados apenas como evidência operacional prévia, sem reclassificação retroativa como coleta formal.
+- Estabilidade operacional final: três sessões formais e não consecutivas com duração efetiva mínima de oito horas cada, totalizando ao menos 24 horas acumuladas. As datas planejadas são 19, 20 e 21/10/2026, no local de trabalho de um dos autores. A janela operacional prevista é das 08h às 18h, com flexibilidade para início ou encerramento em horário diferente. Uma quarta sessão será realizada apenas para repor eventual sessão inválida. Cada sessão usará o mesmo nó, firmware, intervalo configurado e cadeia de dados; terá `run_id` exclusivo e data, janela operacional, local, conectividade e responsável registrados antes da execução.
 
-Em cada noite deverão ser registrados os horários efetivos de início e fim, os intervalos, eventos relevantes e qualquer falha que afete a validade dos dados. A coleta-piloto deverá ser identificada separadamente e somente integrará a análise principal se isso for definido antes do tratamento dos dados.
+Em cada sessão formal deverão ser registrados os horários efetivos de início e fim, o intervalo, o local, a conectividade, os eventos relevantes e qualquer falha que afete sua validade. A variação em relação a 08h–18h não invalida a sessão por si só; ela será válida se alcançar ao menos oito horas efetivas e atender aos demais critérios. A coleta-piloto e as evidências físicas prévias permanecem identificadas separadamente. As sessões integram a avaliação operacional, mas não uma caracterização ambiental de sala.
+
+Na primeira data planejada, o nó será conectado ao hotspot e configurado para aquisição e transmissão antes do início da sessão formal. A confirmação da configuração e a primeira medição persistida com o `run_id` correspondente delimitarão o início efetivo da sessão; a etapa de preparação não será contabilizada nas oito horas mínimas.
 
 ## Intervalo de leitura e transmissão
 
@@ -35,10 +33,10 @@ Em cada noite deverão ser registrados os horários efetivos de início e fim, o
 - O valor padrão inicial será de 60 segundos.
 - Durante desenvolvimento e testes, poderão ser avaliados outros valores válidos.
 - Antes de cada execução experimental, o intervalo deverá ser registrado e permanecer inalterado até o encerramento.
-- Durante a coleta principal, será utilizado o valor aprovado após a coleta-piloto, com expectativa inicial de 60 segundos, sem alterações entre as noites válidas.
+- Durante as três sessões, será utilizado o valor aprovado após a coleta-piloto, com expectativa inicial de 60 segundos, sem alterações dentro de cada execução.
 - Cada medição deverá registrar ou permitir rastrear o intervalo e a versão de configuração aplicados.
 
-Com o intervalo de 60 segundos, são esperados aproximadamente 195 registros em cada janela diária de 3 horas e 15 minutos e 1.950 registros na meta de 10 noites. A quantidade definitiva de observações será recalculada caso outro intervalo seja aprovado após o piloto.
+Com o intervalo de 60 segundos, serão esperados no mínimo aproximadamente 480 registros por sessão válida e 1.440 registros nas três sessões válidas. A quantidade definitiva de observações será calculada conforme a duração efetiva de cada sessão e será recalculada caso outro intervalo seja aprovado antes da execução.
 
 ## Operação offline e recuperação
 
@@ -72,12 +70,12 @@ Essas metas não substituem especificações de fabricante nem constituem limite
 
 | Métrica | Definição operacional | Critério de aceitação |
 |---|---|---|
-| Completude | Registros únicos armazenados divididos pelos registros esperados, multiplicado por 100 | Pelo menos 99% em teste controlado e 95% em cada noite válida |
+| Completude | Registros únicos armazenados divididos pelos registros esperados, multiplicado por 100 | Pelo menos 99% em teste controlado e 95% em cada execução válida |
 | Perda | Diferença entre registros esperados e registros únicos armazenados | No máximo 1% em teste controlado; toda perda deverá ser identificada |
 | Regularidade temporal | Erro absoluto entre o intervalo observado e o intervalo configurado | P95 não superior ao maior valor entre 1 segundo e 5% do intervalo |
 | Latência até a API | Instante de recebimento pela API menos instante da leitura | P95 de até 5 segundos durante operação online |
 | Latência ponta a ponta | Instante de exibição no dashboard menos instante da leitura | P95 de até 10 segundos durante operação online |
-| Disponibilidade | Tempo operacional dividido pelo tempo programado | Pelo menos 95% em cada noite válida |
+| Disponibilidade | Tempo operacional dividido pelo tempo programado | Pelo menos 95% em cada execução válida |
 | Consistência | Registros equivalentes entre firmware, API, banco e interface divididos pelos registros auditados | 100% |
 | Duplicidade | Quantidade de identificadores repetidos no banco | Zero |
 | Sincronização temporal | Diferença entre o relógio do nó e o relógio de referência | Até 2 segundos quando o registro estiver marcado como sincronizado |
@@ -86,11 +84,11 @@ A quantidade esperada será calculada sobre a janela semiaberta entre o início 
 
 A latência das medições reenviadas depois de indisponibilidade será analisada separadamente da latência online. A API deverá responder corretamente a 100% dos casos válidos, inválidos e duplicados definidos no contrato, apresentar latência interna P95 de até 500 ms em teste nominal com pelo menos 100 requisições e não produzir erros 5xx. A fila offline completa deverá ser esvaziada em até cinco minutos após o restabelecimento de uma conexão estável, sem duplicatas e com toda perda contabilizada.
 
-## Validade de uma noite de coleta
+## Validade de uma execução de coleta
 
-Uma noite será considerada válida quando:
+Uma sessão formal de oito horas será considerada válida quando:
 
-1. cobrir a janela planejada das 18h45 às 22h00;
+1. alcançar duração efetiva contínua de pelo menos oito horas dentro da janela operacional registrada;
 2. apresentar completude mínima de 95%;
 3. apresentar disponibilidade mínima de 95%;
 4. utilizar um único intervalo previamente registrado;
@@ -98,7 +96,7 @@ Uma noite será considerada válida quando:
 6. não apresentar inconsistência ou duplicação de dados; e
 7. possuir registro dos eventos e das falhas relevantes.
 
-Noites inválidas não serão apagadas. Elas permanecerão preservadas e poderão ser analisadas como evidência de falha, mas não integrarão a caracterização ambiental principal.
+Sessões inválidas não serão apagadas. Elas permanecerão preservadas e poderão ser analisadas como evidência de falha. A quarta sessão será realizada somente para substituir uma das três sessões exigidas que tenha sido invalidada; ela não apaga nem substitui os registros originais.
 
 ## Dados ausentes, falhas e exclusões
 
@@ -107,7 +105,7 @@ Os arquivos brutos serão preservados sem edição, sobrescrita ou correção ma
 Serão produzidos dois subconjuntos analíticos:
 
 1. **Subconjunto operacional:** incluirá medições válidas, tentativas com falha, perdas, duplicidades, reenvios, eventos de fila, registros fora da janela e registros sem sincronização. Será usado para calcular as métricas técnicas e investigar falhas.
-2. **Subconjunto ambiental principal:** incluirá somente medições válidas, únicas, temporalmente sincronizadas, dentro da janela planejada e provenientes de noites válidas. A coleta-piloto não integrará esse subconjunto.
+2. **Subconjunto de evidências físicas prévias:** caso sejam apresentados registros anteriores, serão mantidos separados das sessões formais e identificados por data, horário e limitação de rastreabilidade. Não haverá caracterização ambiental principal nem comparação entre horários distintos.
 
 As posições esperadas serão determinadas pela grade temporal formada pelo início da execução e pelo intervalo configurado. Uma posição sem medição válida e única será classificada no conjunto tratado como `MISSING_SLOT`. Em cada execução serão informados o total e o percentual de posições ausentes, a quantidade de lacunas, a maior sequência consecutiva de ausências e, quando identificável, sua causa. As ausências durante uma execução programada permanecerão no denominador da completude, ainda que tenham causa documentada.
 
@@ -123,20 +121,24 @@ Os estados mínimos de qualidade serão:
 | `DUPLICATE` | Identificador já armazenado | Somente operacional; uma ocorrência canônica poderá ser usada |
 | `QUEUE_OVERFLOW` | Medição não armazenada por fila cheia | Somente operacional; conta como perda explícita |
 | `OUTSIDE_WINDOW` | Registro fora da janela planejada | Operacional; excluído da caracterização ambiental principal |
-| `CONFIG_MISMATCH` | Configuração divergente da aprovada para a execução | Operacional; poderá invalidar a noite |
+| `CONFIG_MISMATCH` | Configuração divergente da aprovada para a execução | Operacional; poderá invalidar a execução |
 | `MANUAL_EXCLUSION` | Exclusão analítica excepcional e justificada | Preservado com motivo, autor e data |
 
 O reenvio após período offline não tornará a medição inválida se o instante original estiver sincronizado, os valores forem válidos e o identificador for único. Valores incomuns, mas dentro da faixa física aceita, serão mantidos e apenas sinalizados para inspeção. Eles somente serão excluídos da análise ambiental se houver evidência documentada de falha técnica, deslocamento, obstrução, aquecimento indevido ou outro evento que comprometa a medição.
 
 Não haverá interpolação, preenchimento pela média, carregamento do último valor ou qualquer outra imputação nos resultados principais. Os gráficos exibirão as lacunas, e cada estatística informará o número de observações válidas e o percentual de ausência. Uma eventual imputação exploratória deverá gerar arquivo separado, ser identificada como análise de sensibilidade e não poderá ser usada para aprovar requisitos do sistema.
 
-Cada evento relevante deverá registrar data e hora, execução e dispositivo afetados, categoria, início e término, quantidade estimada de registros afetados, ação realizada, responsável e impacto sobre a validade da noite. Exclusões manuais deverão ser auditáveis; quando puderem alterar materialmente uma conclusão, o resultado será calculado e apresentado também sem a exclusão.
+Cada evento relevante deverá registrar data e hora, execução e dispositivo afetados, categoria, início e término, quantidade estimada de registros afetados, ação realizada, responsável e impacto sobre a validade da execução. Exclusões manuais deverão ser auditáveis; quando puderem alterar materialmente uma conclusão, o resultado será calculado e apresentado também sem a exclusão.
 
 ## Definições pendentes
 
 - Identificação da sala e posição exata dos dispositivos
-- Datas da coleta-piloto e da coleta principal
-- Instrumentos de referência
+- Data de reserva para eventual quarta sessão. As sessões de 19, 20 e 21/10/2026 usarão hotspot Wi-Fi de celular, com internet móvel; a janela operacional prevista é 08h–18h, com horários efetivos apurados pelos registros do sistema.
+
+## Consolidação das sessões
+
+Cada sessão terá seus resultados apresentados separadamente. A síntese acumulada das três sessões válidas poderá informar o total de horas e de registros, mas não substituirá os critérios por sessão nem ocultará falhas. Os intervalos entre as sessões não integram o tempo programado, a disponibilidade ou a regularidade temporal. Reinicializações, falhas do PC, energia, túnel ou rede e intervenções manuais deverão ser registradas no diário de cada `run_id`.
+- Instrumentos de referência: indisponíveis para a coleta real; a avaliação dos sensores será somente funcional, conforme `DEC-040`
 - Quantidade definitiva de observações, condicionada ao intervalo aprovado após o piloto
 
 ## Princípios obrigatórios

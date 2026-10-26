@@ -9,7 +9,7 @@ Este workspace reúne o texto acadêmico, a pesquisa bibliográfica, o planejame
 - Enrico Garcia Silva Costa — RA N295694
 - Leonardo Pedrozo Elias Rodrigues — RA G78GGE-0
 
-**Orientador:** Prof. Me. Aldriano José da Silva  
+**Orientador:** Prof. Me. Rafael Marcelino de Jesus
 **Ano:** 2026
 
 ## Escopo confirmado

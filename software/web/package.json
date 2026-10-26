@@ -9,6 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:quality-analysis": "node --test --test-isolation=none ../../experimento/analises/quality-analysis.test.mjs",
+    "data:export-formal-runs": "node --env-file=.env.local ../../experimento/analises/export-formal-runs.mjs",
+    "data:analyze-formal-runs": "node ../../experimento/analises/analyze-formal-runs.mjs",
     "db:migrate": "node --env-file=../database/.env.local scripts/db-migrate.mjs",
     "db:seed": "node --env-file=.env.local scripts/db-seed-development.mjs",
     "users:bootstrap-admin": "node --env-file=.env.local scripts/bootstrap-admin.mjs",

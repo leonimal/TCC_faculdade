@@ -2,7 +2,8 @@ import mysql from "mysql2/promise";
 
 const baseUrl = process.env.TEST_API_BASE_URL ?? "http://127.0.0.1:3100";
 const nodeApiKey = process.env.NODE_API_KEY?.trim();
-const adminApiKey = process.env.ADMIN_API_KEY?.trim();
+const adminEmail = (process.env.TEST_ADMIN_EMAIL ?? process.env.INITIAL_ADMIN_EMAIL)?.trim();
+const adminPassword = process.env.TEST_ADMIN_PASSWORD ?? process.env.INITIAL_ADMIN_PASSWORD;
 const databaseUrl = process.env.DATABASE_URL?.trim();
 const deviceId = "classroom-node-01";
 const requestedBy = "local-monitoring-integration-test";
@@ -10,12 +11,25 @@ const bootId = crypto.randomUUID();
 const measurementIds = Array.from({ length: 4 }, () => crypto.randomUUID());
 const integrationRunId = "00000000-0000-4000-8000-000000000019";
 
-if (!nodeApiKey || !adminApiKey || !databaseUrl) {
-  throw new Error("NODE_API_KEY, ADMIN_API_KEY e DATABASE_URL são obrigatórias.");
+if (!nodeApiKey || !adminEmail || !adminPassword || !databaseUrl) {
+  throw new Error("NODE_API_KEY, TEST_ADMIN_EMAIL, TEST_ADMIN_PASSWORD e DATABASE_URL são obrigatórias.");
 }
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+let adminSessionCookie;
+
+async function loginAsAdmin() {
+  const response = await fetch(`${baseUrl}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: adminEmail, password: adminPassword }),
+  });
+  const cookie = response.headers.get("set-cookie")?.split(";", 1)[0];
+  assert(response.status === 200 && cookie?.startsWith("tcc_iot_session="), `Login administrativo inesperado: ${response.status}.`);
+  adminSessionCookie = cookie;
 }
 
 function saoPauloDateKey(value) {
@@ -29,13 +43,13 @@ function saoPauloDateKey(value) {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
-async function requestProfile(method, body, token = adminApiKey) {
+async function requestProfile(method, body, cookie = adminSessionCookie) {
   const response = await fetch(
     `${baseUrl}/api/v1/devices/${deviceId}/local-monitoring-profile`,
     {
       method,
       headers: {
-        Authorization: `Bearer ${token}`,
+        ...(cookie ? { Cookie: cookie } : {}),
         ...(body ? { "Content-Type": "application/json" } : {}),
       },
       ...(body ? { body: JSON.stringify(body) } : {}),
@@ -109,6 +123,7 @@ async function cleanup() {
 }
 
 try {
+  await loginAsAdmin();
   const [activeRunRows] = await connection.execute(
     `SELECT COUNT(*) AS total
        FROM experimental_runs r
@@ -132,8 +147,8 @@ try {
     requested_by: requestedBy,
     justification: "Teste integrado controlado.",
     rules: [{ variable: "TEMPERATURE_C", lower_limit: 20, upper_limit: 28 }],
-  }, "credencial-incorreta");
-  assert(unauthorized.status === 401, `Autorização inesperada: ${JSON.stringify(unauthorized)}`);
+  }, "tcc_iot_session=credencial-incorreta");
+  assert(unauthorized.status === 403, `Autorização inesperada: ${JSON.stringify(unauthorized)}`);
 
   const invalid = await requestProfile("PATCH", {
     enabled: true,
@@ -155,6 +170,23 @@ try {
     `Criação da faixa inesperada: ${JSON.stringify(created)}`,
   );
   const profileVersion = created.body.profile.version;
+
+  const unchanged = await requestProfile("PATCH", {
+    enabled: true,
+    requested_by: requestedBy,
+    justification: "Teste integrado controlado de alertas locais por faixa local.",
+    source_reference: "Teste automatizado local; não é parâmetro normativo.",
+    rules: [{ variable: "TEMPERATURE_C", lower_limit: 20, upper_limit: 28 }],
+  });
+  assert(
+    unchanged.status === 200 && unchanged.body.changed === false && unchanged.body.profile?.version === profileVersion,
+    `Salvar sem alteração deveria manter a versão: ${JSON.stringify(unchanged)}`,
+  );
+  const [unchangedProfileRows] = await connection.execute(
+    "SELECT COUNT(*) AS total FROM local_monitoring_profiles WHERE requested_by = ?",
+    [requestedBy],
+  );
+  assert(Number(unchangedProfileRows[0].total) === 1, "Salvar sem alteração criou uma versão extra.");
 
   for (const [index, temperature] of [19.5, 20, 28.5].entries()) {
     const stored = await postMeasurement({
@@ -191,14 +223,18 @@ try {
   );
 
   const reportDate = saoPauloDateKey(new Date());
-  const alertsResponse = await fetch(`${baseUrl}/alerts?room=DEV-01&from=${reportDate}&to=${reportDate}`);
+  const alertsResponse = await fetch(`${baseUrl}/alerts?room=DEV-01&from=${reportDate}&to=${reportDate}`, {
+    headers: { Cookie: adminSessionCookie },
+  });
   const alertsHtml = await alertsResponse.text();
   assert(alertsResponse.status === 200, `Página de alertas retornou ${alertsResponse.status}.`);
   assert(alertsHtml.includes("Alertas locais"), "Histórico de alertas não foi renderizado.");
   assert(alertsHtml.includes(measurementIds[0]) && alertsHtml.includes(measurementIds[2]), "Alertas não apareceram na página separada.");
   assert(alertsHtml.includes("Abaixo da faixa local") && alertsHtml.includes("Acima da faixa local"), "Direções dos alertas não foram renderizadas.");
   assert(alertsHtml.includes("alert-table__row"), "Alertas não receberam o destaque visual esperado.");
-  const reportResponse = await fetch(`${baseUrl}/reports?room=DEV-01&from=${reportDate}&to=${reportDate}`);
+  const reportResponse = await fetch(`${baseUrl}/reports?room=DEV-01&from=${reportDate}&to=${reportDate}`, {
+    headers: { Cookie: adminSessionCookie },
+  });
   const reportHtml = await reportResponse.text();
   assert(reportResponse.status === 200, `Relatório retornou ${reportResponse.status}.`);
   assert(!reportHtml.includes("Histórico de alertas locais"), "Alertas permaneceram misturados ao histórico de medições.");
@@ -241,14 +277,16 @@ try {
   });
   assert(locked.status === 409 && locked.body.error?.code === "ACTIVE_RUN_LOCK", `Bloqueio inesperado: ${JSON.stringify(locked)}`);
 
-  console.log("PASS 401 para alteração sem credencial administrativa válida");
+  console.log("PASS 403 para alteração sem sessão administrativa válida");
   console.log("PASS 422 para limites locais invertidos");
   console.log("PASS faixa local versionada criada");
+  console.log("PASS salvar sem alteração mantém a versão e não cria registro extra");
   console.log("PASS alerta abaixo e acima; sem alerta nos limites");
   console.log("PASS página separada exibe alertas com destaque, horário e direção");
   console.log("PASS perfil desabilitado não gera alerta");
   console.log("PASS 409 para alteração durante execução ativa");
 } finally {
+  if (adminSessionCookie) await fetch(`${baseUrl}/api/auth/logout`, { method: "POST", headers: { Cookie: adminSessionCookie } });
   await cleanup();
   await connection.end();
 }

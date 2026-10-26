@@ -5,7 +5,7 @@ Dados derivados dos arquivos brutos por procedimentos reproduzíveis.
 ## Produtos previstos
 
 - subconjunto operacional com registros, tentativas, falhas, perdas, duplicidades, reenvios e estados de qualidade;
-- subconjunto ambiental principal com medições válidas, únicas, sincronizadas, dentro da janela e pertencentes a noites válidas;
+- subconjunto operacional de cada sessão formal de 8 h, com medições, tentativas, falhas, perdas, duplicidades, reenvios e estados de qualidade; as medições físicas prévias permanecerão separadas e identificadas por sua limitação de rastreabilidade;
 - tabela de posições ausentes e sequências de lacunas;
 - tabela de eventos e exclusões com justificativas;
 - relatórios de reconciliação entre registros esperados, observados, válidos, inválidos e perdidos.

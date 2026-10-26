@@ -11,7 +11,7 @@ Araçatuba, [dia] de [mês] de 2026.
 
 Prezada(o) [tratamento e nome],
 
-Nós, **Enrico Garcia Silva Costa** (RA N295694) e **Leonardo Pedrozo Elias Rodrigues** (RA G78GGE-0), estudantes do curso de Bacharelado em Ciência da Computação da Universidade Paulista — UNIP, solicitamos autorização para realizar coleta de medições ambientais na sala **[identificação da sala]**, como parte do Trabalho de Conclusão de Curso intitulado **“Desenvolvimento e avaliação técnica de um sistema IoT de baixo custo para monitoramento ambiental em salas de aula”**, sob orientação do Prof. Me. Aldriano José da Silva.
+Nós, **Enrico Garcia Silva Costa** (RA N295694) e **Leonardo Pedrozo Elias Rodrigues** (RA G78GGE-0), estudantes do curso de Bacharelado em Ciência da Computação da Universidade Paulista — UNIP, solicitamos autorização para realizar coleta de medições ambientais na sala **[identificação da sala]**, como parte do Trabalho de Conclusão de Curso intitulado **“Desenvolvimento e avaliação técnica de um sistema IoT de baixo custo para monitoramento ambiental em salas de aula”**, sob orientação do Prof. Me. Rafael Marcelino de Jesus.
 
 ## Finalidade e escopo
 
@@ -28,7 +28,7 @@ Não serão coletados dados pessoais, nomes, imagens, áudios, vídeos, identifi
 
 Será instalado temporariamente um nó de monitoramento de baixo custo, alimentado por USB e posicionado no local previamente aprovado pela unidade. A instalação não realizará controle automático de climatização ou iluminação e não deverá exigir interação dos ocupantes da sala.
 
-Está prevista uma coleta-piloto de um período de aula para conferência da instalação, conectividade e registro temporal. Após a aprovação do piloto, a coleta principal deverá ocorrer durante duas semanas letivas consecutivas, no período noturno, entre 18h45 e 22h00. As datas efetivas serão registradas antes do início.
+Estão preservadas evidências físicas prévias e estão previstas três sessões formais não consecutivas de oito horas para avaliação operacional final. As datas, os horários de início, os locais e a conectividade empregados serão registrados antes de cada sessão.
 
 Qualquer ajuste de posição, horário ou período será comunicado à pessoa responsável indicada pela unidade. A coleta poderá ser interrompida imediatamente caso a instituição solicite ou seja identificado impacto indevido no funcionamento da sala.
 
@@ -65,7 +65,7 @@ ____________________________________________
 **Leonardo Pedrozo Elias Rodrigues** — RA G78GGE-0
 
 ____________________________________________  
-**Prof. Me. Aldriano José da Silva** — Orientador(a), se aplicável
+**Prof. Me. Rafael Marcelino de Jesus** — Orientador(a), se aplicável
 
 ## Manifestação da unidade responsável
 

@@ -25,3 +25,11 @@ graphify-out/
 *.log
 .DS_Store
 Thumbs.db
+
+# Pacote local de transferência (inclui credenciais e cópia do banco)
+transferencia-*/
+transferencia-*.rar
+
+# Auxiliares locais de ensaio e cópias de modelos já presentes na raiz
+**/.codex-*
+modelo/

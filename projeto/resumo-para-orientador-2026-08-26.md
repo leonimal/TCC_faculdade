@@ -2,7 +2,7 @@
 
 **Projeto:** Desenvolvimento e avaliação técnica de um sistema IoT de baixo custo para monitoramento ambiental em salas de aula  
 **Autores:** Enrico Garcia Silva Costa (RA N295694) e Leonardo Pedrozo Elias Rodrigues (RA G78GGE-0)  
-**Orientador:** Prof. Me. Aldriano José da Silva  
+**Orientador:** Prof. Me. Rafael Marcelino de Jesus
 **Prazo final informado:** 30 de novembro de 2026
 
 ## Síntese do projeto

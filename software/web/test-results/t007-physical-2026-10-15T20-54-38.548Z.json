@@ -1,0 +1,181 @@
+{
+  "test_id": "T007",
+  "generated_at": "2026-10-15T20:54:38.548Z",
+  "started_at": "2026-10-15T20:51:20.647Z",
+  "mode": "physical_node_real_network",
+  "method": "authenticated server-rendered dashboard response requested after physical measurement persistence",
+  "limitation": "A atualização visual automática do navegador, de até 5 s, não foi cronometrada separadamente.",
+  "results": {
+    "sample_count": 20,
+    "consistency_rate_pct": 100,
+    "api_latency_p95_ms": 5705,
+    "dashboard_requested_render_p95_ms": 6173,
+    "api_within_5_seconds": false,
+    "dashboard_within_10_seconds": true,
+    "max_queue_depth_before_send": 1,
+    "dropped_total_min": 1,
+    "dropped_total_max": 1
+  },
+  "samples": [
+    {
+      "measurement_id": "a30d6ed0-4f5b-488d-9318-795627d60336",
+      "measured_at": "2026-10-15T20:51:22.000Z",
+      "api_latency_ms": 5308,
+      "dashboard_requested_render_ms": 5656,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "66b84ed7-03fe-444a-ab42-0340516d8dd2",
+      "measured_at": "2026-10-15T20:51:32.000Z",
+      "api_latency_ms": 5326,
+      "dashboard_requested_render_ms": 5731,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "5eaf0bdc-5bc4-4253-9921-1f82b16c1687",
+      "measured_at": "2026-10-15T20:51:42.000Z",
+      "api_latency_ms": 5239,
+      "dashboard_requested_render_ms": 5752,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "c488e75b-89a8-4c98-9d8f-29cd4fc88559",
+      "measured_at": "2026-10-15T20:51:52.000Z",
+      "api_latency_ms": 5339,
+      "dashboard_requested_render_ms": 5714,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "f5a3cfd9-9f6f-4d4a-a096-9671ed96c66e",
+      "measured_at": "2026-10-15T20:52:02.000Z",
+      "api_latency_ms": 5279,
+      "dashboard_requested_render_ms": 5706,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "8e6d7325-f9e5-4abf-b849-44a29292e053",
+      "measured_at": "2026-10-15T20:52:12.000Z",
+      "api_latency_ms": 5705,
+      "dashboard_requested_render_ms": 6194,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "0309bd48-e3ee-4642-aa7b-fa47589b7703",
+      "measured_at": "2026-10-15T20:52:22.000Z",
+      "api_latency_ms": 5707,
+      "dashboard_requested_render_ms": 6152,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "7c4ddc6f-5571-4de1-8b63-ddf9e88a9b4e",
+      "measured_at": "2026-10-15T20:52:32.000Z",
+      "api_latency_ms": 5532,
+      "dashboard_requested_render_ms": 6173,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "d490f646-b7ff-4031-a39a-8d7810213a10",
+      "measured_at": "2026-10-15T20:52:42.000Z",
+      "api_latency_ms": 5378,
+      "dashboard_requested_render_ms": 5660,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "0fa284b5-03f0-4ff4-8402-47a4876fb610",
+      "measured_at": "2026-10-15T20:52:52.000Z",
+      "api_latency_ms": 5336,
+      "dashboard_requested_render_ms": 5567,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "b81dc48a-c6e2-4a9a-b915-7e38e6d58cd8",
+      "measured_at": "2026-10-15T20:53:02.000Z",
+      "api_latency_ms": 5427,
+      "dashboard_requested_render_ms": 6064,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "014d65b2-d246-4ac7-a63a-c5b203e38bab",
+      "measured_at": "2026-10-15T20:53:13.000Z",
+      "api_latency_ms": 5021,
+      "dashboard_requested_render_ms": 5826,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "ea97ff35-b62e-41ad-a525-ff54f7b4d1c3",
+      "measured_at": "2026-10-15T20:53:23.000Z",
+      "api_latency_ms": 5382,
+      "dashboard_requested_render_ms": 6039,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "f7de6799-54b1-4d85-b2e7-85777c8ee626",
+      "measured_at": "2026-10-15T20:53:33.000Z",
+      "api_latency_ms": 5355,
+      "dashboard_requested_render_ms": 6012,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "4ec11f3a-89eb-4856-ac4d-eab1c45aef41",
+      "measured_at": "2026-10-15T20:53:43.000Z",
+      "api_latency_ms": 5247,
+      "dashboard_requested_render_ms": 5431,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "a03c0419-45d8-455e-8adf-df6c2a5de6ab",
+      "measured_at": "2026-10-15T20:53:53.000Z",
+      "api_latency_ms": 5429,
+      "dashboard_requested_render_ms": 5859,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "143d535b-7c02-47cb-beb7-ebe7080cd416",
+      "measured_at": "2026-10-15T20:54:03.000Z",
+      "api_latency_ms": 5453,
+      "dashboard_requested_render_ms": 5784,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "c500516f-0320-4db6-9764-814f00c4c04b",
+      "measured_at": "2026-10-15T20:54:13.000Z",
+      "api_latency_ms": 5426,
+      "dashboard_requested_render_ms": 5683,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "9a093589-69ae-41a1-a96f-99bc00db7e37",
+      "measured_at": "2026-10-15T20:54:23.000Z",
+      "api_latency_ms": 5426,
+      "dashboard_requested_render_ms": 5636,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    },
+    {
+      "measurement_id": "c0fdf7f7-1f16-4e62-9f2a-6296d985e68c",
+      "measured_at": "2026-10-15T20:54:33.000Z",
+      "api_latency_ms": 5227,
+      "dashboard_requested_render_ms": 5547,
+      "queue_depth_before_send": 1,
+      "dropped_total": 1
+    }
+  ]
+}

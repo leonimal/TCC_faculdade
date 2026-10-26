@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "raw_file": "C:\\Users\\leonardor\\Documents\\TCC\\experimento\\dados-brutos\\sessoes-formais-2026-10-19-a-21.json",
+  "raw_sha256": "9e32b809b22239f6c406905b9523306f87065f0e14d30c454df1dabd0d0cb85c",
+  "analysis_script": "experimento/analises/analyze-formal-runs.mjs",
+  "quality_engine": "experimento/analises/quality-analysis.mjs",
+  "generated_at": "2026-10-21T20:53:34.646Z",
+  "output_directory": "C:\\Users\\leonardor\\Documents\\TCC\\experimento\\dados-tratados\\2026-10-21-sessoes-formais-v1"
+}

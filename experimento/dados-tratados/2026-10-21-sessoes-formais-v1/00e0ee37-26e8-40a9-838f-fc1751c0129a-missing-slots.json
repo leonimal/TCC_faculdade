@@ -1,0 +1,20 @@
+[
+  {
+    "slot_index": 1,
+    "expected_at": "2026-10-21T11:10:41.000Z",
+    "quality_code": "MISSING_SLOT",
+    "readings": null
+  },
+  {
+    "slot_index": 4,
+    "expected_at": "2026-10-21T11:13:41.000Z",
+    "quality_code": "MISSING_SLOT",
+    "readings": null
+  },
+  {
+    "slot_index": 536,
+    "expected_at": "2026-10-21T20:05:41.000Z",
+    "quality_code": "MISSING_SLOT",
+    "readings": null
+  }
+]
